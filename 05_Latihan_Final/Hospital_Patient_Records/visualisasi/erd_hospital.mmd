@@ -1,0 +1,35 @@
+erDiagram
+    patients ||--o{ encounters : memiliki
+    organizations ||--o{ encounters : melayani
+    payers ||--o{ encounters : tercatat_pada
+    encounters ||--o{ procedures : memuat
+    patients ||--o{ procedures : menjalani
+    patients {
+        string Id PK
+        date BIRTHDATE
+        string GENDER
+    }
+    encounters {
+        string Id PK
+        string PATIENT FK
+        string ORGANIZATION FK
+        string PAYER FK
+        datetime START
+        datetime STOP
+        decimal TOTAL_CLAIM_COST
+        decimal PAYER_COVERAGE
+    }
+    procedures {
+        string PATIENT FK
+        string ENCOUNTER FK
+        string CODE
+        decimal BASE_COST
+    }
+    payers {
+        string Id PK
+        string NAME
+    }
+    organizations {
+        string Id PK
+        string NAME
+    }
