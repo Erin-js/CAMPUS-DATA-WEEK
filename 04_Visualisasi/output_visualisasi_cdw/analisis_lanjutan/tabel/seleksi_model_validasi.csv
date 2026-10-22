@@ -1,9 +1,0 @@
-﻿model,mae_validasi
-Ridge alpha=0.01,0.2280488019071699
-Ridge alpha=0.1,0.22804969862095428
-Ridge alpha=1,0.22805869879572752
-Ridge alpha=10,0.2281651897996793
-Ridge alpha=100,0.2297170594407228
-Random Forest depth=5,0.23128738647683417
-Random Forest depth=None,0.23221893780986175
-Random Forest depth=3,0.2373349536245174
