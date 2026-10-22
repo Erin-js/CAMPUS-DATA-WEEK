@@ -1,0 +1,242 @@
+{
+  "patients": {
+    "rows": 974,
+    "columns": [
+      "Id",
+      "BIRTHDATE",
+      "DEATHDATE",
+      "PREFIX",
+      "FIRST",
+      "LAST",
+      "SUFFIX",
+      "MAIDEN",
+      "MARITAL",
+      "RACE",
+      "ETHNICITY",
+      "GENDER",
+      "BIRTHPLACE",
+      "ADDRESS",
+      "CITY",
+      "STATE",
+      "COUNTY",
+      "ZIP",
+      "LAT",
+      "LON"
+    ],
+    "missing": {
+      "Id": 0,
+      "BIRTHDATE": 0,
+      "DEATHDATE": 820,
+      "PREFIX": 0,
+      "FIRST": 0,
+      "LAST": 0,
+      "SUFFIX": 953,
+      "MAIDEN": 588,
+      "MARITAL": 1,
+      "RACE": 0,
+      "ETHNICITY": 0,
+      "GENDER": 0,
+      "BIRTHPLACE": 0,
+      "ADDRESS": 0,
+      "CITY": 0,
+      "STATE": 0,
+      "COUNTY": 0,
+      "ZIP": 142,
+      "LAT": 0,
+      "LON": 0
+    },
+    "duplicate_rows": 0,
+    "unique_id": 974
+  },
+  "encounters": {
+    "rows": 27891,
+    "columns": [
+      "Id",
+      "START",
+      "STOP",
+      "PATIENT",
+      "ORGANIZATION",
+      "PAYER",
+      "ENCOUNTERCLASS",
+      "CODE",
+      "DESCRIPTION",
+      "BASE_ENCOUNTER_COST",
+      "TOTAL_CLAIM_COST",
+      "PAYER_COVERAGE",
+      "REASONCODE",
+      "REASONDESCRIPTION"
+    ],
+    "missing": {
+      "Id": 0,
+      "START": 0,
+      "STOP": 0,
+      "PATIENT": 0,
+      "ORGANIZATION": 0,
+      "PAYER": 0,
+      "ENCOUNTERCLASS": 0,
+      "CODE": 0,
+      "DESCRIPTION": 0,
+      "BASE_ENCOUNTER_COST": 0,
+      "TOTAL_CLAIM_COST": 0,
+      "PAYER_COVERAGE": 0,
+      "REASONCODE": 19541,
+      "REASONDESCRIPTION": 19541
+    },
+    "duplicate_rows": 0,
+    "unique_id": 27891
+  },
+  "procedures": {
+    "rows": 47701,
+    "columns": [
+      "START",
+      "STOP",
+      "PATIENT",
+      "ENCOUNTER",
+      "CODE",
+      "DESCRIPTION",
+      "BASE_COST",
+      "REASONCODE",
+      "REASONDESCRIPTION"
+    ],
+    "missing": {
+      "START": 0,
+      "STOP": 0,
+      "PATIENT": 0,
+      "ENCOUNTER": 0,
+      "CODE": 0,
+      "DESCRIPTION": 0,
+      "BASE_COST": 0,
+      "REASONCODE": 36945,
+      "REASONDESCRIPTION": 36945
+    },
+    "duplicate_rows": 0
+  },
+  "payers": {
+    "rows": 10,
+    "columns": [
+      "Id",
+      "NAME",
+      "ADDRESS",
+      "CITY",
+      "STATE_HEADQUARTERED",
+      "ZIP",
+      "PHONE"
+    ],
+    "missing": {
+      "Id": 0,
+      "NAME": 0,
+      "ADDRESS": 1,
+      "CITY": 1,
+      "STATE_HEADQUARTERED": 1,
+      "ZIP": 1,
+      "PHONE": 1
+    },
+    "duplicate_rows": 0,
+    "unique_id": 10
+  },
+  "organizations": {
+    "rows": 1,
+    "columns": [
+      "Id",
+      "NAME",
+      "ADDRESS",
+      "CITY",
+      "STATE",
+      "ZIP",
+      "LAT",
+      "LON"
+    ],
+    "missing": {
+      "Id": 0,
+      "NAME": 0,
+      "ADDRESS": 0,
+      "CITY": 0,
+      "STATE": 0,
+      "ZIP": 0,
+      "LAT": 0,
+      "LON": 0
+    },
+    "duplicate_rows": 0,
+    "unique_id": 1
+  },
+  "relations": [
+    {
+      "child": "encounters",
+      "key": "PATIENT",
+      "parent": "patients",
+      "orphans": 0,
+      "distinct_parents": 974
+    },
+    {
+      "child": "encounters",
+      "key": "PAYER",
+      "parent": "payers",
+      "orphans": 0,
+      "distinct_parents": 10
+    },
+    {
+      "child": "encounters",
+      "key": "ORGANIZATION",
+      "parent": "organizations",
+      "orphans": 0,
+      "distinct_parents": 1
+    },
+    {
+      "child": "procedures",
+      "key": "PATIENT",
+      "parent": "patients",
+      "orphans": 0,
+      "distinct_parents": 793
+    },
+    {
+      "child": "procedures",
+      "key": "ENCOUNTER",
+      "parent": "encounters",
+      "orphans": 0,
+      "distinct_parents": 14670
+    }
+  ],
+  "procedure_patient_mismatch": 0,
+  "encounter_classes": {
+    "ambulatory": 12537,
+    "outpatient": 6300,
+    "wellness": 1931,
+    "urgentcare": 3666,
+    "inpatient": 1135,
+    "emergency": 2322
+  },
+  "encounters_by_year": {
+    "2011": 1336,
+    "2012": 2106,
+    "2013": 2495,
+    "2014": 3885,
+    "2015": 2469,
+    "2016": 2451,
+    "2017": 2360,
+    "2018": 2292,
+    "2019": 2228,
+    "2020": 2519,
+    "2021": 3530,
+    "2022": 220
+  },
+  "period": [
+    "2011-01-02T09:26:36Z",
+    "2022-02-05T20:27:36Z"
+  ],
+  "money": {
+    "TOTAL_CLAIM_COST": 101514375.52,
+    "PAYER_COVERAGE": 31097506.99
+  },
+  "negative_duration": {
+    "encounters": 0,
+    "procedures": 0
+  },
+  "sha256": {
+    "data_dictionary.csv": "9eb8aa2aa67c0113d90d920f7ae28816e7623a40bb77522129dad643a9833b02",
+    "encounters.csv": "4eee279b9964a06bf8cfe7a07429a1db582a864c3486db71985d7f3ce3e04b64",
+    "organizations.csv": "ae0fa75e376ffe5d17ce2bc1a93cad56f018d7f5d87bd99c7dfc8fab000894f1",
+    "patients.csv": "2c1b2c1cb6310294b25d4ac6649f7b35783b91aa22f084be6a8f1b30460cf97b",
+    "payers.csv": "5372d310052102d3d9294afb84c1dd4269cf45e8058b258b0f960834fa607803",
+    "procedures.csv": "40fd6f9b0967c81e8c107637f49342026467f2d8c16c4114f7f6edd448296836"
+  }
+}
