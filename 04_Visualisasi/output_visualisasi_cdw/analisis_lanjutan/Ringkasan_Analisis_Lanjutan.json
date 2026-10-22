@@ -1,0 +1,267 @@
+{
+  "cluster": {
+    "features": [
+      "ekonomi",
+      "bekerja",
+      "dukungan",
+      "tanggungan",
+      "kendala"
+    ],
+    "initial_with_scholarship_k": 2,
+    "initial_with_scholarship_quality": [
+      {
+        "k": 2,
+        "silhouette_gower": 0.3560521602630615,
+        "ari_median": 1.0,
+        "ari_min": 1.0,
+        "cluster_terkecil": 1705,
+        "proporsi_terkecil": 0.341,
+        "lolos_ukuran_stabilitas": true
+      },
+      {
+        "k": 3,
+        "silhouette_gower": 0.28768905997276306,
+        "ari_median": 0.96381143132738,
+        "ari_min": 0.9384046195186729,
+        "cluster_terkecil": 184,
+        "proporsi_terkecil": 0.0368,
+        "lolos_ukuran_stabilitas": false
+      },
+      {
+        "k": 4,
+        "silhouette_gower": 0.2790586054325104,
+        "ari_median": 0.9626307862149208,
+        "ari_min": 0.9363222349103751,
+        "cluster_terkecil": 184,
+        "proporsi_terkecil": 0.0368,
+        "lolos_ukuran_stabilitas": false
+      },
+      {
+        "k": 5,
+        "silhouette_gower": 0.29641643166542053,
+        "ari_median": 0.791361103859959,
+        "ari_min": 0.5891964512194029,
+        "cluster_terkecil": 184,
+        "proporsi_terkecil": 0.0368,
+        "lolos_ukuran_stabilitas": false
+      },
+      {
+        "k": 6,
+        "silhouette_gower": 0.27633318305015564,
+        "ari_median": 0.6631064709597777,
+        "ari_min": 0.5893466113481881,
+        "cluster_terkecil": 3,
+        "proporsi_terkecil": 0.0006,
+        "lolos_ukuran_stabilitas": false
+      }
+    ],
+    "k": 3,
+    "silhouette": 0.34707656502723694,
+    "ari_median": 1.0,
+    "quality_gate": true,
+    "ari_with_scholarship": 0.0711681038326159,
+    "profiles": [
+      {
+        "cluster": "C1",
+        "n": 663,
+        "ekonomi_rendah": 0.248868778280543,
+        "bekerja": 1.0,
+        "beasiswa": 0.27450980392156865,
+        "dukungan": 3.2594268476621417,
+        "tanggungan": 4.203619909502263,
+        "finansial": 0.0,
+        "generasi_pertama": 0.42835595776772245,
+        "ipk": 3.05395173453997,
+        "achievement": 0.46304675716440424,
+        "interrupted": 0.10407239819004525
+      },
+      {
+        "cluster": "C2",
+        "n": 1648,
+        "ekonomi_rendah": 0.42597087378640774,
+        "bekerja": 0.3428398058252427,
+        "beasiswa": 0.46601941747572817,
+        "dukungan": 2.9314320388349513,
+        "tanggungan": 4.625606796116505,
+        "finansial": 1.0,
+        "generasi_pertama": 0.5861650485436893,
+        "ipk": 3.0844417475728156,
+        "achievement": 0.4817961165048544,
+        "interrupted": 0.17111650485436894
+      },
+      {
+        "cluster": "C3",
+        "n": 2689,
+        "ekonomi_rendah": 0.0907400520639643,
+        "bekerja": 0.0,
+        "beasiswa": 0.28077352175529935,
+        "dukungan": 3.603570100409074,
+        "tanggungan": 3.932688731870584,
+        "finansial": 0.0,
+        "generasi_pertama": 0.2506507995537374,
+        "ipk": 3.308549646708814,
+        "achievement": 0.6634436593529193,
+        "interrupted": 0.05280773521755299
+      }
+    ],
+    "tests": [
+      {
+        "outcome": "IPK terakhir",
+        "uji": "Kruskal–Wallis",
+        "stat": 293.1802008052782,
+        "p": 2.1713423026823162e-64,
+        "effect": 0.05827100276271327,
+        "effect_name": "epsilon squared",
+        "p_holm": 6.514026908046949e-64
+      },
+      {
+        "outcome": "achievement",
+        "uji": "Chi-square",
+        "stat": 178.80026402126623,
+        "p": 1.4928493602834566e-39,
+        "effect": 0.18910328607470905,
+        "effect_name": "Cramers V",
+        "p_holm": 2.985698720566913e-39
+      },
+      {
+        "outcome": "interrupted",
+        "uji": "Chi-square",
+        "stat": 161.17308893105303,
+        "p": 1.0039415367697645e-35,
+        "effect": 0.1795400172279445,
+        "effect_name": "Cramers V",
+        "p_holm": 1.0039415367697645e-35
+      }
+    ]
+  },
+  "interaction": [
+    {
+      "term": "fg_x_work",
+      "estimate": -0.027791090998114488,
+      "low": -0.07968235638970972,
+      "high": 0.02410017439348074,
+      "p": 0.29386247910526075,
+      "model": "Interaksi IPK",
+      "n": 5000,
+      "ukuran": "Koefisien IP/IPK",
+      "p_holm": 0.5877249582105215
+    },
+    {
+      "term": "fg_x_work",
+      "estimate": 0.9543700204255693,
+      "low": 0.709337719984331,
+      "high": 1.2840458222174074,
+      "p": 0.7577024767637315,
+      "model": "Interaksi logistik",
+      "n": 5000,
+      "ukuran": "Odds ratio",
+      "p_holm": 0.7577024767637315
+    }
+  ],
+  "forecast": {
+    "chosen_model": "Ridge alpha=0.01",
+    "split": [
+      {
+        "bagian": "Latih",
+        "angkatan": "2019, 2020, 2021",
+        "n": 690
+      },
+      {
+        "bagian": "Validasi",
+        "angkatan": "2022",
+        "n": 670
+      },
+      {
+        "bagian": "Kalibrasi",
+        "angkatan": "2023",
+        "n": 1030
+      },
+      {
+        "bagian": "Uji",
+        "angkatan": "2024",
+        "n": 1213
+      }
+    ],
+    "performance": [
+      {
+        "model": "IP semester 3",
+        "n_test": 1213,
+        "mae": 0.2715498763396537,
+        "rmse": 0.3495892065772589,
+        "r2": 0.3902519137145398
+      },
+      {
+        "model": "Rerata IP semester 1–3",
+        "n_test": 1213,
+        "mae": 0.2800274800769442,
+        "rmse": 0.35625146298968885,
+        "r2": 0.36679005384078867
+      },
+      {
+        "model": "Ridge alpha=0.01",
+        "n_test": 1213,
+        "mae": 0.22881338252638558,
+        "rmse": 0.289879860811527,
+        "r2": 0.5807524791484173
+      }
+    ],
+    "coverage90": 0.910964550700742,
+    "qhat": 0.4845317453068354,
+    "mae_improvement_vs_ip3": 0.04273649381326818,
+    "improvement_ci95": [
+      0.033228934773193324,
+      0.052010681793109984
+    ],
+    "group_audit": [
+      {
+        "factor": "fg",
+        "group": "Bukan generasi pertama",
+        "n": 765,
+        "mae": 0.21687577679189346,
+        "bias_pred_minus_actual": 0.04671494317209156,
+        "coverage90": 0.918954248366013,
+        "mean_width": 0.8616608988234487
+      },
+      {
+        "factor": "fg",
+        "group": "Generasi pertama",
+        "n": 448,
+        "mae": 0.24919791017568577,
+        "bias_pred_minus_actual": -0.0094380341355549,
+        "coverage90": 0.8973214285714286,
+        "mean_width": 0.9359610909557018
+      },
+      {
+        "factor": "Kategori_Ekonomi",
+        "group": "Menengah",
+        "n": 638,
+        "mae": 0.2360012872199659,
+        "bias_pred_minus_actual": 0.03219556466176093,
+        "coverage90": 0.9059561128526645,
+        "mean_width": 0.8919432369872787
+      },
+      {
+        "factor": "Kategori_Ekonomi",
+        "group": "Rendah",
+        "n": 280,
+        "mae": 0.23308299500566584,
+        "bias_pred_minus_actual": 0.007099385177376832,
+        "coverage90": 0.9,
+        "mean_width": 0.9257505355754676
+      },
+      {
+        "factor": "Kategori_Ekonomi",
+        "group": "Tinggi",
+        "n": 295,
+        "mae": 0.20921550222569835,
+        "bias_pred_minus_actual": 0.030440997051025303,
+        "coverage90": 0.9322033898305084,
+        "mean_width": 0.8481736311494171
+      }
+    ]
+  },
+  "versions": {
+    "sklearn": "1.9.1"
+  },
+  "new_visuals": 9
+}

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="718.937617pt" height="451.4688pt" viewBox="0 0 718.937617 451.4688" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-06T15:19:04.250683</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 451.4688 
+L 718.937617 451.4688 
+L 718.937617 0 
+L 0 0 
+L 0 451.4688 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 226.898125 284.737872 
+C 243.791756 276.0286 257.275951 261.886781 265.171531 244.597879 
+C 273.067105 227.308977 274.924515 207.857378 270.443567 189.38666 
+C 265.962618 170.915943 255.398452 154.477791 240.458353 142.728762 
+C 225.518252 130.979733 207.052859 124.5888 188.046379 124.5888 
+L 188.046383 209.376 
+z
+" style="fill: #2e8b57; stroke: #fbf7ee; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 188.046384 124.5888 
+C 175.211962 124.5888 162.543493 127.502962 150.999079 133.110893 
+C 139.454664 138.718824 129.332849 146.875498 121.399135 156.964035 
+C 113.46542 167.052573 107.924991 178.812058 105.196836 191.353173 
+C 102.468682 203.894288 102.623365 216.892693 105.649199 229.365332 
+C 108.675028 241.837971 114.493754 253.4623 122.665302 263.359174 
+C 130.836849 273.256048 141.149886 281.169528 152.824489 286.501143 
+C 164.499089 291.832757 177.233318 294.444621 190.064105 294.13919 
+C 202.894892 293.833764 215.490434 290.618947 226.898125 284.737872 
+L 188.046383 209.376 
+z
+" style="fill: #edefea; stroke: #fbf7ee; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #233044" x="241.604552" y="199.970118" transform="rotate(-0 241.604552 199.970118)">42,4%</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #233044" x="134.488214" y="225.956254" transform="rotate(-0 134.488214 225.956254)">57,6%</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #627080" x="188.046383" y="317.023333" transform="rotate(-0 188.046383 317.023333)">Bekerja: 224 dari 528 mahasiswa</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #233044" x="188.046383" y="91.392" transform="rotate(-0 188.046383 91.392)">Penerima beasiswa</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_4">
+    <path d="M 572.728883 290.581013 
+C 584.390029 294.082694 596.669791 295.031802 608.73052 293.363597 
+C 620.791248 291.695392 632.352337 287.448698 642.62517 280.913179 
+C 652.898005 274.377659 661.643568 265.70538 668.265298 255.487903 
+C 674.887029 245.270429 679.230856 233.745489 681.000488 221.699223 
+C 682.770116 209.652957 681.924377 197.365653 678.520946 185.675453 
+C 675.117514 173.985251 669.235581 163.164139 661.276375 153.950284 
+C 653.317169 144.736429 643.465875 137.34419 632.394475 132.277814 
+C 621.323076 127.211438 609.289166 124.5888 597.113613 124.5888 
+L 597.113617 209.376 
+z
+" style="fill: #e8710a; stroke: #fbf7ee; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 597.113618 124.5888 
+C 576.767129 124.5888 557.085128 131.912663 541.687912 145.213237 
+C 526.290695 158.513811 516.183965 176.922342 513.226746 197.05278 
+C 510.269526 217.183216 514.65498 237.720693 525.576444 254.887558 
+C 536.497907 272.054422 553.242019 284.729377 572.728883 290.581013 
+L 597.113617 209.376 
+z
+" style="fill: #edefea; stroke: #fbf7ee; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4"/>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #233044" x="651.640084" y="220.973284" transform="rotate(-0 651.640084 220.973284)">54,6%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #233044" x="542.587151" y="204.953082" transform="rotate(-0 542.587151 204.953082)">45,4%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #627080" x="597.113617" y="317.023333" transform="rotate(-0 597.113617 317.023333)">Bekerja: 153 dari 280 mahasiswa</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #233044" x="597.113617" y="91.392" transform="rotate(-0 597.113617 91.392)">Bukan penerima beasiswa</text>
+   </g>
+  </g>
+  <g id="text_9">
+   <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #233044" x="15.84" y="30.277031" transform="rotate(-0 15.84 30.277031)">Beasiswa dan aktivitas bekerja dapat hadir bersamaan</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 10.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #627080" x="15.84" y="58.378359" transform="rotate(-0 15.84 58.378359)">Mahasiswa generasi pertama pada kategori ekonomi rendah</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #627080" x="392.58" y="366.048" transform="rotate(-0 392.58 366.048)">Bagian berwarna: bekerja sambil kuliah | Abu muda: tidak bekerja</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #627080" x="15.84" y="420.890672" transform="rotate(-0 15.84 420.890672)">Tidak tersedia informasi alasan bekerja atau besarnya bantuan. Perbandingan ini bukan evaluasi efektivitas beasiswa.</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #627080" x="15.84" y="433.96505" transform="rotate(-0 15.84 433.96505)">Sumber: lima CSV CDW 2026. Data fiktif; unit analisis mahasiswa.</text>
+  </g>
+ </g>
+</svg>

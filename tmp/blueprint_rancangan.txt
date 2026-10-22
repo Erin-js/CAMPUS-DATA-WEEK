@@ -1,0 +1,404 @@
+   BLUEPRINT INFOGRAFIS | A3 PORTRAIT 297 x 420 mm | Skala 1:1 | margin 8 mm | grid 12 kolom, gutter 3 mm | jarak antarpanel 1,5 mm
+
+   H Headline  N Angka utama (Level 1)             I Insight (Level 2)    D Detail (Level 3)  C Grafik  S Sumber data                     M Metodologi  V Visual/ilustrasi
+
+                                                                                                                                                                                                                                                                                             PANEL 0 HEADER / HERO 40 mm (9.5%) Ilustrasi garis start + dua jalur
+
+0  H1 Judul utama (24-30 pt final, kapital, bold) -- jingga hanya pada frasa "BERANGKAT LEBIH JAUH" bila diinginkan
+
+                                                                                                                                                                                                                                                          V Metafora: dua jalur pendakian dengan garis start berbeda                      tujuan
+
+   NAIK LEBIH CEPAT,                                                                                                                                                                                                                                                                                                                                                                           40 mm
+
+   TETAPI BERANGKAT LEBIH JAUH                                                                                                                                                                                                                                           start bukan gen-1
+                                                                                                                                                                                                                                                                                                            PANEL 1 SKALA KELOMPOK 33 mm (7.9%) Waffle chart 100 ikon
+   Bagaimana status generasi pertama dan kondisi ekonomi membentuk titik awal, beban kuliah, serta                                                                                                                                                        start gen-1
+   kesempatan berprestasi mahasiswa.
+
+    I Subjudul (10-12 pt final)
+
+                                                   H2
+
+1                                       C Generasi pertama bukan kelompok kecil
+
+                                                    N1                                                   N2                                                                                                             I                                                                                                                                                                      33 mm
+
+                                                   38,5%                                                1.924 / 5.000                                                                                                   Hampir 2 dari 5 mahasiswa merupakan generasi
+                                                                                                                                                                                                                        pertama kuliah.
+                                                                                                        mahasiswa generasi pertama / total mahasiswa
+                                                                                                                                                                                                                        D n = 5.000 mahasiswa; generasi pertama = 1.924. Sumber: 3_generasi_pertama_kuliah.csv. Ikon = siluet
+                                                       generasi pertama (38,5 ikon)                     bukan generasi pertama (61,5 ikon = 5.000 - 1.924)                         1 ikon = 1% populasi                        mahasiswa sederhana, bukan ilustrasi dekoratif.
+
+                 H2                                                                                                                                                                                                                                                                                PANEL 2 KONDISI EKONOMI 37 mm (8.8%) 100% stacked bar x2
+                                                                                                                                                                                                                                                                                      N1
+2 Generasi pertama lebih banyak terkonsentrasi di ekonomi rendah
+
+                                                                          Rendah                                                                        Menengah                                  Tinggi         N1
+
+               Generasi pertama                                           42,0%                                                                         51,7%                           42,0% 6,3%                                                                                    72,7%                                                                                                    37 mm
+
+     Bukan generasi pertama 9,9%                                                              54,0%                                                                         36,1%                                generasi pertama berada di ekonomi rendah                            mahasiswa ekonomi rendah adalah
+                                                                                                                                                                                                                 (vs 9,9% pada bukan generasi pertama)                                generasi pertama
+   Sumber: 3_generasi_pertama_kuliah.csv + 4_status_sosial_ekonomi.csv (per ID)                                                                                                      C panjang bar identik 100%
+                                                                                                                                                                                                                  I Insight = caption di bawah angka
+
+                 H2                                                                                                                                                                                                                                                                   PANEL 3 TITIK AWAL AKADEMIK (VISUAL UTAMA #1) 66 mm (15.7%) Slope chart
+
+3 Kesenjangan sudah terlihat sejak semester pertama
+
+               C Slope chart -- 2 garis, 2 sumbu (label langsung pada titik)                                                                                                                                             N1 GENERASI PERTAMA · IPK semester 1  4
+
+               3,16                                                                                                                       0,31          3,34 Bukan generasi pertama                                     2,68  3,03
+                                                                                                                                                                              +0,19
+                                          0,47                                  0,47  0,31                                                                                                                              BUKAN GENERASI PERTAMA                                                                                                                                                 66 mm
+                                                                                                                                                        3,03 Generasi pertama
+               2,68                                                       kesenjangan menyempit ±35%                                                                          +0,35                                     3,16  3,34
+
+                                                                              N1                                                                                                                                         I Memulai lebih rendah, tetapi naik lebih besar. Selisih semester 1
+                                                                                                                                                                                                                             = 0,47 poin; semester 4 = 0,31 poin; kesenjangan menyempit
+                                                                              1,88× Kenaikan                                              lebih besar                                                                        sekitar 35%. Kenaikan generasi pertama sekitar 1,88× lebih
+                                                                                                                                                                                                                             besar.
+
+                                   SEMESTER 1                                                                                             SEMESTER 4                                                                    D n = 3.603 mahasiswa dengan catatan semester 1 dan 4 · IPK kumulatif · Sumber:
+                                                                                                                                                                                                                               3_generasi_pertama_kuliah.csv, 5_riwayat_ipk_semester.csv
+   Skala vertikal ± 2,5­3,5 (tandai bila sumbu dipotong) · tanpa gridline · warna konsisten: jingga = generasi pertama, biru tua = bukan
+
+                 H2                                                                                                                                                                                                                                                                                                   PANEL 4 BEBAN WAKTU 37 mm (8.8%) Horizontal lollipop
+
+4 Beban ekonomi tidak hanya terlihat pada biaya, tetapi juga pada waktu                                                                                                                                                                                                                N1
+
+                                                                                                                                                                                                              C Lollipop horizontal, urut tinggi  rendah                              46,7%
+
+                                                       Generasi pertama + ekonomi rendah + bekerja                                                                                                                                                        46,7%                        I Hampir separuh mahasiswa generasi                                                                     37 mm
+                                                                                                                                                                                                                                                                                            pertama dari ekonomi rendah juga
+                                                       Bukan generasi pertama + ekonomi rendah + bekerja                                                                                                                32,7%                                                               bekerja sambil kuliah.
+
+                                                       Generasi pertama + ekonomi menengah + bekerja                                                                                                             30,9%
+
+                                                       Generasi pertama + ekonomi tinggi + bekerja                                                                          13,1%
+
+   Ukuran: % mahasiswa yang bekerja sambil kuliah dalam tiap kelompok · Sumber: 3_generasi_pertama_kuliah.csv + 4_status_sosial_ekonomi.csv · [ISI DENGAN DATA: n tiap kelompok]
+
+                 H2                                                                                                                                                                                                                                                                                   PANEL 5 BEBAN YANG BERTUMPUK (VISUAL UTAMA #2) 56 mm (13.3%) Burden ladder + bar pendek
+                                                                                                                                                                                                                 * judul sementara -- nama panel di brief: "Beban yang bertumpuk"; finalkan saat desain
+5 Beban yang bertumpuk pada mahasiswa ekonomi rendah
+
+   Burden ladder: 4 anak tangga + 4 bar pendek per tingkat (tanpa radar)                                                                                                                                                                                               N1 TINGKAT 1  TINGKAT 4
+   beban bertambah 
+                                                                                                                                                                                             377                                                          3,29  2,81
+
+   1 Ekonomi rendah                                    2 Ekonomi rendah + bekerja                                      3 Ekonomi rendah + generasi                                                       mahasiswa (SOROT)                                IPK                                                                                                                                  56 mm
+                                                                                                                       pertama
+   Bukan gen-1 · tidak bekerja · n = 204               Bukan gen-1 · bekerja · n = 99                                                                                              4 Ekonomi rendah + generasi                                            Catatan prestasi                                                   60,8%  28,6%
+   IPK                                                 IPK                                                             Gen-1 · tidak bekerja · n = 431                             pertama + bekerja
+                                                                                                                                                                                                                                                          Nasional/internasional                                             21,6%  6,9%
+                                          3,29                                               3,18                      IPK                                                         Gen-1 · bekerja · n = 377
+   Catatan prestasi                                    Catatan prestasi                                                                                    3,03                    IPK                                                                    Cuti/nonaktif                                                      7,4%  25,5%
+
+                                            60,8%                                       48,5%                          Catatan prestasi                                                                             2,81                                               Cuti/nonaktif sekitar 3,4× lebih tinggi
+   Prestasi nasional/internasional                     Prestasi nasional/internasional                                                              42,5%                          Catatan prestasi
+                                                                                                                                                                                                                                                                       D Hanya ekonomi rendah · skala bar seragam: IPK 0­4,00; % 0­70% · [ISI DENGAN DATA:
+                  21,6%                                            16,2%                                               Prestasi nasional/internasional                                                 28,6%                                                                  definisi cuti/nonaktif]
+   Cuti/nonaktif                                       Cuti/nonaktif                                                              14,6%                                            Prestasi nasional/internasional
+
+         7,4%                                                    14,1%                                                 Cuti/nonaktif                                                     6,9%
+                                                                                                                                  15,3%                                            Cuti/nonaktif
+
+                                                                                                                                                                                                     25,5%
+
+                 H2                                                                                                                                                                                                                                                                   PANEL 6 KESEMPATAN BERPRESTASI 42 mm (10.0%) Dumbbell x3 + tabel mini
+
+6 Kemajuan IPK belum diikuti kesempatan prestasi yang setara
+
+   KATEGORI EKONOMI RENDAH                                                Generasi pertama              Bukan generasi pertama Catatan prestasi (%) menurut kategori ekonomi                                                                                                                                          gen-1  bukan gen-1
+
+   Memiliki catatan prestasi                                              36,0%                         56,8%                                                                                                    gap 20,8 poin                                                                   I                                                                                             42 mm
+   Prestasi nasional/internasional                                        11,0%                         19,8%
+   Rata-rata IPK                                                          2,93                          3,26                                                             Rendah 36,0%                                                                     56,8%                                 Gap menyempit seiring naiknya
+                                                                                                                                                                    Menengah                                                                                                                    ekonomi: 20,8  19,8  15,5
+                                                                                                                                                                                                                                    gap 19,8 poin                                               poin.
+                                                                                                                                                                           Tinggi
+                                                                                                                                                                                                                 44,9%                                                 64,7%
+                                                                                                                                                        C Dumbbell 3 baris (gap di tengah garis)
+   I Kondisi ekonomi yang lebih tinggi meningkatkan partisipasi prestasi pada                                                                                                                                                                                          gap 15,5 poin
+        kedua kelompok, tetapi kesenjangan generasi pertama tetap terlihat.
+                                                                                                                                                                                                                                    59,0%                                                    74,5% S                  2_prestasi + 3 + 4 · [ISI DENGAN DATA: n tiap
+                                                                                                                                                                                                                                                                                                                      kategori]
+
+                 H2                                                                                                  IPK · generasi pertama                                        Odds catatan prestasi · generasi pertama         IPK · bekerja sambil kuliah                              PANEL 7 VALIDASI ANALITIS 21 mm (5.0%) Mini-dashboard (4 tile)
+                                                                                                                                                                                                                                                                                                Odds catatan prestasi · bekerja
+7 Ekonomi bukan satu-satunya pembeda                                                                                 -0,25                                                                                                          -0,17
+                                                                                                                                                                                   0,52×                                                                                                        0,60×                                                                                          21 mm
+             Hasil model, disederhanakan. [ISI DENGAN DATA: variabel kontrol model]
+                                                                                                                                                        selisih IPK (poin)                                              rasio odds                                       selisih IPK (poin)                                               rasio odds
+           Asosiasi model, bukan estimasi sebab-akibat.
+
+                 H2                                                                                                                                                                                                                                                                   PANEL 8 PENUTUP / DIAGNOSIS 38 mm (9.0%) Tiga lapisan + closing statement
+
+8 Masalahnya bukan kemampuan untuk berkembang
+
+          Titik awal tidak setara                                                                                                                Beban waktu tidak setara                                                                                        Kesempatan tidak setara                                                                                                       38 mm
+   1                                                                                                                                      2                                                                                                               3
+
+            IPK semester 1 lebih rendah.                                                                                                           Lebih banyak bekerja sambil kuliah.                                                                             Partisipasi dan tingkat prestasi lebih rendah.
+
+   N1                                                                                                                                                                                                                                                                                                                 CLOSING STATEMENT UTAMA · tanpa solusi
+
+     Mereka mampu menanjak lebih cepat. Pertanyaannya, mengapa mereka harus
+     memulai dan mendaki dengan beban yang lebih berat?
+
+F  S SUMBER DATA                                                                                         M METODOLOGI                                                                                                                                                                                                        PANEL F FOOTER 22 mm (5.2%) Teks (sumber, metode, batas)
+
+   1_profil_mahasiswa_umum · 2_prestasi_mahasiswa · 3_generasi_pertama_kuliah ·                         "Data fiktif yang dirancang menyerupai kondisi nyata. Analisis bersifat deskriptif dan menunjukkan hubungan,                                       M CATATAN KETERBATASAN                                                                                                              22 mm
+                                                                                                        bukan sebab-akibat. Lintasan IPK menggunakan mahasiswa yang tercatat pada semester 1 dan 4. `Tidak memiliki
+   4_status_sosial_ekonomi · 5_riwayat_ipk_semester (digabung per ID_Mahasiswa). [ISI                   catatan prestasi' tidak berarti mahasiswa tidak memiliki kemampuan atau pencapaian lain."                                                         Beberapa kelompok relatif kecil (mis. n = 99 pada Panel 5). Hasil model (Panel 7)
+                                                                                                                                                                                                                                                          adalah asosiasi. [ISI DENGAN DATA: keterbatasan tambahan bila ada]
+
+   DENGAN DATA: nama proyek/kredit tim -- tanpa nama institusi]
+
+   ALUR BACA: 0  1  2  3  4  5  6  7  8  Footer (atas ke bawah) | PALET: jingga = generasi pertama · biru tua = bukan generasi pertama · merah bata = beban bertumpuk/cuti-nonaktif · hijau = peningkatan IPK · krem/putih = latar · abu = netral                                                                                         Level 3 (detail): 5­6 pt final · abu tua
+                                                                                                                                                                                                                                                                                                                      Kolom magenta = guide grid 12 kolom (tidak dicetak)
+LEMBAR SPESIFIKASI                                                                                                                                                                                   Blueprint infografis A3 · halaman 2/4
+                                                                                                                                                                                                                   Data fiktif · tanpa identitas institusi
+Peta panel · hierarki visual · sistem warna · alur baca
+
+A. PETA PANEL: UKURAN RELATIF, JENIS GRAFIK, DATA, SUMBER
+
+Panel                Tinggi  Headline (H) / posisi               Jenis grafik                                                     Data yang dimasukkan (hanya dari brief)                                    Sumber
+0 Header / Hero
+                     40 mm   NAIK LEBIH CEPAT, TETAPI            Ilustrasi garis start + dua jalur Tidak ada data. Tanpa nama/logo institusi.                                                                --
+                     9.5%
+                             BERANGKAT LEBIH JAUH + subjudul. tangga (line-art, 2 warna)
+
+                             Kiri atas, 2 baris.
+
+1 Skala kelompok     33 mm   Generasi pertama bukan kelompok     Waffle chart 100 ikon (kiri);                                    5.000 total · 1.924 generasi pertama · 38,5% ( 38­39 ikon jingga)          3_generasi_pertama_kuliah
+                     7.9%    kecil                               angka besar di tengah
+2 Kondisi ekonomi
+                     37 mm   Generasi pertama lebih banyak       100% stacked bar, 2 bar                                          Gen-1: rendah 42,0 / menengah 51,7 / tinggi 6,3 · Bukan gen-1: 9,9 / 54,0 / 3 + 4 (per ID)
+3 Titik awal         8.8%    terkonsentrasi di ekonomi rendah    sepanjang sama                                                   36,1 · 72,7% ekonomi rendah = gen-1
+akademik
+4 Beban waktu        66 mm   Kesenjangan sudah terlihat sejak    Slope chart (visual terbesar). 2                                 n = 3.603 · gen-1 2,68  3,03 (+0,35) · bukan 3,16  3,34 (+0,19) · selisih 3 + 5
+                     15.7%   semester pertama                    sumbu: semester 1 & 4                                            0,47  0,31 · menyempit ±35% · 1,88×
+5 Beban
+bertumpuk            37 mm   Beban ekonomi tidak hanya terlihat  Horizontal lollipop (urut turun),                                Gen-1+rendah+bekerja 46,7 · bukan gen-1+rendah+bekerja 32,7 ·              3+4
+6 Kesempatan         8.8%    pada biaya, tetapi juga pada waktu  fokus 46,7%                                                      gen-1+menengah+bekerja 30,9 · gen-1+tinggi+bekerja 13,1
+berprestasi
+7 Validasi analitis  56 mm   Beban yang bertumpuk (judul         Burden ladder 4 anak tangga + Tabel 4 kelompok ekonomi rendah (n 204/99/431/377; IPK; catatan prestasi; 1­4 (per ID)
+                     13.3%   sementara)                          bar pendek (visual terbesar ke-2) nas./intl; cuti/nonaktif) · callout 3,4×
+8 Penutup /
+diagnosis            42 mm   Kemajuan IPK belum diikuti          Tabel mini (ekonomi rendah) + Tabel: 36,0/56,8 · 11,0/19,8 · 2,93/3,26 · Dumbbell: 36,0­56,8 (20,8) ·                                       2+3+4
+Footer               10.0%   kesempatan prestasi yang setara
+                                                                 dumbbell 3 baris                                                 44,9­64,7 (19,8) · 59,0­74,5 (15,5)
+                     21 mm
+                     5.0%    Ekonomi bukan satu-satunya pembeda Mini-dashboard 4 tile                                             IPK gen-1 -0,25 · odds prestasi 0,52× · IPK bekerja -0,17 · odds prestasi  Hasil model (brief)
+                                                                                                                                  bekerja 0,60× · catatan "asosiasi, bukan sebab-akibat"
+                     38 mm
+                     9.0%    Masalahnya bukan kemampuan untuk 3 kartu lapisan + closing                                           Teks 3 lapisan + kalimat penutup. TIDAK ADA solusi di infografis.          --
+
+                     22 mm   berkembang                          statement besar
+                     5.2%
+                             --                                  Teks tiga kolom                                                  Sumber · metodologi (kutipan brief) · keterbatasan                         --
+
+B. HIERARKI VISUAL (usulan ukuran final pada A3)                                                                                  C. SISTEM WARNA (hex usulan)
+
+L1 ANGKA BESAR                                                   38,5%
+
+40­72 pt · bold · warna sesuai kelompok · satu angka dominan
+per panel
+
+                                                                                                                                  Jingga #E8710A                       Biru tua #1B3A5F              Merah bata #A8402D
+                                                                                                                                  Generasi pertama                     Bukan generasi pertama        Beban bertumpuk · cuti/nonaktif
+
+L2 INSIGHT                                          Hampir 2 dari 5 mahasiswa
+                                                    merupakan generasi pertama.
+11­14 pt · satu kalimat  15 kata · di dekat angka
+
+L3 DETAIL                                           n = 3.603 · IPK kumulatif · Sumber: 5_riwayat_ipk_semester                    Hijau #2E8B57                        Krem / putih #FBF7EE          Abu muda #E6E6E3
+                                                                                                                                  Peningkatan / perbaikan IPK          Latar halaman / panel         Elemen netral, grid, ikon "bukan gen-1"
+5­7 pt · abu tua · dataset, n, metodologi, catatan
+
+Aturan: jangan buat semua teks berukuran sama. Level 1 terbaca dari jarak jauh; Level 2 menjelaskan; Level 3 hanya untuk pembaca  Tint boleh dipakai (mis. jingga muda untuk "menengah"), tetapi tidak menambah rona baru. Anotasi magenta hanya untuk blueprint,
+yang ingin memeriksa.                                                                                                             tidak dipakai di desain final.
+
+D. ALUR BACA ATAS  BAWAH (pembaca cukup membaca H2 + angka L1 + satu kalimat L2)
+
+# Pertanyaan pembaca                                Jawaban satu kalimat (L2)                                                                       Angka kunci (L1)       Peran dalam cerita
+                                                                                                                                                    --                     Membuka metafora
+0 Apa ceritanya?                                    Dua jalur pendakian dengan garis start yang berbeda.                                            38,5%                  Skala masalah
+                                                                                                                                                    42,0% · 72,7%          Konteks
+1 Seberapa besar kelompoknya?                       Hampir 2 dari 5 mahasiswa merupakan generasi pertama kuliah.
+                                                                                                                                                    2,68  3,03 · 1,88×     PARADOKS (klimaks 1)
+2 Dari kondisi ekonomi apa mereka                   Generasi pertama lebih terkonsentrasi di ekonomi rendah.                                        46,7%                  Beban waktu
+         berasal?                                                                                                                                   3,29  2,81             DAMPAK (klimaks 2)
+                                                                                                                                                    20,8 poin              Kesempatan
+3 Di mana titik awal akademiknya?                   Memulai lebih rendah, tetapi naik lebih besar.                                                  -0,25 · 0,52×          Validasi singkat
+                                                                                                                                                    Closing statement      Penutup, tanpa solusi
+4 Beban apa selain biaya?                           Hampir separuh gen-1 ekonomi rendah juga bekerja sambil kuliah.
+
+5 Apa akibatnya bila beban bertumpuk? Semakin banyak lapisan, IPK dan prestasi turun, cuti/nonaktif naik.
+
+6 Apakah kesempatan berprestasi setara? Belum; gap terlihat di semua kategori ekonomi.
+
+7 Apakah ini hanya soal ekonomi?                    Tidak; asosiasi tetap tampak pada model (bukan sebab-akibat).
+
+8 Jadi apa diagnosisnya?                            Titik awal, beban waktu, dan kesempatan tidak setara.
+
+  E. ATURAN DESAIN (HARUS / HINDARI)                                                                                              HINDARI
+                                                                                                                                  · Pie chart berulang, radar chart, grafik 3D, Sankey.
+HARUS                                                                                                                             · Terlalu banyak ikon, dekorasi yang mengalahkan data, gradient berlebihan.
+· Gaya editorial data storytelling + riset sosial modern: bersih, human-centered, banyak white space,                             · Terlalu banyak paragraf; tampilan dashboard bisnis.
+tipografi kuat, grafik sebagai elemen utama.                                                                                      · Nama/logo/identitas institusi apa pun.
+· Metafora garis start, tangga, dan perjalanan naik dipakai halus.                                                                · Ilustrasi jam sebagai visual utama (Panel 4).
+· Label langsung pada titik/bar; satu angka fokus per panel.                                                                      · Solusi di dalam infografis (solusi ada di halaman 4).
+· Bingkai positif: paradoks "naik lebih cepat, tetapi berangkat lebih jauh"; jangan "generasi pertama
+kurang berprestasi".
+· Placeholder [ISI DENGAN DATA: ...] bila data belum ada; jangan membuat angka.
+LEMBAR DATA PER GRAFIK                                                                                                                      Blueprint infografis A3 · halaman 3/4
+                                                                                                                                                          Data fiktif · tanpa identitas institusi
+Binding data, encoding visual, dan daftar placeholder -- semua angka berasal dari brief
+
+F. SPESIFIKASI GRAFIK (wireframe grafik ada pada halaman 1, skala 1:1)
+
+Grafik                  Encoding visual                                                  Data persis                                        Label & anotasi wajib
+P1 Waffle                                                                                                                                   Angka 38,5% besar; "1.924 / 5.000"; satu kalimat
+10 × 10 ikon            1 ikon = 1% populasi. Isi dari kiri-atas, baris per baris. 38 ikon Total 5.000 · generasi pertama 1.924 · 38,5%     insight; legenda 2 item.
+P2 100% stacked bar     penuh + 1 ikon setengah (38,5%) jingga; sisanya abu muda.                                                           Persentase di dalam segmen; label kategori di atas bar
+2 bar                                                                                                                                       pertama; angka 42,0% dan 72,7% sebagai angka besar.
+P3 Slope chart          Dua bar horizontal, panjang identik (100%). Urutan segmen:       Gen-1: 42,0 / 51,7 / 6,3
+                        Rendah  Menengah  Tinggi. Jingga bertingkat (gen-1), biru        Bukan gen-1: 9,9 / 54,0 / 36,1                     Anotasi besar "Kenaikan 1,88× lebih besar"; anotasi
+P4 Lollipop horizontal  bertingkat (bukan).                                              72,7% ekonomi rendah = gen-1                       kecil "0,47  0,31"; chip hijau +0,35 / +0,19; catatan n.
+
+P5 Burden ladder        2 sumbu vertikal (semester 1, 4). Garis jingga (gen-1) lebih     n = 3.603                                          Nilai langsung di ujung; satu kalimat: "Hampir separuh
+                        curam; biru tua lebih landai. Angka IPK langsung di titik.       Gen-1: 2,68  3,03 (+0,35)                          ... bekerja sambil kuliah."
+P6 Dumbbell                                                                              Bukan gen-1: 3,16  3,34 (+0,19)
+3 baris + tabel mini                                                                     Selisih 0,47  0,31 (±35%)                          Sorot "377 mahasiswa"; ringkasan panah 3,29  2,81 /
+                                                                                         1,88×                                              60,8  28,6 / 21,6  6,9 / 7,4  25,5; callout
+P7 Mini-dashboard                                                                                                                           "Cuti/nonaktif sekitar 3,4× lebih tinggi".
+                        4 baris, urut nilai tertinggi  terendah. Titik 46,7% lebih besar + 46,7 · 32,7 · 30,9 · 13,1 (%)
+                                                                                                                                            Nilai di kedua ujung; label gap "... poin"; pesan: ekonomi
+                        cincin sebagai focal point.                                      Urutan label: gen-1+rendah · bukan gen-1+rendah ·  tinggi menaikkan partisipasi, gap tetap.
+
+                                                                                         gen-1+menengah · gen-1+tinggi (semua bekerja)      "Asosiasi model, bukan estimasi sebab-akibat."
+
+                        4 anak tangga naik ke kanan (abu  merah bata). Per tingkat 4     1: n 204 · 3,29 · 60,8 · 21,6 · 7,4
+                        bar pendek (IPK, catatan prestasi, nas./intl, cuti/nonaktif).    2: n 99 · 3,18 · 48,5 · 16,2 · 14,1
+                        Tingkat 4 diberi bingkai merah bata putus-putus.                 3: n 431 · 3,03 · 42,5 · 14,6 · 15,3
+                                                                                         4: n 377 · 2,81 · 28,6 · 6,9 · 25,5
+
+                        Titik jingga (gen-1) dan biru (bukan) dihubungkan garis abu; gap Rendah 36,0­56,8 (20,8)
+
+                        di tengah garis (merah bata).                                    Menengah 44,9­64,7 (19,8)
+
+                                                                                         Tinggi 59,0­74,5 (15,5)
+
+                                                                                         Tabel: 36,0/56,8 · 11,0/19,8 · 2,93/3,26
+
+                        4 tile angka; jingga untuk status generasi pertama, merah bata IPK gen-1 -0,25 · odds 0,52×
+
+                        untuk bekerja. Tanpa tabel regresi.                              IPK bekerja -0,17 · odds 0,60×
+
+G. DAFTAR PLACEHOLDER YANG HARUS DIISI SEBELUM DESAIN FINAL
+
+Panel   Placeholder                                                                                                       Catatan
+2       [ISI DENGAN DATA: n mahasiswa ekonomi rendah (penyebut 72,7%)] -- opsional, untuk catatan L3                      Tidak tercantum di brief; jangan diisi dengan perkiraan.
+4       [ISI DENGAN DATA: n tiap kelompok]                                                                                Untuk catatan L3 di bawah lollipop.
+5       [ISI DENGAN DATA: definisi cuti/nonaktif]                                                                         Konfirmasi status mana yang digabung.
+5       Judul panel final                                                                                                 Brief hanya menyebut "Beban yang bertumpuk"; judul pada blueprint bersifat sementara.
+6       [ISI DENGAN DATA: n tiap kategori ekonomi]                                                                        Untuk catatan L3.
+7       [ISI DENGAN DATA: variabel kontrol model]                                                                         Diperlukan agar klaim "ekonomi bukan satu-satunya pembeda" dapat diperiksa.
+Footer  [ISI DENGAN DATA: kredit tim / nama proyek tanpa institusi]                                                       Jangan mencantumkan nama atau logo institusi.
+
+  H. CATATAN VERIFIKASI & KONSISTENSI ANGKA
+
+· Total 5.000, generasi pertama 1.924 (38,5%), komposisi ekonomi (42,0/51,7/6,3 dan 9,9/54,0/36,1), 72,7% ekonomi rendah = gen-1, serta n = 3.603 dicocokkan dengan berkas CSV dan konsisten dengan brief.
+· Rata-rata IPK semester 1 dan 4: gen-1 2,685  3,035; bukan gen-1 3,157  3,343. Brief menampilkan 2,68  3,03 dan 3,16  3,34; angka brief dipertahankan agar selisih (+0,35 dan +0,19) konsisten. Rasio
+1,88× dan penyempitan ±35% juga diambil dari brief (hitung ulang dari angka dibulatkan memberi 1,84×; pakai angka brief).
+· Angka Panel 4­7 dipakai persis seperti brief dan belum dihitung ulang dari CSV.
+· Satu-satunya angka turunan: 61,5% / 3.076 = bukan generasi pertama (100% - 38,5%; 5.000 - 1.924) untuk legenda waffle. Hapus bila ingin 100% hanya memakai angka brief.
+REKOMENDASI SOLUSI UNTUK PEMANGKU KEPENTINGAN                                                                                                                      Blueprint infografis A3 · halaman 4/4
+                                                                                                                                                                                 Data fiktif · tanpa identitas institusi
+Dokumen pendamping -- TIDAK dimuat di infografis (Panel 8 hanya diagnosis, tanpa solusi)
+
+Prinsip. (1) Jadikan ketidaksetaraan titik awal, beban waktu, dan kesempatan sebagai tanggung jawab sistem, bukan kekurangan mahasiswa. (2) Sasarkan dukungan pada irisan generasi pertama + ekonomi
+rendah + bekerja (377 mahasiswa pada data), bukan satu kategori saja. (3) Karena data bersifat deskriptif, ujilah setiap intervensi lewat pilot dengan pembanding. (4) Target angka sengaja dikosongkan:
+[TENTUKAN TARGET] oleh pemangku kepentingan, agar tidak mengarang data.
+
+MATRIKS SOLUSI
+
+Pemangku kepentingan &                 Temuan data yang mendasari                  Solusi / tindakan yang disarankan                                               Indikator pemantauan (dari data yang sama)
+kewenangan
+
+1. Pimpinan perguruan tinggi           Gen-1 terkonsentrasi di ekonomi rendah      · Tetapkan status generasi pertama + kategori ekonomi sebagai dimensi           Selisih IPK semester 1 dan 4 · proporsi cuti/nonaktif ·
+Menetapkan kebijakan afirmatif,        (42,0%); 72,7% mahasiswa ekonomi
+anggaran, dan tata kelola lintas unit  rendah adalah gen-1; kelompok               pemantauan rutin.                                                               proporsi catatan prestasi per kelompok · target:
+                                       bertumpuk (377 mhs) paling rentan.
+                                                                                   · Bentuk satuan tugas lintas unit (akademik, keuangan, kemahasiswaan) dengan [TENTUKAN TARGET]
+
+                                                                                   satu penanggung jawab.
+
+                                                                                   · Alokasikan anggaran afirmatif yang bertingkat sesuai lapisan beban.
+
+                                                                                   · Laporkan indikator kesetaraan secara berkala.
+
+2. Fakultas, program studi, dosen Kesenjangan IPK paling besar di semester · Program transisi/bridging sebelum dan selama semester 1 (asesmen                      IPK semester 1 dan 2 gen-1 vs bukan · selisih IPK
+                                                                                                                                                                   semester 1  4 · partisipasi program penguatan ·
+& pembimbing akademik                  1 (2,68 vs 3,16; selisih 0,47) lalu         diagnostik, kelas penguatan, mentoring sebaya).                                 target: [TENTUKAN TARGET]
+
+Mengatur kurikulum awal,               menyempit (0,31)  kemampuan                 · Sistem peringatan dini IPK semester 1­2 dengan pembimbing akademik yang
+
+pembimbingan, dan jadwal               berkembang ada; titik awal yang timpang. proaktif.
+
+                                                                                   · Fleksibilitas jadwal (kelas rekaman, jadwal blok, tugas bertahap) bagi
+
+                                                                                   mahasiswa yang bekerja.
+
+3. Unit keuangan, beasiswa &           46,7% gen-1 ekonomi rendah bekerja          · Bantuan biaya hidup (bukan hanya biaya kuliah) bagi irisan gen-1 + ekonomi    Proporsi gen-1 ekonomi rendah yang bekerja ·
+layanan mahasiswa                      sambil kuliah; kelompok bertumpuk           rendah agar tidak terpaksa bekerja berlebihan.                                  cuti/nonaktif kelompok bertumpuk · penerima
+Mengelola bantuan biaya, UKT, dan      memiliki cuti/nonaktif 25,5% (sekitar 3,4×  · Skema kerja-studi di kampus dengan jam terbatas dan relevan dengan bidang     bantuan menurut lapisan beban · target: [TENTUKAN
+dukungan darurat                       kelompok pembanding).                       studi.                                                                          TARGET]
+                                                                                   · Dana darurat cepat cair dan jalur cuti yang mudah untuk kembali (re-entry).
+
+4. Pengelola kegiatan prestasi &       Ekonomi rendah: catatan prestasi 36,0%      · Hilangkan hambatan biaya partisipasi (pendaftaran, transport, perlengkapan).  Catatan prestasi dan prestasi nasional/internasional
+kemahasiswaan                          (gen-1) vs 56,8%; nasional/internasional    · Jalur prestasi yang kompatibel dengan jam kerja (kegiatan fleksibel, akhir    gen-1 vs bukan, per kategori ekonomi · gap poin ·
+Mengatur akses lomba, organisasi,      11,0% vs 19,8%. Gap 15,5­20,8 poin di       pekan, daring).                                                                 target: [TENTUKAN TARGET]
+dan pengakuan prestasi                 semua kategori ekonomi.                     · Pendampingan seleksi dan pembimbing lomba; jangkauan aktif ke gen-1.
+                                                                                   · Perluas pengakuan atas pencapaian lain (portofolio, kerja-studi, kegiatan
+                                                                                   komunitas).
+
+5. Pemerintah & regulator              Kondisi ekonomi saja tidak menjelaskan · Pertimbangkan status generasi pertama sebagai kriteria tambahan penargetan Cakupan bantuan menurut status gen-1 dan ekonomi
+pendidikan tinggi (pusat/daerah)
+Menetapkan kebijakan bantuan dan       semuanya: asosiasi status gen-1 tetap ada bantuan, di samping pendapatan.                                                   · tren kesenjangan nasional/daerah · target:
+standar pelaporan
+                                       pada model (IPK -0,25; odds prestasi        · Standar pelaporan data kesetaraan antarperguruan tinggi.                      [TENTUKAN TARGET]
+
+                                       0,52×).                                     · Dukungan biaya hidup dan insentif bagi institusi yang menjalankan
+
+                                                                                   pendampingan terbukti.
+
+6. Mitra eksternal: industri,          Mahasiswa yang bekerja memiliki IPK         · Beasiswa biaya hidup dan magang berbayar yang selaras bidang studi            Jumlah mahasiswa gen-1 ekonomi rendah yang
+filantropi, alumni                     -0,17 dan odds prestasi 0,60× (asosiasi)    (menggantikan kerja yang tidak relevan).                                        beralih ke magang/kerja relevan · IPK dan prestasi
+Pendanaan, magang, dan jejaring         waktu belajar tergerus pekerjaan.          · Mentor alumni generasi pertama; akses jejaring dan portofolio.                peserta · target: [TENTUKAN TARGET]
+                                                                                   · Dukungan dana untuk kegiatan prestasi bagi gen-1.
+
+7. Unit data & penelitian              Analisis bersifat deskriptif/asosiatif; data · Analisis lanjutan variabel tersebut untuk melihat apa yang efektif.          Hasil evaluasi pilot · kelengkapan data semester 1
+                                                                                                                                                                   dan 4 · kualitas pencatatan prestasi · [ISI DENGAN
+institusional                          juga memuat variabel dukungan keluarga, · Rancang pilot dengan kelompok pembanding sebelum diperluas.                       DATA: hasil analisis lanjutan]
+
+Mengelola data dan evaluasi program kendala utama, program pendampingan, · Jaga privasi dan hindari pelabelan yang menstigma individu.
+
+                                       dan penerima beasiswa yang belum            · Perbarui dasbor kesetaraan setiap semester.
+
+                                       dianalisis di blueprint ini.
+
+URUTAN PRIORITAS (usulan)                                                   JANGKA MENENGAH (1­2 tahun)                                        JANGKA PANJANG (kebijakan)
+
+JANGKA PENDEK (semester berjalan)                                           · Program transisi semester 1 dan mentoring sebaya.                · Kriteria afirmatif berbasis status generasi pertama di tingkat
+                                                                            · Bantuan biaya hidup dan kerja-studi relevan.                     kebijakan.
+· Tetapkan irisan sasaran: gen-1 + ekonomi rendah (+ bekerja).              · Jalur prestasi fleksibel dan subsidi partisipasi.                · Standar pelaporan kesetaraan.
+· Aktifkan peringatan dini IPK semester 1­2.                                · Pilot berpembanding; evaluasi.                                   · Kemitraan pendanaan berkelanjutan.
+· Buka akses dana darurat dan penyesuaian jadwal.                                                                                              · Tinjau ulang kebijakan tiap tahun berdasarkan data.
+· Siapkan dasbor indikator kesetaraan.
+
+Catatan: Data pada blueprint ini fiktif dan analisisnya deskriptif. Rekomendasi adalah usulan kebijakan berbasis pola data, bukan bukti sebab-akibat; dampaknya perlu diuji. Tidak ada angka target yang dikarang.
+

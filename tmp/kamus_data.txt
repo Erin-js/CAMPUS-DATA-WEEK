@@ -1,0 +1,152 @@
+                             KAMUS DATA
+                 INFOGRAPHIC COMPETITION
+CAMPUS DATA WEEK UNIVERSITAS AIRLANGGA 2026
+
+1. Format Berkas
+Seluruh berkas format CSV memakai titik-koma (`;`) sebagai pemisah kolom dan pengodean UTF-8 (dengan
+BOM).
+
+2. Relasi Antar Tabel
+Kelima berkas terhubung melalui satu kolom kunci, yaitu ID_Mahasiswa.
+
+                       1_profil_mahasiswa_umum
+
+                          1 baris = 1 mahasiswa
+
+                                  |
+
+                                ID_Mahasiswa
+
+                                  |
+
++-------------+----------+----------+-------------+
+
+|                      |                       |                       |
+
+3_generasi_ 4_status_                          2_prestasi_ 5_riwayat_
+
+pertama_               sosial_                 mahasiswa   ipk_semester
+
+kuliah                 ekonomi
+
+1 baris /              1 baris /               1 baris =   1 baris =
+mahasiswa              mahasiswa               1 prestasi  1 semester
+
+satu-ke-satu satu-ke-satu                      satu-ke-    satu-ke-
+                                               banyak      banyak
+
+· Tabel 1, 3, dan 4 berelasi satu-ke-satu. Jumlah barisnya sama dan seluruh ID identik, sehingga
+
+aman digabung dengan inner join.
+
+· Tabel 2 berelasi satu-ke-banyak. Tidak semua mahasiswa memiliki prestasi; mahasiswa yang tidak
+
+punya tidak muncul sama sekali di tabel ini. Gunakan left join dari Tabel 1 agar mereka tidak ikut
+
+terbuang saat menghitung persentase.
+
+· Tabel 5 berelasi satu-ke-banyak, dengan satu baris untuk setiap semester yang telah ditempuh.
+
+3. Tabel 1 ­ 1_profil_mahasiswa_umum.csv
+
+             Variabel                 Tipe                            Keterangan
+ID_Mahasiswa                    Teks           Kunci penghubung (primary key), format
+                                               MHS#####
+Jenis_Kelamin                   Kategori       Laki-laki / Perempuan
+Usia                            Angka bulat    Usia terkini dalam tahun
+Provinsi_Asal                   Kategori       Provinsi domisili asal; 38 provinsi terwakili
+Fakultas                        Kategori       15 fakultas
+Program_Studi                   Kategori       44 program studi. Setiap prodi hanya milik satu
+                                               fakultas
+Angkatan                        Angka (tahun)  Tahun masuk, 2019­2025
+Sumber_Pembiayaan               Kategori       Sumber biaya terbesar selama satu tahun
+                                               akademik. Lihat catatan penting di bawah tabel
+Status_Mahasiswa                Kategori       Aktif / Cuti / Lulus / Non-Aktif-DO
+IPK_Mahasiswa                   Angka desimal  IPK kumulatif terakhir, skala 0,00­4,00
+Masa_Studi_Semester             Angka bulat    Jumlah semester yang telah ditempuh
+Tempat_Tinggal                  Kategori       Rumah Orang Tua / Kos / Asrama / Menumpang
+                                               Saudara
+
+                                                                                                      1
+Catatan penting mengenai Sumber_Pembiayaan:
+
+Kolom ini mencatat sumber biaya terbesar, bukan satu-satunya. Mahasiswa penerima beasiswa parsial tetap
+tercatat "Orang Tua" atau "Kerja Sendiri" di sini. Akibatnya, jumlah baris dengan Sumber_Pembiayaan =
+"Beasiswa" lebih kecil daripada jumlah Status_Penerima_Beasiswa = "Ya" pada Tabel 4. Keduanya benar
+dan tidak saling bertentangan.
+
+4. Tabel 2 - 2_prestasi_mahasiswa.csv
+
+             Variabel            Tipe                              Keterangan
+ID_Mahasiswa               Teks             Kunci penghubung ke Tabel 1
+Jenis_Prestasi             Kategori         Akademik / Non-Akademik
+Bidang_Kegiatan            Kategori         Bidang prestasi; 7 kategori
+Tingkat_Kegiatan           Kategori         Cakupan kegiatan: Kampus / Lokal-Wilayah /
+                                            Nasional / Internasional
+Capaian_Prestasi           Kategori         Peserta / Finalis / Juara 3 / Juara 2 / Juara 1
+Tahun_Perolehan            Angka (tahun)    Selalu lebih besar atau sama dengan tahun angkatan
+                                            mahasiswa
+Penyelenggara              Kategori         Pihak penyelenggara kegiatan; 5 kategori
+Jumlah_Prestasi_Kumulatif  Angka bulat      Total prestasi mahasiswa tersebut. Nilainya sama di
+                                            semua baris milik mahasiswa yang sama kolom
+                                            redundan, disediakan untuk kemudahan
+
+5. Tabel 3 - 3_generasi_pertama_kuliah.csv
+
+             Variabel            Tipe                              Keterangan
+ID_Mahasiswa               Teks             Kunci penghubung ke Tabel 1
+Status_Generasi_Pertama    Kategori         Ya / Tidak. Definisi: bernilai "Ya" bila tidak ada
+                                            satu pun orang tua yang pernah menempuh
+Pendidikan_Terakhir_Ayah Kategori           pendidikan tinggi (D3/S1/S2/S3). Pasangan orang
+                                            tua berpendidikan campuran (misalnya ayah S1 dan
+Pendidikan_Terakhir_Ibu    Kategori         ibu SMP) tergolong "Tidak"
+Pekerjaan_Ayah             Kategori         Tidak Sekolah / SD / SMP / SMA-SMK / D3 / S1 /
+Pekerjaan_Ibu              Kategori         S2 / S3
+Jumlah_Saudara_Kuliah      Angka bulat      Sama dengan di atas
+                                            8 kategori
+Tingkat_Dukungan_Keluarga  Angka (skala     6 kategori
+                           1­5)             Saudara kandung yang juga sedang atau pernah
+Kendala_Utama              Kategori         kuliah
+Ikut_Program_Pendampingan  Kategori         Persepsi mahasiswa. 1 = sangat rendah, 5 = sangat
+                                            tinggi
+                                            Akademik / Finansial / Sosial / Adaptasi
+                                            Ya / Tidak
+
+6. Tabel 4 - 4_status_sosial_ekonomi.csv
+
+                Variabel         Tipe                            Keterangan
+ID_Mahasiswa               Teks             Kunci penghubung ke Tabel 1
+Kategori_Ekonomi           Kategori         Rendah / Menengah / Tinggi. Merupakan hasil
+                                            penilaian petugas, sehingga tidak selalu sejalan
+                                            persis dengan kolom pendapatan
+
+                                                                                                         2
+                Variabel              Tipe                        Keterangan
+Pendapatan_Orang_Tua_per_Bulan  Kategori     4 rentang: di bawah Rp1 juta / Rp1­3 juta /
+                                (rentang)    Rp3­5 juta / di atas Rp5 juta
+Jumlah_Tanggungan_Keluarga      Angka bulat  Termasuk mahasiswa yang bersangkutan
+Sumber_Pembiayaan               Kategori     Duplikat dari Tabel 1; disediakan agar tabel ini
+                                             dapat dianalisis secara mandiri
+Status_Penerima_Beasiswa        Kategori     Ya / Tidak
+Jenis_Beasiswa                  Kategori     KIP-Kuliah / Beasiswa Prestasi Akademik
+                                             (PPA) / Beasiswa Daerah / Beasiswa Swasta-
+Kategori_UKT                    Angka bulat  CSR / Tidak Ada
+                                1­8          Golongan UKT. Golongan rendah berarti
+Kepemilikan_Rumah               Kategori     nominal lebih murah
+Bekerja_Sambil_Kuliah           Kategori     Milik Sendiri / Sewa / Menumpang
+                                             Ya / Tidak
+
+7. Tabel 5 - 5_riwayat_ipk_semester.csv
+
+             Variabel           Tipe                                Keterangan
+ID_Mahasiswa              Teks               Kunci penghubung ke Tabel 1
+Semester_Ke               Angka bulat        1 = semester pertama
+IP_Semester               Angka desimal      Indeks Prestasi pada semester tersebut, skala 0,00­
+                                             4,00
+IPK_Kumulatif             Angka desimal      Rata-rata berjalan sampai dengan semester tersebut
+
+Catatan: Baris terakhir setiap mahasiswa pada tabel ini konsisten dengan kolom IPK_Mahasiswa dan
+Masa_Studi_Semester di Tabel 1.
+
+                                                                                                  3
+

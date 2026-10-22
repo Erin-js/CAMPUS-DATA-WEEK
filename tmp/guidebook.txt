@@ -1,0 +1,302 @@
+PRESENTS                                   OFFICIAL GUIDEBOOK · 2026
+PUSAT SATU DATA DAN
+KECERDASAN DIGITAL                                 CAMPUS DATA WEEK
+                                                   2026
+Universitas Airlangga
+                                                                 Empowering Indonesia through Data & AI -- from campus to nation.
+
+Empowering Indonesia through Data & AI 
+
+        -- from campus to nation
+
+  INFOGRAPHIC
+
+  COMPETITION
+   GUIDEBOOK
+
+campusdataweek.satudata.unair.ac.id        CAMPUS DATA WEEK                                                                        INFOGRAPHIC
+
+pusaka@mail.unair.ac.id · @satudata.unair                                                                                          COMPETITION
+                                                                        OFFICIAL GUIDEBOOK · 2026
+Daftar Isi
+
+Daftar Isi...................................................................................................................................... 1
+BAB I -- Pendahuluan................................................................................................................. 2
+
+   1.1 Latar Belakang................................................................................................................... 2
+   1.2 Tujuan................................................................................................................................ 2
+   1.3 Dataset .............................................................................................................................. 2
+BAB II -- Ketentuan Umum ......................................................................................................... 2
+   2.1 Persyaratan Peserta .......................................................................................................... 2
+   2.2 Biaya Pendaftaran ............................................................................................................. 2
+   2.3 Jadwal Kegiatan................................................................................................................. 3
+BAB III -- Mekanisme Pendaftaran ............................................................................................. 3
+BAB IV -- Mekanisme & Teknis Perlombaan .............................................................................. 3
+   4.1 Babak Penyisihan -- Submit Infografis Statis..................................................................... 3
+   4.2 Babak Final -- Live Data Sprint (Luring) ............................................................................ 4
+BAB V -- Kriteria Penilaian ......................................................................................................... 5
+   Bobot Penilaian........................................................................................................................ 5
+BAB VI -- Hadiah & Penghargaan .............................................................................................. 5
+BAB VII -- Tata Tertib & Diskualifikasi ........................................................................................ 6
+   7.1 Kewajiban Peserta ............................................................................................................. 6
+   7.2 Larangan ........................................................................................................................... 6
+   7.3 Sanksi................................................................................................................................ 6
+BAB VIII -- Ketentuan Penutup ................................................................................................... 6
+
+                                                                                                                                        1
+BAB I -- Pendahuluan
+
+1.1 Latar Belakang
+
+Campus Data Week 2026 diselenggarakan oleh Pusat Satu Data dan Kecerdasan Digital
+(PUSAKA) Universitas Airlangga. Infographics Competition adalah kompetisi yang menantang
+peserta mengubah data mentah menjadi sebuah cerita visual yang akurat, menarik, dan mudah
+dipahami.
+Data yang baik tidak berhenti pada angka, ia perlu diceritakan. Melalui kompetisi ini, peserta dilatih
+menggabungkan ketajaman analisis data dengan prinsip desain visual untuk menghasilkan
+infografis yang menyampaikan insight secara efektif kepada pembaca awam maupun pengambil
+keputusan.
+
+1.2 Tujuan
+
+  · Mengasah kemampuan peserta mengolah data menjadi insight yang bermakna.
+  · Mendorong penguasaan prinsip visualisasi data: hierarki visual, keterbacaan, dan storytelling.
+  · Menjadi wadah pertemuan talenta data mahasiswa se-Indonesia.
+
+1.3 Dataset
+
+Peserta menggunakan dataset operasional universitas yang disediakan panitia (data fiktif yang
+dirancang menyerupai kondisi nyata / real-world fake).
+
+BAB II -- Ketentuan Umum
+
+2.1 Persyaratan Peserta
+
+  1. Peserta adalah mahasiswa aktif jenjang Sarjana (S1) atau Diploma (D3/D4) dari perguruan
+      tinggi di seluruh Indonesia, dibuktikan dengan Kartu Tanda Mahasiswa (KTM) yang masih
+      berlaku dan surat keterangan mahasiswa aktif dari fakultas atau universitas bersangkutan.
+
+  2. Kompetisi diikuti secara beregu dengan jumlah 3 (tiga) orang per tim.
+  3. Anggota satu tim boleh lintas program studi, fakultas, atau angkatan, namun harus dari
+
+      perguruan tinggi yang sama.
+  4. Setiap peserta hanya boleh tergabung dalam 1 (satu) tim pada seluruh perlombaan Campus
+
+      Data Week.
+  5. Tim menunjuk satu ketua sebagai narahubung resmi dengan panitia.
+
+2.2 Biaya Pendaftaran
+
+  GRATIS. Tidak ada biaya pendaftaran untuk seluruh kompetisi Campus Data Week 2026.
+
+                                                                                                                                        2
+2.3 Jadwal Kegiatan                            Waktu                    Kanal
+                                               25 Juli 2026             Platform pendaftaran
+ Kegiatan                                      13 Agustus 2026          Platform pendaftaran
+ Pendaftaran dibuka                            21 Agustus 2026          Zoom Meeting
+ Pendaftaran ditutup                           25 September 2026        Platform pendaftaran
+ Rilis Dataset & Technical Meeting Penyisihan  5 Oktober 2026           Kanal resmi
+ Pengumpulan infografis (penyisihan)           27 Oktober 2026          Luring di Unair
+ Penjurian & Pengumuman Finalis (Top 10)       28 Oktober 2026          Luring di Unair
+ Opening & Technical Meeting Final             28 Oktober, ±14.00       Luring di Unair
+ Babak Final (Live Data Sprint)
+ Awarding & Closing
+
+BAB III -- Mekanisme Pendaftaran
+
+1. Ketua     tim  mengakses                    tautan  pendaftaran      resmi          di
+
+https://campusdataweek.satudata.unair.ac.id.
+
+2. Mengisi formulir dengan data lengkap seluruh anggota (nama, NIM, perguruan tinggi,
+    program studi, email, nomor WhatsApp).
+
+3. Mengunggah scan/foto KTM seluruh anggota tim dan surat keterangan mahasiswa aktif.
+
+4. Seluruh anggota tim mengunggah bukti telah follow akun Instagram @satudata.unair, like
+    dan tag 5 orang di kolom komentar postingan kompetisi, repost postingan tersebut ke
+    Instagram Story, serta mengunggah twibbon yang tersedia di
+    https://bit.ly/TwibbonCompetitionCDW2026
+
+5. Bergabung ke grup koordinasi peserta sesuai tautan yang diberikan.
+
+6. Pendaftaran sah setelah tim menerima konfirmasi resmi dari panitia.
+
+BAB IV -- Mekanisme & Teknis Perlombaan
+
+4.1 Babak Penyisihan -- Submit Infografis Statis
+
+  1. Setelah dataset dirilis, setiap tim menyusun 1 (satu) infografis statis berdasarkan data
+      tersebut.
+
+  2. Infografis dikumpulkan secara daring melalui platform pendaftaran sebelum batas waktu yang
+      ditetapkan.
+
+  3. Karya dinilai oleh dewan juri berdasarkan kriteria pada BAB V. Sebanyak 10 (sepuluh) tim
+      terbaik lolos ke Babak Final.
+
+4.1.1 Ketentuan Teknis Karya
+
+Aspek                         Ketentuan
+
+Format file                   PDF dan/atau PNG/JPG resolusi tinggi (min. 150 dpi)
+
+                                                                                                 3
+Aspek               Ketentuan
+Orientasi & ukuran  Berukuran A3 dengan rasio portrait, maks. 20 MB
+Jumlah halaman      1 (satu) infografis utuh (single page)
+Tools               Bebas (Canva, Figma, Illustrator, Tableau, Power BI, dll.)
+Bahasa              Indonesia atau Inggris (konsisten dalam satu karya)
+                    Wajib hanya dari dataset resmi panitia; mencantumkan catatan
+Sumber data         sumber
+
+4.2 Babak Final -- Live Data Sprint (Luring)
+
+Berbeda dengan babak penyisihan yang dikerjakan di rumah, babak final menguji kemampuan tim
+membangun cerita visual secara langsung di bawah tekanan waktu. Seluruh karya final dibuat on-
+site pada hari pelaksanaan (tidak ada karya yang dibawa dari rumah untuk babak ini). Konsep ini
+memastikan pemenang benar-benar menguasai analisis data dan desain, bukan sekadar
+memoles karya dalam waktu lama.
+
+Pada awal sesi, panitia merilis dataset baru (berbeda dari penyisihan) beserta secret brief yang
+sama untuk semua tim: sebuah angle, pertanyaan, atau audiens spesifik, misalnya "infografis
+untuk rilis pers pimpinan universitas" atau "sajikan satu insight paling kontra-intuitif dari data". Baik
+dataset maupun brief tidak dibagikan sebelumnya. Dengan begitu, yang diuji adalah kemampuan
+tim mengeksplorasi data yang belum dikenal, menemukan insight, dan menyajikannya secara
+visual, semua dalam waktu terbatas. Untuk membantu, panitia menyediakan kamus data (data
+dictionary) bersama dataset.
+
+Alur Babak Final · 07.00­12.00 WIB (durasi total 5 jam)
+
+06.30­07.00 Registrasi ulang, briefing teknis, dan undian urutan pitch.
+
+07.00        Dataset baru + secret brief dibuka serempak untuk semua tim.
+
+07.00­12.00  Live Data Sprint (5 jam): eksplorasi dataset baru + membangun 1 infografis statis
+             sesuai brief.
+
+12.00        Batas waktu pengumpulan karya.
+
+1. Babak diikuti seluruh finalis (Top 10) secara luring di Universitas Airlangga.
+2. Tim membangun 1 (satu) infografis statis baru dari dataset baru sesuai secret brief dalam
+
+    waktu 5 (lima) jam.
+3. Karya wajib dikumpulkan tepat pada batas waktu ke panitia; keterlambatan dikenai penalti
+
+    sesuai ketentuan.
+4. Desk review akan dilakukan seiring para peserta mengerjakan infografisnya (juri akan
+
+    berkeliling dan melakukan tanya jawab ke setiap peserta).
+5. Penilaian babak final berbasis karya hasil sprint dan desk review (lihat BAB V).
+6. Ketentuan teknis sprint dapat dilihat sebagai berikut.
+
+                                                                                                           4
+Aspek                            Ketentuan
+Perangkat
+Listrik & internet               Laptop pribadi tiap tim, dengan software desain/visualisasi telah
+Tools                            terinstal sebelum hari-H
+Aset visual
+                                 Disediakan panitia di venue
+AI generatif
+Dataset                          Bebas (Canva, Figma, Illustrator, Tableau, Power BI, dll.)
+
+Format karya                     Font/ikon/ilustrasi berlisensi bebas diperbolehkan; komposisi wajib
+                                 orisinal karya tim
+
+                                 Pembuatan elemen visual utama via AI generatif tidak
+                                 diperkenankan; analisis & insight wajib hasil kerja tim
+
+                                 Dataset baru (berbeda dari penyisihan), dirilis saat babak final
+                                 dimulai disertai dengan kamus data (data dictionary)
+
+                                 1 infografis statis (single page) -- PDF + PNG/JPG resolusi tinggi
+                                 (min. 150 dpi)
+
+BAB V -- Kriteria Penilaian
+
+Bobot Penilaian
+
+Komponen                            Bobot
+
+Akurasi Data & Kedalaman Insight    25%
+
+Kesesuaian dengan Brief & Adaptasi  15%
+
+Desain Visual & Estetika            20%
+
+Storytelling & Kejelasan Narasi     20%
+
+Kreativitas & Orisinalitas          10%
+
+Desk Review                         10%
+
+TOTAL                               100%
+
+Keputusan dewan juri bersifat final dan tidak dapat diganggu gugat.
+
+BAB VI -- Hadiah & Penghargaan
+
+Penghargaan                                Hadiah
+Juara 1                                    Rp 4.500.000 + e-sertifikat + merchandise
+Juara 2                                    Rp 3.000.000 + e-sertifikat + merchandise
+Juara 3                                    Rp 1.750.000 + e-sertifikat + merchandise
+Juara Harapan 1                            Rp 1.000.000 + e-sertifikat + merchandise
+Juara Harapan 2                            Rp 750.000 + e-sertifikat + merchandise
+Seluruh Finalis (Top 10)                   e-sertifikat finalis + merchandise
+
+                                                                                                      5
+Hadiah uang tunai ditransfer ke rekening pemenang sesuai ketentuan panitia yang akan
+diinformasikan lebih lanjut.
+
+BAB VII -- Tata Tertib & Diskualifikasi
+
+7.1 Kewajiban Peserta
+
+  · Mengumpulkan karya tepat waktu sesuai jadwal (penyisihan maupun babak final).
+  · Apabila peserta lolos final, wajib hadir SECARA LURING dan tepat waktu pada acara
+
+      Opening, Technical Meeting final dan sesi final.
+  · Membawa laptop tim dengan software desain/visualisasi yang telah terinstal untuk babak final
+
+      Live Data Sprint.
+  · Menghasilkan karya orisinal hasil kerja tim sendiri dan hanya menggunakan dataset resmi
+
+      panitia.
+
+7.2 Larangan
+
+  · Plagiarisme desain, penggunaan karya/template berhak cipta tanpa lisensi yang sah.
+  · Memanipulasi atau memalsukan data di luar dataset resmi sehingga menyesatkan.
+  · Menggunakan data di luar dataset resmi panitia tanpa izin.
+  · Menyiapkan atau membawa karya jadi dari rumah untuk babak final Live Data Sprint (seluruh
+
+      karya final wajib dibuat on-site).
+  · Membuat elemen visual utama menggunakan AI generatif pada babak final.
+  · Menggunakan joki atau anggota di luar yang terdaftar.
+
+7.3 Sanksi
+
+Pelanggaran dapat dikenai sanksi mulai dari pengurangan nilai hingga diskualifikasi sesuai tingkat
+pelanggaran dan keputusan panitia. Kecurangan berat berakibat diskualifikasi langsung dan
+blacklist untuk seluruh kegiatan lain kedepannya.
+
+BAB VIII -- Ketentuan Penutup
+
+  · Hal-hal yang belum diatur akan ditetapkan kemudian oleh panitia melalui kanal resmi.
+  · Panitia berhak menyesuaikan ketentuan (termasuk bobot penilaian) bila diperlukan, dengan
+
+      pemberitahuan kepada peserta.
+  · Hak cipta atas karya tetap menjadi milik peserta. Dengan mengikuti kompetisi ini, peserta
+
+      memberikan kepada panitia lisensi non-eksklusif, bebas royalti (royalty-free), berlaku di
+      seluruh dunia, dan tanpa batas waktu untuk menggunakan, memperbanyak, mengubah,
+      mengadaptasi, menerjemahkan, mendistribusikan, menampilkan, mempublikasikan,
+      mengomunikasikan kepada publik, serta memanfaatkan karya, baik sebagian maupun
+      seluruhnya, dalam berbagai media dan format, untuk kepentingan penyelenggaraan,
+      dokumentasi, publikasi, edukasi, promosi, pengembangan program, maupun tujuan lain.
+  · Keputusan panitia dan dewan juri bersifat final dan mengikat.
+  · Dengan mendaftar, peserta dianggap telah membaca, memahami, dan menyetujui seluruh
+      ketentuan dalam dokumen ini.
+
+                                                                                                                                        6
+

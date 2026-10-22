@@ -1,0 +1,4 @@
+﻿model,n,r_squared,standard_error
+OLS notebook,5000,0.2283784452785187,HC3
+OLS + lama studi,5000,0.3239091298397553,HC3
+IP semester 4 + baseline,3603,0.46368075607965464,HC3

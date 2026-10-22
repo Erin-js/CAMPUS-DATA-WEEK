@@ -1,0 +1,94 @@
+{
+  "file": "05_Latihan_Final\\Wholesale_Customers\\Wholesale customers data.csv",
+  "rows": 440,
+  "columns": [
+    "Channel",
+    "Region",
+    "Fresh",
+    "Milk",
+    "Grocery",
+    "Frozen",
+    "Detergents_Paper",
+    "Delicassen"
+  ],
+  "missing": 0,
+  "duplicates": 0,
+  "sha256": "c3d018c643565b85cee733c4a2ac76dd76e080e857cb23f0ccfcc2e15a6c17ef",
+  "ranges": {
+    "Channel": [
+      1,
+      2
+    ],
+    "Region": [
+      1,
+      3
+    ],
+    "Fresh": [
+      3,
+      112151
+    ],
+    "Milk": [
+      55,
+      73498
+    ],
+    "Grocery": [
+      3,
+      92780
+    ],
+    "Frozen": [
+      25,
+      60869
+    ],
+    "Detergents_Paper": [
+      3,
+      40827
+    ],
+    "Delicassen": [
+      3,
+      47943
+    ]
+  },
+  "counts": {
+    "Channel": {
+      "1": 298,
+      "2": 142
+    },
+    "Region": {
+      "1": 77,
+      "2": 47,
+      "3": 316
+    }
+  },
+  "sample": [
+    {
+      "Channel": "2",
+      "Region": "3",
+      "Fresh": "12669",
+      "Milk": "9656",
+      "Grocery": "7561",
+      "Frozen": "214",
+      "Detergents_Paper": "2674",
+      "Delicassen": "1338"
+    },
+    {
+      "Channel": "2",
+      "Region": "3",
+      "Fresh": "7057",
+      "Milk": "9810",
+      "Grocery": "9568",
+      "Frozen": "1762",
+      "Detergents_Paper": "3293",
+      "Delicassen": "1776"
+    },
+    {
+      "Channel": "2",
+      "Region": "3",
+      "Fresh": "6353",
+      "Milk": "8808",
+      "Grocery": "7684",
+      "Frozen": "2405",
+      "Detergents_Paper": "3516",
+      "Delicassen": "7844"
+    }
+  ]
+}
