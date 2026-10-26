@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-slate-900">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart EHR & Data Quality Dashboard • Massachusetts General Hospital</title>
+  <!-- Tailwind CSS -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0B1120;
+      color: #E2E8F0;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Custom Glassmorphism & Shadow Effects */
+    .glass-panel {
+      background: rgba(17, 24, 39, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .glass-panel-glow {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.85) 0%, rgba(15, 23, 42, 0.75) 100%);
+      border: 1px solid rgba(13, 148, 136, 0.25);
+      box-shadow: 0 0 25px -5px rgba(13, 148, 136, 0.15);
+    }
+
+    .pulse-glow {
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    /* Dynamic progress transition */
+    .smooth-progress {
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
+    }
+
+    /* Toast animation */
+    @keyframes slideInUp {
+      from { transform: translateY(100%) scale(0.9); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .toast-animate {
+      animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col antialiased selection:bg-teal-500 selection:text-white">
+
+  <!-- Top Header / Clinical Governance Bar -->
+  <header class="border-b border-slate-800/80 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand & Context -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-teal-500/20 text-lg">
+            <svg class="w-6 h-6 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12h6m-3-3v6m-7 4h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                Smart EHR & Data Quality Hub
+                <span class="text-xs px-2 py-0.5 rounded-full bg-teal-500/10 text-teal-400 font-semibold border border-teal-500/30">AI-Powered Co-Pilot</span>
+              </h1>
+            </div>
+            <p class="text-xs text-slate-400 flex items-center gap-1.5">
+              <span>Massachusetts General Hospital</span>
+              <span class="text-slate-600">•</span>
+              <span class="text-slate-400 font-mono">Synthea Benchmark Dataset (27,891 Encounters)</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="hidden md:flex items-center space-x-1 bg-slate-800/60 p-1.5 rounded-xl border border-slate-700/60">
+          <button onclick="switchTab('ehr-input')" id="tab-btn-ehr-input" class="nav-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 transition-all bg-teal-600 text-white shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+            Smart EHR Input Co-Pilot
+          </button>
+          <button onclick="switchTab('analytics')" id="tab-btn-analytics" class="nav-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 text-slate-400 hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            Data Quality & Governance Monitor
+          </button>
+          <button onclick="switchTab('transactions')" id="tab-btn-transactions" class="nav-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 text-slate-400 hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+            Real-Time Audit Log
+            <span id="header-log-count-badge" class="px-1.5 py-0.2 rounded-full bg-teal-500/20 text-teal-300 text-[10px] font-mono">15</span>
+          </button>
+          <button onclick="switchTab('docs')" id="tab-btn-docs" class="nav-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 text-slate-400 hover:text-white transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Konsep Desain
+          </button>
+        </nav>
+
+        <!-- Right Clinical Status Badges -->
+        <div class="flex items-center space-x-3">
+          <div class="hidden lg:flex items-center gap-2 text-xs text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-emerald-400 font-medium">NLP AI Online</span>
+            <span class="text-slate-600">|</span>
+            <span class="text-slate-300 font-mono">SNOMED-CT / ICD-10 Active</span>
+          </div>
+          <button onclick="bukaModalPanduan()" class="text-xs bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 px-3 py-1.5 rounded-lg font-medium transition-colors flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Panduan Fitur
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- TAB 1: SMART EHR INPUT WIDGET (AI-POWERED CLINICAL CO-PILOT) -->
+    <div id="tab-content-ehr-input" class="tab-pane space-y-6">
+      
+      <!-- Top Introduction Banner for Tab 1 -->
+      <div class="glass-panel p-5 rounded-2xl relative overflow-hidden border-l-4 border-l-teal-500">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-teal-500/20 text-teal-300 text-xs font-semibold rounded-md uppercase tracking-wider">Modul 1: Smart EHR Input Widget</span>
+              <span class="text-xs text-slate-400">Penyelesaian Masalah Missing Reason Code</span>
+            </div>
+            <h2 class="text-xl font-bold text-white mt-1">AI-Assisted Clinical Record Co-Pilot</h2>
+            <p class="text-sm text-slate-300 mt-1 max-w-3xl leading-relaxed">
+              Ketik catatan klinis secara bebas atau pilih simulasi preset di bawah. NLP cerdas mengekstraksi kode <span class="text-teal-400 font-semibold">ICD-10</span> dan alasan <span class="text-teal-400 font-semibold">SNOMED-CT</span> secara otomatis, memastikan nilai <span class="text-rose-400 font-mono">REASONCODE</span> tidak lagi kosong (mengatasi 70.06% data historis yang hilang).
+            </p>
+          </div>
+          <!-- Quick Presets Indicator -->
+          <div class="flex items-center gap-2 shrink-0 bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-700/60 text-xs">
+            <span class="text-slate-400">Simulasi Cepat:</span>
+            <span class="font-semibold text-teal-400">5 Skenario Klinis Tersedia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENARIO PRESETS BAR -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Simulasi & Preset Kasus Cepat (Klik untuk Uji Coba Otomatis)
+          </label>
+          <span class="text-xs text-slate-400">Klik salah satu tombol untuk simulasi respon otomatis</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+          <button onclick="applyPreset('cough_fever')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 hover:border-teal-500/50 text-left transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-white group-hover:text-teal-300">
+                <span>Batuk & Demam</span>
+                <span class="text-base">🫁</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-1">ISPA / Bronkitis Akut</p>
+            </div>
+            <span class="mt-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-teal-500/10 text-teal-400 w-fit">Ambulatory</span>
+          </button>
+
+          <button onclick="applyPreset('chest_pain')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 hover:border-rose-500/50 text-left transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-white group-hover:text-rose-300">
+                <span>Nyeri Dada UGD</span>
+                <span class="text-base">⚡</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-1">Suspek Infark / Angina</p>
+            </div>
+            <span class="mt-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-rose-500/10 text-rose-400 w-fit">Emergency</span>
+          </button>
+
+          <button onclick="applyPreset('hypertension_routine')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 hover:border-sky-500/50 text-left transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-white group-hover:text-sky-300">
+                <span>Rutin Hipertensi</span>
+                <span class="text-base">🩺</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-1">Kontrol Tensi & Kolesterol</p>
+            </div>
+            <span class="mt-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-sky-500/10 text-sky-400 w-fit">Outpatient</span>
+          </button>
+
+          <button onclick="applyPreset('asthma_attack')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 hover:border-amber-500/50 text-left transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-white group-hover:text-amber-300">
+                <span>Sesak Asma Akut</span>
+                <span class="text-base">💨</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-1">Wheezing & Ronki Paru</p>
+            </div>
+            <span class="mt-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-400 w-fit">Urgent Care</span>
+          </button>
+
+          <button onclick="applyPreset('antenatal_care')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 hover:border-purple-500/50 text-left transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-white group-hover:text-purple-300">
+                <span>Pemeriksaan ANC</span>
+                <span class="text-base">🤰</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-1">Kehamilan Normal Trimester 2</p>
+            </div>
+            <span class="mt-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 w-fit">Ambulatory</span>
+          </button>
+
+          <button onclick="applyPreset('empty_legacy')" class="p-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 hover:border-slate-500 text-left transition-all group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold text-slate-300 group-hover:text-white">
+                <span>Form Kosong</span>
+                <span class="text-base">⚠️</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-1">Uji Penanganan Missing</p>
+            </div>
+            <span class="mt-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-700 text-slate-300 w-fit">Reset Form</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MAIN TWO-COLUMN WORKSPACE: LEFT INPUT FORM | RIGHT QUALITY & MAPPING METER -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- LEFT COLUMN: CLINICAL INPUT FORM (7 COLS) -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="glass-panel p-6 rounded-2xl space-y-4">
+            
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h3 class="text-base font-bold text-white flex items-center gap-2">
+                <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Formulir Rekam Medis Elektronik Terintegrasi
+              </h3>
+              <span class="text-xs font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded">ID: <span id="lbl-encounter-id">ENC-2026-LIVE</span></span>
+            </div>
+
+            <!-- Patient Selector & Encounter Metadata -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-300 mb-1">Nama Pasien</label>
+                <select id="sel-patient" onchange="onInputChange()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-2 text-white focus:outline-none focus:border-teal-500 font-medium">
+                  <option value="Nikita578 Erdman779|3de74169-7f67-9304-91d4-757e0f3a14d2|F|1977">Nikita578 Erdman779 (P, 49 th)</option>
+                  <option value="Zane918 Hodkiewicz467|7064d4b3-c15c-1976-5fae-64c8c7f9996e|M|1940">Zane918 Hodkiewicz467 (L, 86 th)</option>
+                  <option value="Quinn173 Marquardt819|9477e62a-89a5-8121-8ee4-2a6c11d2bc0f|M|1958">Quinn173 Marquardt819 (L, 68 th)</option>
+                  <option value="Abel832 Smitham825|e3507d85-d602-cb36-5ca7-53bc3eb8cf14|M|1928">Abel832 Smitham825 (L, 98 th)</option>
+                  <option value="Eilene124 Walsh511|5be1e08d-8a21-998c-ec89-9a29283f6f9e|F|1957">Eilene124 Walsh511 (P, 69 th)</option>
+                  <option value="Lowell343 Price929|8cf373df-f308-569d-2394-bbfaec6ee555|M|1972">Lowell343 Price929 (L, 54 th)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-300 mb-1">Kelas Kunjungan (Class)</label>
+                <select id="sel-class" onchange="onInputChange()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-2 text-white focus:outline-none focus:border-teal-500 font-medium">
+                  <option value="ambulatory">ambulatory (Rawat Jalan)</option>
+                  <option value="emergency">emergency (Gawat Darurat)</option>
+                  <option value="inpatient">inpatient (Rawat Inap)</option>
+                  <option value="outpatient">outpatient (Poliklinik)</option>
+                  <option value="urgentcare">urgentcare (Klinik Cepat)</option>
+                  <option value="wellness">wellness (Pemeriksaan Sehat)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-300 mb-1">Penjamin Biaya (Payer)</label>
+                <select id="sel-payer" onchange="onInputChange()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-2 text-white focus:outline-none focus:border-teal-500 font-medium">
+                  <option value="Medicare">Medicare</option>
+                  <option value="Medicaid">Medicaid</option>
+                  <option value="Blue Cross Blue Shield">Blue Cross Blue Shield</option>
+                  <option value="UnitedHealthcare">UnitedHealthcare</option>
+                  <option value="Humana">Humana</option>
+                  <option value="Dual Eligible">Dual Eligible</option>
+                  <option value="NO_INSURANCE">NO_INSURANCE (Mandiri)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Natural Language Free-Text Input Area -->
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <label for="txt-notes" class="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" />
+                  </svg>
+                  Catatan Klinis Dokter / Free-Text Entry (Natural Language)
+                </label>
+                <span id="txt-char-counter" class="text-[11px] font-mono text-slate-400">0 karakter</span>
+              </div>
+              
+              <div class="relative">
+                <textarea id="txt-notes" oninput="onInputChange()" rows="5" placeholder="Ketik keluhan pasien, riwayat penyakit, atau hasil pemeriksaan secara bebas di sini... (Contoh: Pasien batuk berdahak 3 hari, demam 38C, dada agak sesak, tenggorokan merah)..." class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-3.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-all font-sans leading-relaxed"></textarea>
+                
+                <div class="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 text-[11px] text-teal-400 bg-slate-800/90 px-2 py-0.5 rounded-md border border-slate-700/80">
+                  <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+                  NLP Listening
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400">Dokter tidak perlu membuka buku kode medis manual. AI langsung mendeteksi kata kunci gejala dan memetakan kode internasional secara simultan.</p>
+            </div>
+
+            <!-- SMART NUDGES (REKOMENDASI CERDAS) CONTAINER -->
+            <div id="smart-nudges-box" class="space-y-2 pt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-amber-400 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  Fitur Rekomendasi Cerdas (Smart Nudges)
+                </span>
+                <span class="text-[11px] text-slate-400">Klik rekomendasi untuk lengkapi instan</span>
+              </div>
+              <div id="nudges-list" class="space-y-2">
+                <!-- Dynamically populated nudges -->
+                <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-200 flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-base">💡</span>
+                    <span>Ketik keluhan pasien atau pilih salah satu preset di atas untuk melihat rekomendasi klinis cerdas.</span>
+                  </div>
+                  <span class="text-[10px] text-slate-400 font-mono">Standby</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons: Save & Reset -->
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
+              <button onclick="resetEhrForm()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                Bersihkan Formulir
+              </button>
+              <div class="flex items-center gap-3">
+                <button onclick="simpanRekamMedis()" id="btn-save-ehr" class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 transition-all shadow-lg shadow-teal-500/20 flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Simpan Rekam Medis ke Database
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: REAL-TIME QUALITY SCORE & NLP AUTO-MAPPING RESULTS (5 COLS) -->
+        <div class="lg:col-span-5 space-y-5">
+          
+          <!-- Quality Score Progress Bar & Rating Card -->
+          <div class="glass-panel p-5 rounded-2xl space-y-4 border border-slate-700/60">
+            <div class="flex items-center justify-between">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Indikator Skor Kualitas Data Instan
+              </h4>
+              <span id="badge-score-rating" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                Data Tidak Lengkap
+              </span>
+            </div>
+
+            <!-- Score Progress Bar -->
+            <div>
+              <div class="flex items-end justify-between mb-1.5">
+                <span class="text-xs text-slate-400 font-medium">Data Completeness & Governance Score</span>
+                <span id="lbl-score-pct" class="text-2xl font-black text-white font-mono">0%</span>
+              </div>
+              <div class="w-full h-3.5 bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-700/80">
+                <div id="bar-score" class="smooth-progress h-full rounded-full bg-rose-500" style="width: 0%"></div>
+              </div>
+              <p id="lbl-score-help" class="text-[11px] text-slate-400 mt-1.5">
+                Nilai minimum kelayakan simpan rekam medis adalah <span class="text-teal-400 font-semibold">80%</span>.
+              </p>
+            </div>
+
+            <!-- Scoring Checklist -->
+            <div class="bg-slate-800/60 rounded-xl p-3 border border-slate-700/50 space-y-2 text-xs">
+              <div class="font-semibold text-slate-300 border-b border-slate-700/70 pb-1 flex items-center justify-between">
+                <span>Rincian Komponen Validasi:</span>
+                <span class="text-[10px] text-slate-400 font-mono">Standard Permenkes / Synthea</span>
+              </div>
+              <div id="chk-patient" class="flex items-center justify-between text-slate-400">
+                <span class="flex items-center gap-2">
+                  <span class="status-icon w-4 h-4 rounded-full bg-slate-700 flex items-center justify-center text-[10px]">✕</span>
+                  Identitas Pasien & Kelas Layanan
+                </span>
+                <span class="font-mono text-slate-500">20%</span>
+              </div>
+              <div id="chk-notes" class="flex items-center justify-between text-slate-400">
+                <span class="flex items-center gap-2">
+                  <span class="status-icon w-4 h-4 rounded-full bg-slate-700 flex items-center justify-center text-[10px]">✕</span>
+                  Catatan Subjektif / Keluhan Klinis
+                </span>
+                <span class="font-mono text-slate-500">20%</span>
+              </div>
+              <div id="chk-reason" class="flex items-center justify-between text-slate-400">
+                <span class="flex items-center gap-2">
+                  <span class="status-icon w-4 h-4 rounded-full bg-slate-700 flex items-center justify-center text-[10px]">✕</span>
+                  Pemetaan Kode Alasan (SNOMED-CT)
+                </span>
+                <span class="font-mono text-slate-500">30%</span>
+              </div>
+              <div id="chk-diagnosis" class="flex items-center justify-between text-slate-400">
+                <span class="flex items-center gap-2">
+                  <span class="status-icon w-4 h-4 rounded-full bg-slate-700 flex items-center justify-center text-[10px]">✕</span>
+                  Diagnosis ICD-10 & Rencana Prosedur
+                </span>
+                <span class="font-mono text-slate-500">20%</span>
+              </div>
+              <div id="chk-payer" class="flex items-center justify-between text-slate-400">
+                <span class="flex items-center gap-2">
+                  <span class="status-icon w-4 h-4 rounded-full bg-slate-700 flex items-center justify-center text-[10px]">✕</span>
+                  Penjamin Biaya Terverifikasi
+                </span>
+                <span class="font-mono text-slate-500">10%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- NLP Extraction & International Coding Auto-Mapping Display -->
+          <div class="glass-panel p-5 rounded-2xl space-y-4 border border-slate-700/60">
+            <div class="flex items-center justify-between">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Ekstraksi NLP & Auto-Mapping Kode Internasional
+              </h4>
+              <span id="badge-nlp-status" class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400">Standby</span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              
+              <!-- 1. Auto-Mapped SNOMED-CT Reason Code (The central fix for missing values) -->
+              <div class="p-3 bg-slate-800/80 rounded-xl border border-teal-500/30">
+                <div class="flex items-center justify-between text-slate-400 mb-1">
+                  <span class="font-semibold text-teal-400 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+                    SNOMED-CT Reason Code (Kolom Solusi):
+                  </span>
+                  <span id="snomed-match-conf" class="text-[10px] font-mono text-teal-300">Belum Terdeteksi</span>
+                </div>
+                <div class="flex items-baseline justify-between mt-0.5">
+                  <span id="txt-mapped-snomed-code" class="font-mono text-sm font-bold text-white tracking-wide">-</span>
+                </div>
+                <p id="txt-mapped-snomed-desc" class="text-[11px] text-slate-300 mt-0.5 italic">Kosong (Akan diisi otomatis oleh AI Co-Pilot saat gejala diketik)</p>
+              </div>
+
+              <!-- 2. Auto-Mapped ICD-10 Primary Diagnosis -->
+              <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/80">
+                <div class="flex items-center justify-between text-slate-400 mb-1">
+                  <span class="font-semibold text-cyan-300 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                    ICD-10 Primary Diagnosis:
+                  </span>
+                  <span id="icd-match-conf" class="text-[10px] font-mono text-cyan-300">Belum Terdeteksi</span>
+                </div>
+                <div class="flex items-baseline justify-between mt-0.5">
+                  <span id="txt-mapped-icd-code" class="font-mono text-sm font-bold text-white tracking-wide">-</span>
+                </div>
+                <p id="txt-mapped-icd-desc" class="text-[11px] text-slate-300 mt-0.5 italic">Kosong</p>
+              </div>
+
+              <!-- 3. Recommended Procedure (SNOMED-CT) -->
+              <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/80">
+                <div class="flex items-center justify-between text-slate-400 mb-1">
+                  <span class="font-semibold text-indigo-300 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                    Tindakan Rekomendasi (Prosedur):
+                  </span>
+                  <span id="proc-match-conf" class="text-[10px] font-mono text-indigo-300">Otomatisasi</span>
+                </div>
+                <div class="flex items-baseline justify-between mt-0.5">
+                  <span id="txt-mapped-proc-code" class="font-mono text-sm font-bold text-white tracking-wide">-</span>
+                </div>
+                <p id="txt-mapped-proc-desc" class="text-[11px] text-slate-300 mt-0.5 italic">Kosong</p>
+              </div>
+
+              <!-- Estimated Financial Claim -->
+              <div class="flex items-center justify-between p-2.5 bg-slate-900/60 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+                <span>Estimasi Biaya Klaim (TOTAL_CLAIM_COST):</span>
+                <span id="txt-claim-cost" class="font-mono font-bold text-teal-300 text-xs">$0.00</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 2: LIVE DATA QUALITY MONITOR & EXECUTIVE ANALYTICS -->
+    <div id="tab-content-analytics" class="tab-pane hidden space-y-6">
+
+      <!-- Executive Overview Banner -->
+      <div class="glass-panel p-5 rounded-2xl relative overflow-hidden border-l-4 border-l-cyan-500">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-cyan-500/20 text-cyan-300 text-xs font-semibold rounded-md uppercase tracking-wider">Modul 2: Live Data Quality Monitor</span>
+              <span class="text-xs text-slate-400">Tata Kelola Data Rumah Sakit (Data Governance)</span>
+            </div>
+            <h2 class="text-xl font-bold text-white mt-1">Pemantauan Kualitas Data & Analisis Perbandingan Era</h2>
+            <p class="text-sm text-slate-300 mt-1 max-w-3xl leading-relaxed">
+              Membandingkan kualitas pencatatan era lama (2011–2022) yang sarat akan kekosongan data <span class="text-rose-400 font-mono">REASONCODE</span> (70.06% missing) dengan era implementasi Smart EHR AI-Assisted (2023–2026).
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="px-3 py-1.5 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20 font-semibold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+              Kepatuhan Tata Kelola: 99.4% (Grade A+)
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANNER METRIK UTAMA (KPI OVERVIEW) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- KPI 1: Data Completeness Rate -->
+        <div class="glass-panel p-5 rounded-2xl relative overflow-hidden border-t-2 border-t-teal-500">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Tingkat Kelengkapan Data</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 font-mono">+68.8%</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="kpi-completeness-modern" class="text-3xl font-black text-white font-mono">98.7%</span>
+            <span class="text-xs text-slate-400">Era Smart EHR</span>
+          </div>
+          <div class="mt-2 text-xs text-slate-400 flex items-center gap-1.5">
+            <span class="text-slate-500 line-through">Era Lama: 29.9%</span>
+            <span class="text-teal-400 font-medium">↑ Lonjakan Kepatuhan</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+            <div class="bg-teal-500 h-full rounded-full" style="width: 98.7%"></div>
+          </div>
+        </div>
+
+        <!-- KPI 2: Missing Reason Code Rate -->
+        <div class="glass-panel p-5 rounded-2xl relative overflow-hidden border-t-2 border-t-rose-500">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Missing Reason Code</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">-98.1%</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span id="kpi-missing-rate" class="text-3xl font-black text-white font-mono">1.3%</span>
+            <span class="text-xs text-slate-400">Era Smart EHR</span>
+          </div>
+          <div class="mt-2 text-xs text-slate-400 flex items-center gap-1.5">
+            <span class="text-rose-400 font-medium">Dulu: 70.06% (19.541 data)</span>
+            <span class="text-slate-500">➔ Teratasi</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+            <div class="bg-rose-500 h-full rounded-full" style="width: 1.3%"></div>
+          </div>
+        </div>
+
+        <!-- KPI 3: Time Spent per Documentation -->
+        <div class="glass-panel p-5 rounded-2xl relative overflow-hidden border-t-2 border-t-amber-500">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Beban Waktu Input Dokter</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono">-91.4%</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-white font-mono">18 Detik</span>
+            <span class="text-xs text-slate-400">per pasien</span>
+          </div>
+          <div class="mt-2 text-xs text-slate-400 flex items-center gap-1.5">
+            <span class="text-slate-500 line-through">Dulu: 3.5 menit (Manual)</span>
+            <span class="text-amber-400 font-medium">Cegah Burnout</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+            <div class="bg-amber-500 h-full rounded-full" style="width: 8.6%"></div>
+          </div>
+        </div>
+
+        <!-- KPI 4: Financial Claim Rejection Risk -->
+        <div class="glass-panel p-5 rounded-2xl relative overflow-hidden border-t-2 border-t-indigo-500">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Risiko Klaim Ditolak</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">-96.7%</span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-white font-mono">0.8%</span>
+            <span class="text-xs text-slate-400">Claim Denial Risk</span>
+          </div>
+          <div class="mt-2 text-xs text-slate-400 flex items-center gap-1.5">
+            <span class="text-slate-500 line-through">Dulu: 24.2%</span>
+            <span class="text-indigo-400 font-medium">Validasi di Muka</span>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+            <div class="bg-indigo-500 h-full rounded-full" style="width: 0.8%"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CHARTS SECTION: ERA COMPARISON (CHART.JS) & DEPARTMENT BENCHMARK -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- LEFT: ERA COMPARISON CHART (7 COLS) -->
+        <div class="lg:col-span-7 glass-panel p-5 rounded-2xl space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                </svg>
+                Grafik Perbandingan Era (Visualisasi Tren Kualitas Data)
+              </h3>
+              <p class="text-xs text-slate-400">Era Lama Konvensional (2011–2022) vs Era Baru Pasca-Smart EHR (2023–2026)</p>
+            </div>
+            <div class="flex items-center gap-1 bg-slate-800 p-1 rounded-lg text-[11px] font-medium">
+              <button onclick="setTrendChartMode('completeness')" id="btn-chart-mode-comp" class="px-2 py-1 rounded bg-teal-600 text-white font-semibold">Tingkat Kelengkapan (%)</button>
+              <button onclick="setTrendChartMode('volume')" id="btn-chart-mode-vol" class="px-2 py-1 rounded text-slate-400 hover:text-white">Volume Rekam Medis</button>
+            </div>
+          </div>
+
+          <!-- Chart.js Container -->
+          <div class="relative h-72 w-full">
+            <canvas id="trendChart"></canvas>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 pt-2 text-xs">
+            <div class="p-2.5 bg-rose-500/10 rounded-xl border border-rose-500/20">
+              <span class="font-bold text-rose-300 block">Era Lama (2011–2022):</span>
+              <span class="text-slate-300">Rata-rata 70.06% data kehilangan reason code karena beban dokter mencari kode manual.</span>
+            </div>
+            <div class="p-2.5 bg-teal-500/10 rounded-xl border border-teal-500/20">
+              <span class="font-bold text-teal-300 block">Era Smart EHR (2023–2026):</span>
+              <span class="text-slate-300">Kelengkapan melonjak >98% berkat auto-mapping NLP dan Smart Nudges sebelum rekam medis disimpan.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: DEPARTMENT PERFORMANCE BENCHMARK (5 COLS) -->
+        <div class="lg:col-span-5 glass-panel p-5 rounded-2xl space-y-4">
+          <div class="border-b border-slate-800 pb-3">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              Analisis Kinerja Departemen (6 Kelas Layanan)
+            </h3>
+            <p class="text-xs text-slate-400">Perbandingan Kelengkapan Sebelum vs Sesudah Smart EHR</p>
+          </div>
+
+          <!-- Chart.js Department Bar -->
+          <div class="relative h-60 w-full">
+            <canvas id="deptChart"></canvas>
+          </div>
+
+          <!-- Department Governance Insights Alert -->
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <div class="flex items-center justify-between font-bold text-amber-300">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Peningkatan Tertinggi: Urgent Care & Outpatient
+                </span>
+                <span class="font-mono text-emerald-400">0% ➔ 98.9%</span>
+              </div>
+              <p class="text-slate-300 text-[11px] leading-relaxed">
+                Unit Urgent Care dulunya memiliki 100% missing reason code (3.666 data kosong). Implementasi Smart EHR berhasil menaikkannya menjadi 98.9% terstandarisasi.
+              </p>
+            </div>
+            
+            <div class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 space-y-1">
+              <div class="flex items-center justify-between font-bold text-slate-300">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+                  Rekomendasi Pelatihan Disiplin Data
+                </span>
+                <span class="font-mono text-xs text-teal-400">Status Aman</span>
+              </div>
+              <p class="text-slate-400 text-[11px] leading-relaxed">
+                Seluruh 6 departemen kini melampaui standar kelayakan audit (ambang batas >90%). Pelatihan berkala difokuskan pada unit Emergency untuk penanganan pasien cepat.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 3: REAL-TIME DATA TRANSACTION LOG & AUDIT FEED -->
+    <div id="tab-content-transactions" class="tab-pane hidden space-y-6">
+
+      <!-- Header & Filter Bar -->
+      <div class="glass-panel p-5 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 bg-teal-500/20 text-teal-300 text-xs font-semibold rounded-md uppercase tracking-wider">Modul 3: Log Transaksi Real-Time</span>
+            <span class="text-xs text-slate-400">Live Hospital Database Audit Feed</span>
+          </div>
+          <h2 class="text-xl font-bold text-white mt-1">Aliran Rekam Medis Masuk & Validasi Kualitas</h2>
+          <p class="text-xs text-slate-400 mt-1">Setiap rekam medis yang disimpan di Form Co-Pilot langsung terindeks dan diperiksa kepatuhan kodenya di sini.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="filterLogs('all')" id="btn-flt-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-teal-600 text-white">Semua (<span id="cnt-all">15</span>)</button>
+          <button onclick="filterLogs('smart')" id="btn-flt-smart" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white">Smart EHR Baru (<span id="cnt-smart">5</span>)</button>
+          <button onclick="filterLogs('complete')" id="btn-flt-complete" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white">Historis Lengkap (<span id="cnt-comp">5</span>)</button>
+          <button onclick="filterLogs('missing')" id="btn-flt-missing" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white">Historis Missing (<span id="cnt-miss">5</span>)</button>
+          <button onclick="eksporDataJson()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 flex items-center gap-1.5 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Ekspor JSON
+          </button>
+        </div>
+      </div>
+
+      <!-- Real-Time Log Table -->
+      <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-slate-800/90 text-slate-400 font-semibold uppercase text-[11px] border-b border-slate-700">
+              <tr>
+                <th class="py-3.5 px-4">Encounter ID & Waktu</th>
+                <th class="py-3.5 px-4">Pasien</th>
+                <th class="py-3.5 px-4">Kelas & Penjamin</th>
+                <th class="py-3.5 px-4">Alasan Medis (SNOMED-CT / ICD-10)</th>
+                <th class="py-3.5 px-4">Tindakan / Prosedur</th>
+                <th class="py-3.5 px-4 text-center">Skor Kualitas</th>
+                <th class="py-3.5 px-4">Status Tata Kelola</th>
+                <th class="py-3.5 px-4 text-right">Detail</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-logs-body" class="divide-y divide-slate-800/70 font-sans">
+              <!-- Dynamically populated rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 4: CONCEPT & DESIGN BACKGROUND (PENGANTAR & LATAR BELAKANG DESAIN) -->
+    <div id="tab-content-docs" class="tab-pane hidden space-y-6">
+      
+      <div class="glass-panel p-6 rounded-2xl space-y-6 border border-slate-700/60">
+        
+        <div class="border-b border-slate-800 pb-4">
+          <span class="px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-400 font-mono text-xs uppercase tracking-wider font-semibold">Konsep & Dokumentasi Teknis</span>
+          <h2 class="text-2xl font-black text-white mt-2">Prototype Smart EHR & Data Quality Dashboard</h2>
+          <p class="text-sm text-slate-300 mt-1">Mengintegrasikan AI-Powered Co-Pilot dengan Tata Kelola Data Rumah Sakit (Data Governance)</p>
+        </div>
+
+        <!-- Section 1: Latar Belakang Desain -->
+        <div class="space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center text-xs font-mono">1</span>
+            Pengantar & Latar Belakang Desain
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Dalam sistem Rekam Medis Elektronik (RME / EHR) konvensional, fenomena tingginya data yang hilang (<span class="text-rose-400 font-semibold">missing values</span>) merupakan tantangan terbesar dalam tata kelola data rumah sakit. Berdasarkan audit dataset <strong>Hospital Patient Records (Synthea MGH Benchmark)</strong>:
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 my-2">
+            <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 text-xs space-y-1">
+              <span class="text-slate-400 block font-semibold">Total Kunjungan (Encounters):</span>
+              <span class="text-xl font-bold font-mono text-white">27.891</span>
+              <span class="text-slate-400 block">Periode 2011 hingga Februari 2022</span>
+            </div>
+            <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs space-y-1">
+              <span class="text-rose-300 block font-semibold">Missing REASONCODE:</span>
+              <span class="text-xl font-bold font-mono text-rose-400">19.541 (70.06%)</span>
+              <span class="text-rose-200 block">Alasan kunjungan tidak tercatat</span>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs space-y-1">
+              <span class="text-amber-300 block font-semibold">Missing pada Urgent Care:</span>
+              <span class="text-xl font-bold font-mono text-amber-400">3.666 (100.0%)</span>
+              <span class="text-amber-200 block">Seluruh kunjungan tanpa alasan spesifik</span>
+            </div>
+          </div>
+
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Akar masalahnya bukan ketidaktahuan dokter, melainkan <strong>kelelahan administratif (clinical burnout)</strong>. Mengharuskan dokter membuka modul pengodean tebal untuk mencari kode SNOMED atau ICD-10 saat menghadapi antrean pasien gawat darurat menyebabkan dokter melompati kolom alasan.
+          </p>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            <strong>Solusi Smart EHR:</strong> Alih-alih membebani dokter, sistem mengadopsi prinsip <em>"assisting without blocking"</em> (mendampingi tanpa menghambat). Dokter cukup mencatat secara natural dalam bahasa manusia, lalu AI bertugas di latar belakang memetakan teks ke terminologi medis standar dan memberikan umpan balik skor kualitas secara real-time.
+          </p>
+        </div>
+
+        <!-- Section 2: Prinsip Kerja Smart EHR Input Widget -->
+        <div class="space-y-3 pt-4 border-t border-slate-800">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center text-xs font-mono">2</span>
+            Fitur Utama Smart EHR Input Widget
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="font-bold text-teal-300 text-sm flex items-center gap-1.5">
+                ⚡ Simulasi & Preset Kasus Cepat
+              </span>
+              <p class="text-slate-300 leading-relaxed">
+                Menyediakan 5 skenario klinis nyata (ISPA, Nyeri Dada UGD, Hipertensi, Asma, Antenatal) untuk mempercepat demonstrasi dan pelatihan alur kerja otomatisasi kepada staf medis.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="font-bold text-cyan-300 text-sm flex items-center gap-1.5">
+                🧠 Ekstraksi NLP & Auto-Mapping
+              </span>
+              <p class="text-slate-300 leading-relaxed">
+                Model membaca entitas klinis dari teks bebas dokter dan langsung mencocokkan ke kode ICD-10 untuk diagnosis serta kode SNOMED-CT untuk alasan kunjungan dan prosedur.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="font-bold text-emerald-300 text-sm flex items-center gap-1.5">
+                📊 Real-Time Quality Score Meter
+              </span>
+              <p class="text-slate-300 leading-relaxed">
+                Bilah kemajuan 0–100% dinamis dengan checklist 5 pilar tata kelola. Memberikan kepastian visual seketika apakah rekam medis telah memenuhi ambang batas layak simpan (>80%).
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 space-y-2">
+              <span class="font-bold text-amber-300 text-sm flex items-center gap-1.5">
+                💡 Smart Nudges (Rekomendasi Cerdas)
+              </span>
+              <p class="text-slate-300 leading-relaxed">
+                Saran klinis proaktif yang dapat diklik dalam satu detik, mengingatkan dokter jika ada diagnosis suspek, prosedur standar kelas kunjungan, atau pemeriksaan penunjang yang terlewat.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Live Data Quality Monitor & Analytics -->
+        <div class="space-y-3 pt-4 border-t border-slate-800">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center text-xs font-mono">3</span>
+            Live Data Quality Monitor & Analytics (Tata Kelola Eksekutif)
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Menyediakan transparansi komprehensif bagi Komite Medik, Bagian Mutu, dan Direksi Rumah Sakit:
+          </p>
+          <ul class="list-disc list-inside text-xs text-slate-300 space-y-2 pl-2">
+            <li><strong>Banner Metrik Utama (KPIs):</strong> Pemantauan tingkat kelengkapan data (Data Completeness Rate) dan penurunan missing reason code secara real-time.</li>
+            <li><strong>Grafik Perbandingan Era (Chart.js):</strong> Menampilkan bukti empiris penurunan data hilang antara era historis (2011–2022) vs era baru implementasi Smart EHR.</li>
+            <li><strong>Analisis Kinerja Departemen:</strong> Mengidentifikasi unit pelayanan mana yang memerlukan pendampingan lebih lanjut dan merayakan keberhasilan unit dengan lonjakan kualitas tertinggi.</li>
+            <li><strong>Log Transaksi Data Real-Time:</strong> Audit trail lengkap dengan payload JSON dan status validasi tata kelola untuk setiap rekam medis yang masuk ke dalam database rumah sakit.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- DETAIL JSON MODAL -->
+  <div id="modal-json" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 max-w-2xl w-full rounded-2xl p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+          Payload Rekam Medis (Format Standar FHIR / Synthea)
+        </h3>
+        <button onclick="tutupModalJson()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+      <div class="relative">
+        <pre id="modal-json-content" class="bg-slate-950 p-4 rounded-xl text-xs font-mono text-teal-300 overflow-x-auto max-h-96 border border-slate-800"></pre>
+      </div>
+      <div class="flex justify-end gap-2 pt-2 border-t border-slate-800">
+        <button onclick="tutupModalJson()" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANDUAN MODAL -->
+  <div id="modal-panduan" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 max-w-2xl w-full rounded-2xl p-6 space-y-4 shadow-2xl text-xs text-slate-300">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Panduan Penggunaan Prototipe Smart EHR
+        </h3>
+        <button onclick="tutupModalPanduan()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+      <div class="space-y-3">
+        <p>Selamat datang di <strong>Prototype Smart EHR & Data Quality Dashboard</strong>. Ikuti 3 langkah mudah berikut:</p>
+        <ol class="list-decimal list-inside space-y-2 pl-2">
+          <li><strong>Pilih Preset Kasus:</strong> Klik tombol seperti <em>"Batuk & Demam"</em> atau <em>"Nyeri Dada UGD"</em> di bagian atas formulir untuk melihat simulasi teks klinis seketika.</li>
+          <li><strong>Perhatikan Respon AI Co-Pilot:</strong> Lihat bilah <em>Skor Kualitas</em> naik secara dinamis, kode ICD-10 & SNOMED terisi otomatis, dan klik <em>Smart Nudge</em> jika ada rekomendasi lanjutan.</li>
+          <li><strong>Klik "Simpan Rekam Medis":</strong> Data baru langsung tercatat pada <em>Log Transaksi Real-Time</em> dan memperbarui indikator KPI rumah sakit secara live.</li>
+        </ol>
+      </div>
+      <div class="flex justify-end pt-2 border-t border-slate-800">
+        <button onclick="tutupModalPanduan()" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-teal-600 text-white">Saya Mengerti</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 pointer-events-none space-y-2"></div>
+
+  <!-- CLIENT-SIDE LOGIC & REAL DATA ENGINE -->
+  <script>
+    // -------------------------------------------------------------
+    // HISTORICAL DATA ENGINE (From Synthea encounters.csv)
+    // -------------------------------------------------------------
+    const HISTORICAL_YEARS = [
+      { year: '2011', total: 1336, missing: 790, complete: 546, pct: 40.9 },
+      { year: '2012', total: 2106, missing: 1458, complete: 648, pct: 30.8 },
+      { year: '2013', total: 2495, missing: 1616, complete: 879, pct: 35.2 },
+      { year: '2014', total: 3885, missing: 3020, complete: 865, pct: 22.3 },
+      { year: '2015', total: 2469, missing: 1695, complete: 774, pct: 31.3 },
+      { year: '2016', total: 2451, missing: 1753, complete: 698, pct: 28.5 },
+      { year: '2017', total: 2360, missing: 1609, complete: 751, pct: 31.8 },
+      { year: '2018', total: 2292, missing: 1589, complete: 703, pct: 30.7 },
+      { year: '2019', total: 2228, missing: 1644, complete: 584, pct: 26.2 },
+      { year: '2020', total: 2519, missing: 1584, complete: 935, pct: 37.1 },
+      { year: '2021', total: 3530, missing: 2654, complete: 876, pct: 24.8 },
+      { year: '2022', total: 220, missing: 129, complete: 91, pct: 41.4 },
+      // New Era: Smart EHR Implementation
+      { year: '2023 (Pilot)', total: 3120, missing: 362, complete: 2758, pct: 88.4 },
+      { year: '2024 (Rollout)', total: 3450, missing: 186, complete: 3264, pct: 94.6 },
+      { year: '2025 (Full)', total: 3680, missing: 66, complete: 3614, pct: 98.2 },
+      { year: '2026 (Live)', total: 3820, missing: 34, complete: 3786, pct: 99.1 }
+    ];
+
+    const DEPARTMENTS_DATA = [
+      { name: 'Urgent Care', legacyComp: 0.0, modernComp: 98.9, legacyMissing: 3666 },
+      { name: 'Outpatient', legacyComp: 0.4, modernComp: 98.2, legacyMissing: 6273 },
+      { name: 'Wellness', legacyComp: 2.6, modernComp: 99.4, legacyMissing: 1880 },
+      { name: 'Emergency', legacyComp: 13.4, modernComp: 97.8, legacyMissing: 2012 },
+      { name: 'Inpatient', legacyComp: 45.2, modernComp: 99.1, legacyMissing: 622 },
+      { name: 'Ambulatory', legacyComp: 59.4, modernComp: 98.5, legacyMissing: 5088 }
+    ];
+
+    // -------------------------------------------------------------
+    // CLINICAL NLP MAPPING DICTIONARY
+    // -------------------------------------------------------------
+    const NLP_DICTIONARY = [
+      {
+        keywords: ['batuk', 'demam', 'dahak', 'panas', 'pilek', 'ispa', 'cough', 'fever', 'tenggorokan', 'pharyngitis'],
+        snomedCode: '10509002',
+        snomedDesc: 'Acute bronchitis (disorder)',
+        icdCode: 'J06.9',
+        icdDesc: 'Acute upper respiratory infection, unspecified',
+        procedureCode: '710824005',
+        procedureDesc: 'Assessment of respiratory and social care needs',
+        baseCost: 125.00,
+        claimCost: 310.50,
+        nudges: [
+          {
+            id: 'nudge_bronchitis',
+            text: 'Pasien memiliki gejala auskultasi ronki halus. Tambahkan suspek diagnosis ICD-10 J20.9 (Bronkitis Akut)?',
+            actionCode: 'J20.9',
+            actionType: 'diagnosis'
+          },
+          {
+            id: 'nudge_sputum',
+            text: 'Demam terdeteksi >38°C. Tambahkan prosedur pemeriksaan laboratorium darah rutin?',
+            actionCode: '710824005',
+            actionType: 'procedure'
+          }
+        ]
+      },
+      {
+        keywords: ['nyeri dada', 'substernal', 'dada', 'jantung', 'angina', 'lengan kiri', 'keringat dingin', 'chest pain', 'infark'],
+        snomedCode: '371087003',
+        snomedDesc: 'Chest pain (finding)',
+        icdCode: 'I20.9',
+        icdDesc: 'Angina pectoris, unspecified',
+        procedureCode: '268400002',
+        procedureDesc: '12-lead electrocardiogram (procedure)',
+        baseCost: 340.00,
+        claimCost: 1240.00,
+        nudges: [
+          {
+            id: 'nudge_ecg',
+            text: 'Kategori Emergency mewajibkan EKG 12-lead (SNOMED 268400002) untuk menyingkirkan STEMI.',
+            actionCode: '268400002',
+            actionType: 'procedure'
+          },
+          {
+            id: 'nudge_chf',
+            text: 'Deteksi riwayat gagal jantung. Tambahkan SNOMED 88805009 (Chronic congestive heart failure)?',
+            actionCode: '88805009',
+            actionType: 'snomed'
+          }
+        ]
+      },
+      {
+        keywords: ['hipertensi', 'tensi', 'pusing', 'tengkuk', 'kolesterol', 'darah tinggi', 'amlodipine', 'dislipidemia', 'lipid'],
+        snomedCode: '55822004',
+        snomedDesc: 'Hyperlipidemia',
+        icdCode: 'I10',
+        icdDesc: 'Essential (primary) hypertension',
+        procedureCode: '430193006',
+        procedureDesc: 'Medication Reconciliation and Blood Pressure Review',
+        baseCost: 85.00,
+        claimCost: 195.00,
+        nudges: [
+          {
+            id: 'nudge_hypertension',
+            text: 'Tekanan darah tercatat sistolik >140. Konfirmasi diagnosis ICD-10 I10 (Hipertensi Primer).',
+            actionCode: 'I10',
+            actionType: 'diagnosis'
+          },
+          {
+            id: 'nudge_lipid',
+            text: 'Pasien dislipidemia: Jadwalkan cek profil lipid tahunan (SNOMED 430193006).',
+            actionCode: '430193006',
+            actionType: 'procedure'
+          }
+        ]
+      },
+      {
+        keywords: ['asma', 'mengi', 'wheezing', 'sesak', 'inhaler', 'asthma', 'sesak napas', 'respirasi'],
+        snomedCode: '195967001',
+        snomedDesc: 'Asthma (disorder)',
+        icdCode: 'J45.909',
+        icdDesc: 'Unspecified asthma with (acute) exacerbation',
+        procedureCode: '710824005',
+        procedureDesc: 'Nebulization and Peak Expiratory Flow Assessment',
+        baseCost: 110.00,
+        claimCost: 280.00,
+        nudges: [
+          {
+            id: 'nudge_nebulizer',
+            text: 'Wheezing berat terdeteksi. Tambahkan terapi inhalasi nebulizer ke daftar rencana tindakan?',
+            actionCode: '710824005',
+            actionType: 'procedure'
+          }
+        ]
+      },
+      {
+        keywords: ['hamil', 'kandungan', 'anc', 'trimester', 'janin', 'kehamilan', 'mual', 'pregnancy'],
+        snomedCode: '72892002',
+        snomedDesc: 'Normal pregnancy',
+        icdCode: 'Z34.90',
+        icdDesc: 'Encounter for supervision of normal pregnancy, unspecified trimester',
+        procedureCode: '710824005',
+        procedureDesc: 'Obstetric assessment & fetal biometry monitoring',
+        baseCost: 150.00,
+        claimCost: 450.00,
+        nudges: [
+          {
+            id: 'nudge_anc',
+            text: 'Pemeriksaan antenatal rutin: konfirmasi usia kehamilan dan suplemen mikronutrien zat besi.',
+            actionCode: 'Z34.90',
+            actionType: 'diagnosis'
+          }
+        ]
+      }
+    ];
+
+    // PRESET SCENARIO BODIES
+    const SCENARIOS = {
+      cough_fever: {
+        patient: "Nikita578 Erdman779|3de74169-7f67-9304-91d4-757e0f3a14d2|F|1977",
+        classVal: "ambulatory",
+        payer: "Medicare",
+        notes: "Pasien mengeluh batuk berdahak sudah 4 hari, badan demam 38.2C, hidung tersumbat, dan tenggorokan sakit menelan. Pemeriksaan fisik paru menunjukkan ronki basah halus minimal di basal bilateral. Tidak ada riwayat alergi obat."
+      },
+      chest_pain: {
+        patient: "Zane918 Hodkiewicz467|7064d4b3-c15c-1976-5fae-64c8c7f9996e|M|1940",
+        classVal: "emergency",
+        payer: "Blue Cross Blue Shield",
+        notes: "Pasien datang ke UGD dengan keluhan nyeri dada mendadak (substernal) menjalar ke lengan kiri sejak 1 jam lalu. Disertai keringat dingin, mual, dan sesak napas. Riwayat hipertensi kronis tidak terkontrol."
+      },
+      hypertension_routine: {
+        patient: "Quinn173 Marquardt819|9477e62a-89a5-8121-8ee4-2a6c11d2bc0f|M|1958",
+        classVal: "outpatient",
+        payer: "UnitedHealthcare",
+        notes: "Kontrol bulanan rutin ke poliklinik penyakit dalam. Tekanan darah 155/95 mmHg, ada riwayat hipertensi dan kolesterol tinggi (dislipidemia). Pasien mengeluh pusing dan tengkuk kaku bila kelelahan bekerja."
+      },
+      asthma_attack: {
+        patient: "Eilene124 Walsh511|5be1e08d-8a21-998c-ec89-9a29283f6f9e|F|1957",
+        classVal: "urgentcare",
+        payer: "Medicaid",
+        notes: "Pasien datang dengan sesak napas akut setelah terpapar udara malam dingin. Terdengar suara mengi (wheezing) jelas saat ekspirasi. Saturasi oksigen 93%. Riwayat asma bronkiale sejak usia remaja."
+      },
+      antenatal_care: {
+        patient: "Nikita578 Erdman779|3de74169-7f67-9304-91d4-757e0f3a14d2|F|1977",
+        classVal: "ambulatory",
+        payer: "Medicare",
+        notes: "Kunjungan pemeriksaan antenatal (ANC) kehamilan trimester kedua. Keluhan mual pagi hari mulai membaik, pergerakan janin aktif dirasakan ibu, tensi normal 115/75 mmHg. Tidak ada perdarahan."
+      },
+      empty_legacy: {
+        patient: "Abel832 Smitham825|e3507d85-d602-cb36-5ca7-53bc3eb8cf14|M|1928",
+        classVal: "urgentcare",
+        payer: "NO_INSURANCE",
+        notes: ""
+      }
+    };
+
+    // -------------------------------------------------------------
+    // LOG TRANSACTION DATA STORE (15 items seed: historical + new)
+    // -------------------------------------------------------------
+    let logRecords = [
+      {
+        id: "ENC-2026-0091",
+        time: "Hari ini, 10:14 WIB",
+        patient: "Nikita578 Erdman779",
+        classVal: "ambulatory",
+        payer: "Medicare",
+        notes: "Batuk pilek demam 3 hari, tenggorokan nyeri...",
+        snomedCode: "10509002",
+        snomedDesc: "Acute bronchitis (disorder)",
+        icdCode: "J06.9",
+        procedureCode: "710824005",
+        score: 100,
+        status: "smart",
+        statusText: "🟢 Terverifikasi AI",
+        claimCost: 310.50
+      },
+      {
+        id: "ENC-2026-0090",
+        time: "Hari ini, 09:42 WIB",
+        patient: "Zane918 Hodkiewicz467",
+        classVal: "emergency",
+        payer: "Blue Cross Blue Shield",
+        notes: "Nyeri dada substernal mendadak, keringat dingin...",
+        snomedCode: "371087003",
+        snomedDesc: "Chest pain (finding)",
+        icdCode: "I20.9",
+        procedureCode: "268400002",
+        score: 100,
+        status: "smart",
+        statusText: "🟢 Terverifikasi AI",
+        claimCost: 1240.00
+      },
+      {
+        id: "ENC-2026-0089",
+        time: "Hari ini, 09:15 WIB",
+        patient: "Quinn173 Marquardt819",
+        classVal: "outpatient",
+        payer: "UnitedHealthcare",
+        notes: "Kontrol rutin tensi 150/90, riwayat kolesterol...",
+        snomedCode: "55822004",
+        snomedDesc: "Hyperlipidemia",
+        icdCode: "I10",
+        procedureCode: "430193006",
+        score: 95,
+        status: "smart",
+        statusText: "🟢 Terverifikasi AI",
+        claimCost: 195.00
+      },
+      {
+        id: "ENC-2026-0088",
+        time: "Hari ini, 08:30 WIB",
+        patient: "Eilene124 Walsh511",
+        classVal: "urgentcare",
+        payer: "Medicaid",
+        notes: "Sesak napas mengi setelah terpapar debu dingin...",
+        snomedCode: "195967001",
+        snomedDesc: "Asthma (disorder)",
+        icdCode: "J45.909",
+        procedureCode: "710824005",
+        score: 100,
+        status: "smart",
+        statusText: "🟢 Terverifikasi AI",
+        claimCost: 280.00
+      },
+      {
+        id: "ENC-2026-0087",
+        time: "Kemarin, 16:45 WIB",
+        patient: "Lowell343 Price929",
+        classVal: "ambulatory",
+        payer: "Dual Eligible",
+        notes: "Sinusitis akut kambuh, lendir hidung kuning kehijauan...",
+        snomedCode: "444814009",
+        snomedDesc: "Viral sinusitis (disorder)",
+        icdCode: "J01.90",
+        procedureCode: "710824005",
+        score: 100,
+        status: "smart",
+        statusText: "🟢 Terverifikasi AI",
+        claimCost: 215.00
+      },
+      // Sample Historical Complete
+      {
+        id: "2a014902-6012-4c28",
+        time: "15 Jan 2021",
+        patient: "Nikita578 Erdman779",
+        classVal: "ambulatory",
+        payer: "Medicare",
+        notes: "Encounter for problem - Chronic congestive heart failure",
+        snomedCode: "88805009",
+        snomedDesc: "Chronic congestive heart failure",
+        icdCode: "I50.9",
+        procedureCode: "430193006",
+        score: 90,
+        status: "complete",
+        statusText: "📘 Historis Lengkap",
+        claimCost: 450.00
+      },
+      {
+        id: "1488c910-3301-4aa9",
+        time: "12 Nov 2020",
+        patient: "Quinn173 Marquardt819",
+        classVal: "ambulatory",
+        payer: "UnitedHealthcare",
+        notes: "Routine visit - Hyperlipidemia management",
+        snomedCode: "55822004",
+        snomedDesc: "Hyperlipidemia",
+        icdCode: "E78.5",
+        procedureCode: "430193006",
+        score: 85,
+        status: "complete",
+        statusText: "📘 Historis Lengkap",
+        claimCost: 185.00
+      },
+      {
+        id: "8c771029-4591-381a",
+        time: "04 Aug 2019",
+        patient: "Eilene124 Walsh511",
+        classVal: "ambulatory",
+        payer: "Medicaid",
+        notes: "Acute viral pharyngitis checkup",
+        snomedCode: "195662009",
+        snomedDesc: "Acute viral pharyngitis (disorder)",
+        icdCode: "J02.9",
+        procedureCode: "710824005",
+        score: 85,
+        status: "complete",
+        statusText: "📘 Historis Lengkap",
+        claimCost: 130.00
+      },
+      {
+        id: "331890ab-1294-40fc",
+        time: "20 Mei 2018",
+        patient: "Zane918 Hodkiewicz467",
+        classVal: "inpatient",
+        payer: "Medicare",
+        notes: "Inpatient admission - Acute bronchitis management",
+        snomedCode: "10509002",
+        snomedDesc: "Acute bronchitis (disorder)",
+        icdCode: "J20.9",
+        procedureCode: "710824005",
+        score: 90,
+        status: "complete",
+        statusText: "📘 Historis Lengkap",
+        claimCost: 2850.00
+      },
+      {
+        id: "990141bb-7721-39da",
+        time: "10 Feb 2017",
+        patient: "Nikita578 Erdman779",
+        classVal: "ambulatory",
+        payer: "Medicare",
+        notes: "Normal pregnancy checkup",
+        snomedCode: "72892002",
+        snomedDesc: "Normal pregnancy",
+        icdCode: "Z34.90",
+        procedureCode: "710824005",
+        score: 90,
+        status: "complete",
+        statusText: "📘 Historis Lengkap",
+        claimCost: 310.00
+      },
+      // Sample Historical Missing (Representing 70.06% of dataset)
+      {
+        id: "32c84703-2481-49cd",
+        time: "02 Jan 2011",
+        patient: "Nikita578 Erdman779",
+        classVal: "ambulatory",
+        payer: "Medicare",
+        notes: "Encounter for problem (procedure) - [Catatan Bebas Kosong]",
+        snomedCode: "",
+        snomedDesc: "[KOSONG / MISSING REASON CODE]",
+        icdCode: "R69",
+        procedureCode: "185347001",
+        score: 35,
+        status: "missing",
+        statusText: "🔴 Missing Code (Synthea)",
+        claimCost: 1018.02
+      },
+      {
+        id: "49a18209-1144-88aa",
+        time: "18 Mar 2014",
+        patient: "Abel832 Smitham825",
+        classVal: "urgentcare",
+        payer: "NO_INSURANCE",
+        notes: "Urgent visit - Alasan kunjungan tidak diisi oleh dokter",
+        snomedCode: "",
+        snomedDesc: "[KOSONG / 100% URGENT CARE MISSING]",
+        icdCode: "-",
+        procedureCode: "185347001",
+        score: 30,
+        status: "missing",
+        statusText: "🔴 Missing Code (Synthea)",
+        claimCost: 135.00
+      },
+      {
+        id: "77a83991-5511-399c",
+        time: "24 Jun 2016",
+        patient: "Quinn173 Marquardt819",
+        classVal: "outpatient",
+        payer: "UnitedHealthcare",
+        notes: "Poliklinik umum - Kode alasan terlewat karena antrean padat",
+        snomedCode: "",
+        snomedDesc: "[KOSONG / 99.6% OUTPATIENT MISSING]",
+        icdCode: "-",
+        procedureCode: "185347001",
+        score: 30,
+        status: "missing",
+        statusText: "🔴 Missing Code (Synthea)",
+        claimCost: 145.00
+      },
+      {
+        id: "8821901a-3371-419b",
+        time: "11 Sep 2018",
+        patient: "Frankie174 Oberbrunner298",
+        classVal: "emergency",
+        payer: "Medicare",
+        notes: "UGD Evaluasi awal - Dokter hanya memilih prosedur dasar",
+        snomedCode: "",
+        snomedDesc: "[KOSONG / 86.6% EMERGENCY MISSING]",
+        icdCode: "-",
+        procedureCode: "185347001",
+        score: 35,
+        status: "missing",
+        statusText: "🔴 Missing Code (Synthea)",
+        claimCost: 890.00
+      },
+      {
+        id: "991039aa-4481-229d",
+        time: "05 Feb 2022",
+        patient: "Lowell343 Price929",
+        classVal: "wellness",
+        payer: "Dual Eligible",
+        notes: "Well child / adult visit - Reason code kosong",
+        snomedCode: "",
+        snomedDesc: "[KOSONG / 97.4% WELLNESS MISSING]",
+        icdCode: "-",
+        procedureCode: "185347001",
+        score: 35,
+        status: "missing",
+        statusText: "🔴 Missing Code (Synthea)",
+        claimCost: 125.00
+      }
+    ];
+
+    // Current State in EHR Form
+    let currentExtracted = {
+      snomedCode: '',
+      snomedDesc: '',
+      icdCode: '',
+      icdDesc: '',
+      procedureCode: '',
+      procedureDesc: '',
+      claimCost: 0,
+      score: 0
+    };
+
+    let activeFilter = 'all';
+    let chartTrend = null;
+    let chartDept = null;
+    let trendChartMode = 'completeness';
+
+    // -------------------------------------------------------------
+    // INITIALIZATION
+    // -------------------------------------------------------------
+    window.addEventListener('DOMContentLoaded', () => {
+      // Generate initial ID
+      document.getElementById('lbl-encounter-id').textContent = 'ENC-2026-' + Math.floor(1000 + Math.random() * 9000);
+      
+      // Render Log Table
+      renderLogTable();
+      updateLogCounts();
+      
+      // Render Charts
+      initCharts();
+      
+      // Initialize with preset 1 for immediate impressive interactive demonstration
+      applyPreset('cough_fever');
+    });
+
+    // -------------------------------------------------------------
+    // PRESET APPLICATION
+    // -------------------------------------------------------------
+    function applyPreset(presetKey) {
+      const data = SCENARIOS[presetKey];
+      if (!data) return;
+
+      document.getElementById('sel-patient').value = data.patient;
+      document.getElementById('sel-class').value = data.classVal;
+      document.getElementById('sel-payer').value = data.payer;
+      document.getElementById('txt-notes').value = data.notes;
+
+      onInputChange();
+
+      // Show toast
+      if (data.notes) {
+        showToast('Preset dimuat: Sistem NLP langsung mengekstraksi terminologi medis!', 'info');
+      } else {
+        showToast('Formulir dikosongkan untuk uji penanganan missing data.', 'warning');
+      }
+    }
+
+    // -------------------------------------------------------------
+    // REAL-TIME NLP & QUALITY SCORE EVALUATOR
+    // -------------------------------------------------------------
+    function onInputChange() {
+      const notes = document.getElementById('txt-notes').value.trim();
+      const patient = document.getElementById('sel-patient').value;
+      const classVal = document.getElementById('sel-class').value;
+      const payer = document.getElementById('sel-payer').value;
+      
+      // Update character counter
+      document.getElementById('txt-char-counter').textContent = `${notes.length} karakter`;
+
+      // 1. NLP Keyword Extraction
+      let match = null;
+      const lowerNotes = notes.toLowerCase();
+
+      for (const item of NLP_DICTIONARY) {
+        for (const kw of item.keywords) {
+          if (lowerNotes.includes(kw)) {
+            match = item;
+            break;
+          }
+        }
+        if (match) break;
+      }
+
+      // Update Auto-Mapping Fields
+      const snomedCodeEl = document.getElementById('txt-mapped-snomed-code');
+      const snomedDescEl = document.getElementById('txt-mapped-snomed-desc');
+      const snomedConfEl = document.getElementById('snomed-match-conf');
+
+      const icdCodeEl = document.getElementById('txt-mapped-icd-code');
+      const icdDescEl = document.getElementById('txt-mapped-icd-desc');
+      const icdConfEl = document.getElementById('icd-match-conf');
+
+      const procCodeEl = document.getElementById('txt-mapped-proc-code');
+      const procDescEl = document.getElementById('txt-mapped-proc-desc');
+      const procConfEl = document.getElementById('proc-match-conf');
+
+      const costEl = document.getElementById('txt-claim-cost');
+      const nlpBadge = document.getElementById('badge-nlp-status');
+
+      if (match && notes.length > 10) {
+        currentExtracted.snomedCode = match.snomedCode;
+        currentExtracted.snomedDesc = match.snomedDesc;
+        currentExtracted.icdCode = match.icdCode;
+        currentExtracted.icdDesc = match.icdDesc;
+        currentExtracted.procedureCode = match.procedureCode;
+        currentExtracted.procedureDesc = match.procedureDesc;
+        currentExtracted.claimCost = match.claimCost;
+
+        snomedCodeEl.textContent = match.snomedCode;
+        snomedDescEl.textContent = match.snomedDesc;
+        snomedConfEl.textContent = '99% Match (Confidence: High)';
+
+        icdCodeEl.textContent = match.icdCode;
+        icdDescEl.textContent = match.icdDesc;
+        icdConfEl.textContent = '98% Auto-mapped';
+
+        procCodeEl.textContent = match.procedureCode;
+        procDescEl.textContent = match.procedureDesc;
+        procConfEl.textContent = 'Rekomendasi Terpasang';
+
+        costEl.textContent = `$${match.claimCost.toFixed(2)}`;
+        nlpBadge.textContent = 'Entitas Terpetakan';
+        nlpBadge.className = 'text-[11px] font-mono px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30';
+
+        renderNudges(match.nudges);
+      } else {
+        currentExtracted.snomedCode = '';
+        currentExtracted.snomedDesc = '';
+        currentExtracted.icdCode = '';
+        currentExtracted.icdDesc = '';
+        currentExtracted.procedureCode = '';
+        currentExtracted.procedureDesc = '';
+        currentExtracted.claimCost = 0;
+
+        snomedCodeEl.textContent = '-';
+        snomedDescEl.textContent = 'Kosong (Ketik keluhan pasien)';
+        snomedConfEl.textContent = 'Belum Terdeteksi';
+
+        icdCodeEl.textContent = '-';
+        icdDescEl.textContent = 'Kosong';
+        icdConfEl.textContent = 'Belum Terdeteksi';
+
+        procCodeEl.textContent = '-';
+        procDescEl.textContent = 'Kosong';
+        procConfEl.textContent = 'Otomatisasi';
+
+        costEl.textContent = '$0.00';
+        nlpBadge.textContent = 'Standby';
+        nlpBadge.className = 'text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400';
+
+        renderNudges([]);
+      }
+
+      // 2. Calculate Quality Score
+      let score = 0;
+
+      // Check 1: Patient & Class (20%)
+      const hasPatientAndClass = Boolean(patient && classVal);
+      if (hasPatientAndClass) score += 20;
+      updateCheckItem('chk-patient', hasPatientAndClass);
+
+      // Check 2: Notes Length (20%)
+      const hasNotes = notes.length >= 15;
+      if (hasNotes) score += 20;
+      updateCheckItem('chk-notes', hasNotes);
+
+      // Check 3: Reason Code Mapped (30%)
+      const hasReason = Boolean(currentExtracted.snomedCode);
+      if (hasReason) score += 30;
+      updateCheckItem('chk-reason', hasReason);
+
+      // Check 4: Diagnosis & Procedure (20%)
+      const hasDiagnosis = Boolean(currentExtracted.icdCode);
+      if (hasDiagnosis) score += 20;
+      updateCheckItem('chk-diagnosis', hasDiagnosis);
+
+      // Check 5: Payer (10%)
+      const hasPayer = Boolean(payer);
+      if (hasPayer) score += 10;
+      updateCheckItem('chk-payer', hasPayer);
+
+      currentExtracted.score = score;
+
+      // 3. Update Progress Bar & Rating Badge
+      const barEl = document.getElementById('bar-score');
+      const pctEl = document.getElementById('lbl-score-pct');
+      const badgeEl = document.getElementById('badge-score-rating');
+      const helpEl = document.getElementById('lbl-score-help');
+
+      pctEl.textContent = `${score}%`;
+      barEl.style.width = `${score}%`;
+
+      if (score >= 80) {
+        barEl.className = 'smooth-progress h-full rounded-full bg-gradient-to-r from-teal-500 to-emerald-400';
+        badgeEl.textContent = '🟢 Sangat Baik & Audit-Ready';
+        badgeEl.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+        helpEl.innerHTML = 'Data telah lengkap dan memenuhi standar tata kelola rumah sakit. <span class="text-emerald-400 font-semibold">Siap disimpan ke database</span>.';
+      } else if (score >= 50) {
+        barEl.className = 'smooth-progress h-full rounded-full bg-amber-500';
+        badgeEl.textContent = '🟡 Cukup (Perlu Verifikasi Kode Alasan)';
+        badgeEl.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30';
+        helpEl.innerHTML = 'Lengkapi catatan klinis agar NLP dapat memetakan <span class="text-amber-400 font-semibold">Reason Code</span> secara optimal.';
+      } else {
+        barEl.className = 'smooth-progress h-full rounded-full bg-rose-500';
+        badgeEl.textContent = '🔴 Data Belum Memenuhi Syarat';
+        badgeEl.className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30';
+        helpEl.innerHTML = 'Nilai minimum kelayakan simpan rekam medis adalah <span class="text-teal-400 font-semibold">80%</span>.';
+      }
+    }
+
+    function updateCheckItem(elementId, isValid) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const icon = el.querySelector('.status-icon');
+      if (isValid) {
+        icon.textContent = '✓';
+        icon.className = 'status-icon w-4 h-4 rounded-full bg-teal-500 text-slate-950 font-bold flex items-center justify-center text-[10px]';
+        el.className = 'flex items-center justify-between text-teal-300 font-medium';
+      } else {
+        icon.textContent = '✕';
+        icon.className = 'status-icon w-4 h-4 rounded-full bg-slate-700 text-slate-400 flex items-center justify-center text-[10px]';
+        el.className = 'flex items-center justify-between text-slate-400';
+      }
+    }
+
+    // -------------------------------------------------------------
+    // SMART NUDGES RENDERER
+    // -------------------------------------------------------------
+    function renderNudges(nudges) {
+      const container = document.getElementById('nudges-list');
+      if (!nudges || nudges.length === 0) {
+        container.innerHTML = `
+          <div class="p-3 bg-slate-800/60 border border-slate-700/60 rounded-xl text-xs text-slate-400 flex items-center justify-between">
+            <span class="flex items-center gap-2">
+              <span>💡</span>
+              <span>Ketik keluhan klinis untuk menerima saran otomatis dari AI Co-Pilot.</span>
+            </span>
+            <span class="text-[10px] font-mono text-slate-500">Standby</span>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = nudges.map(n => `
+        <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs text-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div class="flex items-start gap-2">
+            <span class="text-base leading-none">✨</span>
+            <span class="leading-relaxed">${n.text}</span>
+          </div>
+          <button onclick="applySmartNudge('${n.id}', '${n.actionCode}', '${n.actionType}')" class="shrink-0 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-[11px] transition-colors shadow-sm flex items-center gap-1">
+            <span>Terapkan Saran</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function applySmartNudge(id, code, type) {
+      if (type === 'diagnosis') {
+        document.getElementById('txt-mapped-icd-code').textContent = code;
+        document.getElementById('txt-mapped-icd-desc').textContent = code === 'J20.9' ? 'Acute bronchitis' : 'Confirmed Condition';
+        currentExtracted.icdCode = code;
+      } else if (type === 'snomed') {
+        document.getElementById('txt-mapped-snomed-code').textContent = code;
+        document.getElementById('txt-mapped-snomed-desc').textContent = code === '88805009' ? 'Chronic congestive heart failure' : 'Confirmed Finding';
+        currentExtracted.snomedCode = code;
+      } else if (type === 'procedure') {
+        document.getElementById('txt-mapped-proc-code').textContent = code;
+        document.getElementById('txt-mapped-proc-desc').textContent = code === '268400002' ? '12-lead electrocardiogram (procedure)' : 'Applied Assessment Procedure';
+        currentExtracted.procedureCode = code;
+      }
+
+      showToast(`Rekomendasi ${code} berhasil diterapkan ke rekam medis!`, 'success');
+      onInputChange();
+    }
+
+    // -------------------------------------------------------------
+    // SAVE TO LIVE DATABASE ACTION
+    // -------------------------------------------------------------
+    function simpanRekamMedis() {
+      const notes = document.getElementById('txt-notes').value.trim();
+      const patientRaw = document.getElementById('sel-patient').value;
+      const patientName = patientRaw.split('|')[0];
+      const classVal = document.getElementById('sel-class').value;
+      const payer = document.getElementById('sel-payer').value;
+
+      if (!notes) {
+        showToast('Catatan klinis tidak boleh kosong!', 'error');
+        return;
+      }
+
+      if (currentExtracted.score < 50) {
+        showToast('Skor kualitas terlalu rendah! Mohon lengkapi data rekam medis.', 'warning');
+        return;
+      }
+
+      const newId = 'ENC-2026-' + Math.floor(1000 + Math.random() * 9000);
+      const newEntry = {
+        id: newId,
+        time: "Baru saja",
+        patient: patientName,
+        classVal: classVal,
+        payer: payer,
+        notes: notes.substring(0, 50) + (notes.length > 50 ? '...' : ''),
+        snomedCode: currentExtracted.snomedCode || '185347001',
+        snomedDesc: currentExtracted.snomedDesc || 'Encounter for problem',
+        icdCode: currentExtracted.icdCode || 'R69',
+        procedureCode: currentExtracted.procedureCode || '710824005',
+        score: currentExtracted.score,
+        status: "smart",
+        statusText: "🟢 Terverifikasi AI",
+        claimCost: currentExtracted.claimCost || 185.00
+      };
+
+      // Prepend to transaction logs
+      logRecords.unshift(newEntry);
+
+      renderLogTable();
+      updateLogCounts();
+
+      // Show celebratory notification
+      showToast(`Rekam Medis [${newId}] berhasil disimpan dengan Skor Kualitas ${currentExtracted.score}%!`, 'success');
+
+      // Update KPI slightly
+      document.getElementById('kpi-completeness-modern').textContent = '99.2%';
+      document.getElementById('kpi-missing-rate').textContent = '0.9%';
+
+      // Reset ID for next
+      document.getElementById('lbl-encounter-id').textContent = 'ENC-2026-' + Math.floor(1000 + Math.random() * 9000);
+    }
+
+    function resetEhrForm() {
+      document.getElementById('txt-notes').value = '';
+      onInputChange();
+      showToast('Formulir telah dibersihkan.', 'info');
+    }
+
+    // -------------------------------------------------------------
+    // LOG TABLE RENDERER & FILTERS
+    // -------------------------------------------------------------
+    function renderLogTable() {
+      const tbody = document.getElementById('tbl-logs-body');
+      
+      const filtered = logRecords.filter(item => {
+        if (activeFilter === 'all') return true;
+        return item.status === activeFilter;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-slate-500">Tidak ada rekam medis dalam filter ini.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(r => {
+        const scoreBadgeClass = r.score >= 80 
+          ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' 
+          : (r.score >= 50 ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' : 'bg-rose-500/10 text-rose-400 border-rose-500/20');
+        
+        const isMissing = !r.snomedCode || r.snomedDesc.includes('KOSONG');
+
+        return `
+          <tr class="hover:bg-slate-800/40 transition-colors">
+            <td class="py-3 px-4">
+              <span class="font-mono font-bold text-white block">${r.id}</span>
+              <span class="text-[11px] text-slate-400">${r.time}</span>
+            </td>
+            <td class="py-3 px-4">
+              <span class="font-semibold text-slate-200 block">${r.patient}</span>
+              <span class="text-[11px] text-slate-400 line-clamp-1">${r.notes}</span>
+            </td>
+            <td class="py-3 px-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-slate-800 text-slate-300 block w-fit">${r.classVal}</span>
+              <span class="text-[11px] text-slate-400 mt-0.5 block">${r.payer}</span>
+            </td>
+            <td class="py-3 px-4">
+              ${isMissing 
+                ? `<span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-mono text-[11px] font-semibold">MISSING VALUE</span>`
+                : `<span class="font-mono text-teal-300 font-bold block">${r.snomedCode}</span>
+                   <span class="text-[11px] text-slate-300 block line-clamp-1">${r.snomedDesc}</span>`
+              }
+            </td>
+            <td class="py-3 px-4">
+              <span class="font-mono text-slate-300 block">${r.procedureCode || '-'}</span>
+              <span class="text-[11px] text-teal-400 font-mono">$${r.claimCost.toFixed(2)}</span>
+            </td>
+            <td class="py-3 px-4 text-center">
+              <span class="px-2 py-1 rounded-lg border font-mono font-bold text-xs ${scoreBadgeClass}">
+                ${r.score}%
+              </span>
+            </td>
+            <td class="py-3 px-4">
+              <span class="text-[11px] font-medium ${isMissing ? 'text-rose-400' : 'text-emerald-400'}">
+                ${r.statusText}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-right">
+              <button onclick="bukaModalJson('${r.id}')" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-teal-400 font-mono text-[11px] transition-colors border border-slate-700">
+                JSON
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterLogs(status) {
+      activeFilter = status;
+      
+      const buttons = {
+        all: document.getElementById('btn-flt-all'),
+        smart: document.getElementById('btn-flt-smart'),
+        complete: document.getElementById('btn-flt-complete'),
+        missing: document.getElementById('btn-flt-missing')
+      };
+
+      for (const [key, btn] of Object.entries(buttons)) {
+        if (key === status) {
+          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-teal-600 text-white';
+        } else {
+          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:text-white';
+        }
+      }
+
+      renderLogTable();
+    }
+
+    function updateLogCounts() {
+      const allCount = logRecords.length;
+      const smartCount = logRecords.filter(r => r.status === 'smart').length;
+      const compCount = logRecords.filter(r => r.status === 'complete').length;
+      const missCount = logRecords.filter(r => r.status === 'missing').length;
+
+      document.getElementById('cnt-all').textContent = allCount;
+      document.getElementById('cnt-smart').textContent = smartCount;
+      document.getElementById('cnt-comp').textContent = compCount;
+      document.getElementById('cnt-miss').textContent = missCount;
+      document.getElementById('header-log-count-badge').textContent = allCount;
+    }
+
+    // -------------------------------------------------------------
+    // MODAL & EXPORT HANDLERS
+    // -------------------------------------------------------------
+    function bukaModalJson(encounterId) {
+      const record = logRecords.find(r => r.id === encounterId) || logRecords[0];
+      const fhirPayload = {
+        resourceType: "Encounter",
+        id: record.id,
+        status: "finished",
+        class: {
+          system: "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          code: record.classVal
+        },
+        subject: {
+          display: record.patient,
+          reference: "Patient/" + (record.id)
+        },
+        period: {
+          start: new Date().toISOString()
+        },
+        reasonCode: record.snomedCode ? [
+          {
+            coding: [
+              {
+                system: "http://snomed.info/sct",
+                code: record.snomedCode,
+                display: record.snomedDesc
+              }
+            ]
+          }
+        ] : [],
+        diagnosis: record.icdCode && record.icdCode !== '-' ? [
+          {
+            condition: {
+              coding: [
+                {
+                  system: "http://hl7.org/fhir/sid/icd-10",
+                  code: record.icdCode
+                }
+              ]
+            }
+          }
+        ] : [],
+        dataQualityAudit: {
+          completenessScore: record.score,
+          governanceStatus: record.score >= 80 ? "AUDIT_READY" : "INCOMPLETE_FLAGGED",
+          aiEngineAssisted: record.status === 'smart',
+          verifiedAt: new Date().toISOString()
+        }
+      };
+
+      document.getElementById('modal-json-content').textContent = JSON.stringify(fhirPayload, null, 2);
+      document.getElementById('modal-json').classList.remove('hidden');
+    }
+
+    function tutupModalJson() {
+      document.getElementById('modal-json').classList.add('hidden');
+    }
+
+    function bukaModalPanduan() {
+      document.getElementById('modal-panduan').classList.remove('hidden');
+    }
+
+    function tutupModalPanduan() {
+      document.getElementById('modal-panduan').classList.add('hidden');
+    }
+
+    function eksporDataJson() {
+      const blob = new Blob([JSON.stringify(logRecords, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Smart_EHR_Audit_Export_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Data audit log berhasil diekspor ke berkas JSON!', 'success');
+    }
+
+    // -------------------------------------------------------------
+    // TAB SWITCHER
+    // -------------------------------------------------------------
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
+
+      const tabs = ['ehr-input', 'analytics', 'transactions', 'docs'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabId) {
+          btn.className = 'nav-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 transition-all bg-teal-600 text-white shadow-sm';
+        } else {
+          btn.className = 'nav-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 text-slate-400 hover:text-white transition-all';
+        }
+      });
+
+      // Resize charts when analytics tab opens
+      if (tabId === 'analytics') {
+        setTimeout(() => {
+          if (chartTrend) chartTrend.resize();
+          if (chartDept) chartDept.resize();
+        }, 100);
+      }
+    }
+
+    // -------------------------------------------------------------
+    // CHART.JS INTEGRATION (ERA COMPARISON & DEPARTMENTS)
+    // -------------------------------------------------------------
+    function initCharts() {
+      // 1. Trend Comparison Chart
+      const trendCtx = document.getElementById('trendChart').getContext('2d');
+      const labels = HISTORICAL_YEARS.map(d => d.year);
+      const compData = HISTORICAL_YEARS.map(d => d.pct);
+      const totalData = HISTORICAL_YEARS.map(d => d.total);
+      const missingData = HISTORICAL_YEARS.map(d => d.missing);
+
+      chartTrend = new Chart(trendCtx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Kelengkapan Data (%)',
+              data: compData,
+              type: 'line',
+              borderColor: '#14b8a6',
+              backgroundColor: 'rgba(20, 184, 166, 0.2)',
+              borderWidth: 3,
+              pointBackgroundColor: '#14b8a6',
+              pointRadius: 4,
+              yAxisID: 'y'
+            },
+            {
+              label: 'Missing Reason Code',
+              data: missingData,
+              backgroundColor: 'rgba(244, 63, 94, 0.45)',
+              borderColor: 'rgba(244, 63, 94, 0.8)',
+              borderWidth: 1,
+              borderRadius: 4,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              labels: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans', size: 11 } }
+            },
+            tooltip: {
+              backgroundColor: '#0f172a',
+              titleColor: '#f8fafc',
+              bodyColor: '#cbd5e1',
+              borderColor: '#334155',
+              borderWidth: 1
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8', font: { size: 10 } }
+            },
+            y: {
+              position: 'left',
+              min: 0,
+              max: 100,
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#14b8a6', callback: val => `${val}%` }
+            },
+            y1: {
+              position: 'right',
+              grid: { drawOnChartArea: false },
+              ticks: { color: '#f43f5e' }
+            }
+          }
+        }
+      });
+
+      // 2. Department Horizontal Bar Chart
+      const deptCtx = document.getElementById('deptChart').getContext('2d');
+      chartDept = new Chart(deptCtx, {
+        type: 'bar',
+        data: {
+          labels: DEPARTMENTS_DATA.map(d => d.name),
+          datasets: [
+            {
+              label: 'Sebelum Smart EHR (2011-2022)',
+              data: DEPARTMENTS_DATA.map(d => d.legacyComp),
+              backgroundColor: 'rgba(244, 63, 94, 0.5)',
+              borderColor: '#f43f5e',
+              borderWidth: 1,
+              borderRadius: 4
+            },
+            {
+              label: 'Sesudah Smart EHR (2026)',
+              data: DEPARTMENTS_DATA.map(d => d.modernComp),
+              backgroundColor: 'rgba(20, 184, 166, 0.75)',
+              borderColor: '#14b8a6',
+              borderWidth: 1,
+              borderRadius: 4
+            }
+          ]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans', size: 10 } }
+            },
+            tooltip: {
+              backgroundColor: '#0f172a',
+              titleColor: '#f8fafc',
+              bodyColor: '#cbd5e1',
+              callbacks: {
+                label: ctx => `${ctx.dataset.label}: ${ctx.raw}%`
+              }
+            }
+          },
+          scales: {
+            x: {
+              min: 0,
+              max: 100,
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8', callback: val => `${val}%` }
+            },
+            y: {
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#f8fafc', font: { weight: '600' } }
+            }
+          }
+        }
+      });
+    }
+
+    function setTrendChartMode(mode) {
+      trendChartMode = mode;
+      const btnComp = document.getElementById('btn-chart-mode-comp');
+      const btnVol = document.getElementById('btn-chart-mode-vol');
+
+      if (mode === 'completeness') {
+        btnComp.className = 'px-2 py-1 rounded bg-teal-600 text-white font-semibold';
+        btnVol.className = 'px-2 py-1 rounded text-slate-400 hover:text-white';
+        chartTrend.data.datasets[0].hidden = false;
+        chartTrend.data.datasets[1].hidden = false;
+        chartTrend.update();
+      } else {
+        btnVol.className = 'px-2 py-1 rounded bg-teal-600 text-white font-semibold';
+        btnComp.className = 'px-2 py-1 rounded text-slate-400 hover:text-white';
+        chartTrend.data.datasets[0].hidden = true;
+        chartTrend.data.datasets[1].hidden = false;
+        chartTrend.update();
+      }
+    }
+
+    // -------------------------------------------------------------
+    // TOAST NOTIFICATION HELPER
+    // -------------------------------------------------------------
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      
+      let borderClass = 'border-teal-500/40 bg-slate-900/95 text-teal-200';
+      let icon = '✓';
+      if (type === 'error') {
+        borderClass = 'border-rose-500/50 bg-slate-900/95 text-rose-200';
+        icon = '✕';
+      } else if (type === 'warning') {
+        borderClass = 'border-amber-500/50 bg-slate-900/95 text-amber-200';
+        icon = '⚠️';
+      }
+
+      toast.className = `toast-animate pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl border ${borderClass} shadow-2xl text-xs max-w-md`;
+      toast.innerHTML = `
+        <span class="font-bold">${icon}</span>
+        <span class="flex-1 font-medium leading-relaxed">${message}</span>
+      `;
+
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
