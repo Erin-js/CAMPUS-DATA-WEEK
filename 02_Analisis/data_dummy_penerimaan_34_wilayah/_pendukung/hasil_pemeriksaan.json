@@ -1,0 +1,173 @@
+{
+  "jenis_data": "DUMMY / SINTETIS, bukan hasil penerimaan nyata",
+  "seed": 20261027,
+  "snapshot": "2025-10-01",
+  "jumlah_baris": {
+    "1_pendaftar_penerimaan.csv": 15308,
+    "2_hasil_seleksi_daftar_ulang.csv": 15308,
+    "3_mahasiswa_aktif.csv": 3996,
+    "4_ref_program_studi.csv": 44,
+    "5_ref_wilayah_34.csv": 34
+  },
+  "calon_mahasiswa_unik": 12000,
+  "pendaftaran_diterima": 5649,
+  "orang_diterima_unik": 5547,
+  "orang_sudah_daftar_ulang": 4601,
+  "mahasiswa_aktif": 3996,
+  "jumlah_pemeriksaan": 20,
+  "semua_lulus": true,
+  "pemeriksaan": [
+    {
+      "pemeriksaan": "12.000 calon mahasiswa unik",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Kunci pendaftaran dan hasil unik; cakupan identik",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "44 kode prodi dan 34 kode wilayah unik",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Semua FK wilayah dan pilihan prodi valid",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Pilihan 1 dan 2 tidak sama",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Identitas tahun dan jalur konsisten antartabel",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Prodi diterima termasuk pilihan pendaftar",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Peserta tidak diterima tidak memiliki prodi diterima NIM atau tanggal registrasi",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "NIM dan tanggal hanya terisi jika sudah daftar ulang",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Daftar ulang hanya untuk peserta diterima",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Satu orang paling banyak satu daftar ulang dan NIM",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "NIM dan identitas mahasiswa aktif unik",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Mahasiswa aktif berasal dari registrasi yang sesuai",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Demografi dan wilayah mahasiswa aktif konsisten",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Semua mahasiswa aktif berada pada snapshot yang sama",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tanggal registrasi tidak melampaui snapshot dan tahun sesuai",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tanggal lahir dan usia konsisten",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Profil orang konsisten pada pendaftaran berulang",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Semua berkas CSV memiliki BOM UTF-8 dan lebar baris konsisten",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Referensi sumber tidak berubah",
+      "lulus": true
+    }
+  ],
+  "sha256_sumber": {
+    "1_profil_mahasiswa_umum.csv": "e31a544c1953e0abe637ff968d1d57d6c9baa04618de1db9495cf4144f43c019",
+    "2_prestasi_mahasiswa.csv": "f17f4eaf7ba1246bd8746458af14ae4f144006a23934c1ddc47e78723ae56001",
+    "3_generasi_pertama_kuliah.csv": "c71d1f6d807385f7852d7f87745dc65ecae511cf376bab86cec8afa1e93ce60c",
+    "4_status_sosial_ekonomi.csv": "3da2ed03ce89094860d169eae949bf33873dacb9279f7dbe4d8fd974f7ac2b44",
+    "5_riwayat_ipk_semester.csv": "b3a4af50aaf1fba4f52b3321cb87a14b069bff981b84d89da40f7f08dc4ca990"
+  },
+  "sha256_output_csv": {
+    "1_pendaftar_penerimaan.csv": "8895c0bbfe0a7a5cdafc660d8924d6f04b782e843f34abb1bf56492927e2d5eb",
+    "2_hasil_seleksi_daftar_ulang.csv": "b18ea10543921704dd6d4c8715898c852dac738420b5ec155219b7e1663716be",
+    "3_mahasiswa_aktif.csv": "8b8509c409395de4d3ceaf139327f5d8c84f18fea147d65235cd566485c4e704",
+    "4_ref_program_studi.csv": "8d0a257c7088dda8a071a935f851e7f6301fe8bf333479b1047e498ba4cbe464",
+    "5_ref_wilayah_34.csv": "030eb03c7c0a0eba7f2e78e3d168c5c5e4005faf896bfbde44bfd7ba139d9039"
+  },
+  "ringkasan_per_tahun": [
+    {
+      "tahun": 2019,
+      "orang_mendaftar": 255,
+      "pendaftaran": 331,
+      "pendaftaran_diterima": 111,
+      "daftar_ulang": 85,
+      "aktif": 5
+    },
+    {
+      "tahun": 2020,
+      "orang_mendaftar": 483,
+      "pendaftaran": 624,
+      "pendaftaran_diterima": 216,
+      "daftar_ulang": 182,
+      "aktif": 41
+    },
+    {
+      "tahun": 2021,
+      "orang_mendaftar": 1009,
+      "pendaftaran": 1285,
+      "pendaftaran_diterima": 442,
+      "daftar_ulang": 350,
+      "aktif": 180
+    },
+    {
+      "tahun": 2022,
+      "orang_mendaftar": 1680,
+      "pendaftaran": 2133,
+      "pendaftaran_diterima": 796,
+      "daftar_ulang": 652,
+      "aktif": 575
+    },
+    {
+      "tahun": 2023,
+      "orang_mendaftar": 2593,
+      "pendaftaran": 3330,
+      "pendaftaran_diterima": 1206,
+      "daftar_ulang": 964,
+      "aktif": 896
+    },
+    {
+      "tahun": 2024,
+      "orang_mendaftar": 2945,
+      "pendaftaran": 3754,
+      "pendaftaran_diterima": 1402,
+      "daftar_ulang": 1163,
+      "aktif": 1115
+    },
+    {
+      "tahun": 2025,
+      "orang_mendaftar": 3035,
+      "pendaftaran": 3851,
+      "pendaftaran_diterima": 1476,
+      "daftar_ulang": 1205,
+      "aktif": 1184
+    }
+  ]
+}
