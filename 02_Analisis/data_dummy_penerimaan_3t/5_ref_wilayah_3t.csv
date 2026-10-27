@@ -1,0 +1,305 @@
+﻿Kode_Wilayah;Nama_Kabupaten_Kota;Jenis_Wilayah;Kode_Provinsi;Nama_Provinsi;Status_3T
+DMY-WIL-0101;Kabupaten Dummy 01 - Aceh;Kabupaten;DMY-PRV-01;Aceh;Ya
+DMY-WIL-0102;Kabupaten Dummy 02 - Aceh;Kabupaten;DMY-PRV-01;Aceh;Tidak
+DMY-WIL-0103;Kabupaten Dummy 03 - Aceh;Kabupaten;DMY-PRV-01;Aceh;Tidak
+DMY-WIL-0104;Kabupaten Dummy 04 - Aceh;Kabupaten;DMY-PRV-01;Aceh;Tidak
+DMY-WIL-0105;Kabupaten Dummy 05 - Aceh;Kabupaten;DMY-PRV-01;Aceh;Ya
+DMY-WIL-0106;Kabupaten Dummy 06 - Aceh;Kabupaten;DMY-PRV-01;Aceh;Tidak
+DMY-WIL-0107;Kota Dummy 07 - Aceh;Kota;DMY-PRV-01;Aceh;Tidak
+DMY-WIL-0108;Kota Dummy 08 - Aceh;Kota;DMY-PRV-01;Aceh;Tidak
+DMY-WIL-0201;Kabupaten Dummy 01 - Bali;Kabupaten;DMY-PRV-02;Bali;Ya
+DMY-WIL-0202;Kabupaten Dummy 02 - Bali;Kabupaten;DMY-PRV-02;Bali;Tidak
+DMY-WIL-0203;Kabupaten Dummy 03 - Bali;Kabupaten;DMY-PRV-02;Bali;Tidak
+DMY-WIL-0204;Kabupaten Dummy 04 - Bali;Kabupaten;DMY-PRV-02;Bali;Ya
+DMY-WIL-0205;Kabupaten Dummy 05 - Bali;Kabupaten;DMY-PRV-02;Bali;Tidak
+DMY-WIL-0206;Kabupaten Dummy 06 - Bali;Kabupaten;DMY-PRV-02;Bali;Tidak
+DMY-WIL-0207;Kota Dummy 07 - Bali;Kota;DMY-PRV-02;Bali;Tidak
+DMY-WIL-0208;Kota Dummy 08 - Bali;Kota;DMY-PRV-02;Bali;Tidak
+DMY-WIL-0301;Kabupaten Dummy 01 - Banten;Kabupaten;DMY-PRV-03;Banten;Tidak
+DMY-WIL-0302;Kabupaten Dummy 02 - Banten;Kabupaten;DMY-PRV-03;Banten;Tidak
+DMY-WIL-0303;Kabupaten Dummy 03 - Banten;Kabupaten;DMY-PRV-03;Banten;Tidak
+DMY-WIL-0304;Kabupaten Dummy 04 - Banten;Kabupaten;DMY-PRV-03;Banten;Tidak
+DMY-WIL-0305;Kabupaten Dummy 05 - Banten;Kabupaten;DMY-PRV-03;Banten;Ya
+DMY-WIL-0306;Kabupaten Dummy 06 - Banten;Kabupaten;DMY-PRV-03;Banten;Tidak
+DMY-WIL-0307;Kota Dummy 07 - Banten;Kota;DMY-PRV-03;Banten;Tidak
+DMY-WIL-0308;Kota Dummy 08 - Banten;Kota;DMY-PRV-03;Banten;Ya
+DMY-WIL-0401;Kabupaten Dummy 01 - Bengkulu;Kabupaten;DMY-PRV-04;Bengkulu;Tidak
+DMY-WIL-0402;Kabupaten Dummy 02 - Bengkulu;Kabupaten;DMY-PRV-04;Bengkulu;Tidak
+DMY-WIL-0403;Kabupaten Dummy 03 - Bengkulu;Kabupaten;DMY-PRV-04;Bengkulu;Ya
+DMY-WIL-0404;Kabupaten Dummy 04 - Bengkulu;Kabupaten;DMY-PRV-04;Bengkulu;Tidak
+DMY-WIL-0405;Kabupaten Dummy 05 - Bengkulu;Kabupaten;DMY-PRV-04;Bengkulu;Tidak
+DMY-WIL-0406;Kabupaten Dummy 06 - Bengkulu;Kabupaten;DMY-PRV-04;Bengkulu;Tidak
+DMY-WIL-0407;Kota Dummy 07 - Bengkulu;Kota;DMY-PRV-04;Bengkulu;Ya
+DMY-WIL-0408;Kota Dummy 08 - Bengkulu;Kota;DMY-PRV-04;Bengkulu;Tidak
+DMY-WIL-0501;Kabupaten Dummy 01 - DI Yogyakarta;Kabupaten;DMY-PRV-05;DI Yogyakarta;Ya
+DMY-WIL-0502;Kabupaten Dummy 02 - DI Yogyakarta;Kabupaten;DMY-PRV-05;DI Yogyakarta;Tidak
+DMY-WIL-0503;Kabupaten Dummy 03 - DI Yogyakarta;Kabupaten;DMY-PRV-05;DI Yogyakarta;Tidak
+DMY-WIL-0504;Kabupaten Dummy 04 - DI Yogyakarta;Kabupaten;DMY-PRV-05;DI Yogyakarta;Tidak
+DMY-WIL-0505;Kabupaten Dummy 05 - DI Yogyakarta;Kabupaten;DMY-PRV-05;DI Yogyakarta;Ya
+DMY-WIL-0506;Kabupaten Dummy 06 - DI Yogyakarta;Kabupaten;DMY-PRV-05;DI Yogyakarta;Tidak
+DMY-WIL-0507;Kota Dummy 07 - DI Yogyakarta;Kota;DMY-PRV-05;DI Yogyakarta;Tidak
+DMY-WIL-0508;Kota Dummy 08 - DI Yogyakarta;Kota;DMY-PRV-05;DI Yogyakarta;Tidak
+DMY-WIL-0601;Kabupaten Dummy 01 - DKI Jakarta;Kabupaten;DMY-PRV-06;DKI Jakarta;Tidak
+DMY-WIL-0602;Kabupaten Dummy 02 - DKI Jakarta;Kabupaten;DMY-PRV-06;DKI Jakarta;Ya
+DMY-WIL-0603;Kabupaten Dummy 03 - DKI Jakarta;Kabupaten;DMY-PRV-06;DKI Jakarta;Tidak
+DMY-WIL-0604;Kabupaten Dummy 04 - DKI Jakarta;Kabupaten;DMY-PRV-06;DKI Jakarta;Tidak
+DMY-WIL-0605;Kabupaten Dummy 05 - DKI Jakarta;Kabupaten;DMY-PRV-06;DKI Jakarta;Tidak
+DMY-WIL-0606;Kabupaten Dummy 06 - DKI Jakarta;Kabupaten;DMY-PRV-06;DKI Jakarta;Tidak
+DMY-WIL-0607;Kota Dummy 07 - DKI Jakarta;Kota;DMY-PRV-06;DKI Jakarta;Tidak
+DMY-WIL-0608;Kota Dummy 08 - DKI Jakarta;Kota;DMY-PRV-06;DKI Jakarta;Ya
+DMY-WIL-0701;Kabupaten Dummy 01 - Gorontalo;Kabupaten;DMY-PRV-07;Gorontalo;Tidak
+DMY-WIL-0702;Kabupaten Dummy 02 - Gorontalo;Kabupaten;DMY-PRV-07;Gorontalo;Tidak
+DMY-WIL-0703;Kabupaten Dummy 03 - Gorontalo;Kabupaten;DMY-PRV-07;Gorontalo;Tidak
+DMY-WIL-0704;Kabupaten Dummy 04 - Gorontalo;Kabupaten;DMY-PRV-07;Gorontalo;Ya
+DMY-WIL-0705;Kabupaten Dummy 05 - Gorontalo;Kabupaten;DMY-PRV-07;Gorontalo;Ya
+DMY-WIL-0706;Kabupaten Dummy 06 - Gorontalo;Kabupaten;DMY-PRV-07;Gorontalo;Tidak
+DMY-WIL-0707;Kota Dummy 07 - Gorontalo;Kota;DMY-PRV-07;Gorontalo;Tidak
+DMY-WIL-0708;Kota Dummy 08 - Gorontalo;Kota;DMY-PRV-07;Gorontalo;Tidak
+DMY-WIL-0801;Kabupaten Dummy 01 - Jambi;Kabupaten;DMY-PRV-08;Jambi;Ya
+DMY-WIL-0802;Kabupaten Dummy 02 - Jambi;Kabupaten;DMY-PRV-08;Jambi;Tidak
+DMY-WIL-0803;Kabupaten Dummy 03 - Jambi;Kabupaten;DMY-PRV-08;Jambi;Tidak
+DMY-WIL-0804;Kabupaten Dummy 04 - Jambi;Kabupaten;DMY-PRV-08;Jambi;Tidak
+DMY-WIL-0805;Kabupaten Dummy 05 - Jambi;Kabupaten;DMY-PRV-08;Jambi;Ya
+DMY-WIL-0806;Kabupaten Dummy 06 - Jambi;Kabupaten;DMY-PRV-08;Jambi;Tidak
+DMY-WIL-0807;Kota Dummy 07 - Jambi;Kota;DMY-PRV-08;Jambi;Tidak
+DMY-WIL-0808;Kota Dummy 08 - Jambi;Kota;DMY-PRV-08;Jambi;Tidak
+DMY-WIL-0901;Kabupaten Dummy 01 - Jawa Barat;Kabupaten;DMY-PRV-09;Jawa Barat;Ya
+DMY-WIL-0902;Kabupaten Dummy 02 - Jawa Barat;Kabupaten;DMY-PRV-09;Jawa Barat;Ya
+DMY-WIL-0903;Kabupaten Dummy 03 - Jawa Barat;Kabupaten;DMY-PRV-09;Jawa Barat;Tidak
+DMY-WIL-0904;Kabupaten Dummy 04 - Jawa Barat;Kabupaten;DMY-PRV-09;Jawa Barat;Tidak
+DMY-WIL-0905;Kabupaten Dummy 05 - Jawa Barat;Kabupaten;DMY-PRV-09;Jawa Barat;Tidak
+DMY-WIL-0906;Kabupaten Dummy 06 - Jawa Barat;Kabupaten;DMY-PRV-09;Jawa Barat;Tidak
+DMY-WIL-0907;Kota Dummy 07 - Jawa Barat;Kota;DMY-PRV-09;Jawa Barat;Tidak
+DMY-WIL-0908;Kota Dummy 08 - Jawa Barat;Kota;DMY-PRV-09;Jawa Barat;Tidak
+DMY-WIL-1001;Kabupaten Dummy 01 - Jawa Tengah;Kabupaten;DMY-PRV-10;Jawa Tengah;Tidak
+DMY-WIL-1002;Kabupaten Dummy 02 - Jawa Tengah;Kabupaten;DMY-PRV-10;Jawa Tengah;Tidak
+DMY-WIL-1003;Kabupaten Dummy 03 - Jawa Tengah;Kabupaten;DMY-PRV-10;Jawa Tengah;Tidak
+DMY-WIL-1004;Kabupaten Dummy 04 - Jawa Tengah;Kabupaten;DMY-PRV-10;Jawa Tengah;Ya
+DMY-WIL-1005;Kabupaten Dummy 05 - Jawa Tengah;Kabupaten;DMY-PRV-10;Jawa Tengah;Tidak
+DMY-WIL-1006;Kabupaten Dummy 06 - Jawa Tengah;Kabupaten;DMY-PRV-10;Jawa Tengah;Tidak
+DMY-WIL-1007;Kota Dummy 07 - Jawa Tengah;Kota;DMY-PRV-10;Jawa Tengah;Tidak
+DMY-WIL-1008;Kota Dummy 08 - Jawa Tengah;Kota;DMY-PRV-10;Jawa Tengah;Ya
+DMY-WIL-1101;Kabupaten Dummy 01 - Jawa Timur;Kabupaten;DMY-PRV-11;Jawa Timur;Tidak
+DMY-WIL-1102;Kabupaten Dummy 02 - Jawa Timur;Kabupaten;DMY-PRV-11;Jawa Timur;Tidak
+DMY-WIL-1103;Kabupaten Dummy 03 - Jawa Timur;Kabupaten;DMY-PRV-11;Jawa Timur;Tidak
+DMY-WIL-1104;Kabupaten Dummy 04 - Jawa Timur;Kabupaten;DMY-PRV-11;Jawa Timur;Tidak
+DMY-WIL-1105;Kabupaten Dummy 05 - Jawa Timur;Kabupaten;DMY-PRV-11;Jawa Timur;Tidak
+DMY-WIL-1106;Kabupaten Dummy 06 - Jawa Timur;Kabupaten;DMY-PRV-11;Jawa Timur;Ya
+DMY-WIL-1107;Kota Dummy 07 - Jawa Timur;Kota;DMY-PRV-11;Jawa Timur;Tidak
+DMY-WIL-1108;Kota Dummy 08 - Jawa Timur;Kota;DMY-PRV-11;Jawa Timur;Ya
+DMY-WIL-1201;Kabupaten Dummy 01 - Kalimantan Barat;Kabupaten;DMY-PRV-12;Kalimantan Barat;Tidak
+DMY-WIL-1202;Kabupaten Dummy 02 - Kalimantan Barat;Kabupaten;DMY-PRV-12;Kalimantan Barat;Ya
+DMY-WIL-1203;Kabupaten Dummy 03 - Kalimantan Barat;Kabupaten;DMY-PRV-12;Kalimantan Barat;Tidak
+DMY-WIL-1204;Kabupaten Dummy 04 - Kalimantan Barat;Kabupaten;DMY-PRV-12;Kalimantan Barat;Ya
+DMY-WIL-1205;Kabupaten Dummy 05 - Kalimantan Barat;Kabupaten;DMY-PRV-12;Kalimantan Barat;Tidak
+DMY-WIL-1206;Kabupaten Dummy 06 - Kalimantan Barat;Kabupaten;DMY-PRV-12;Kalimantan Barat;Tidak
+DMY-WIL-1207;Kota Dummy 07 - Kalimantan Barat;Kota;DMY-PRV-12;Kalimantan Barat;Tidak
+DMY-WIL-1208;Kota Dummy 08 - Kalimantan Barat;Kota;DMY-PRV-12;Kalimantan Barat;Tidak
+DMY-WIL-1301;Kabupaten Dummy 01 - Kalimantan Selatan;Kabupaten;DMY-PRV-13;Kalimantan Selatan;Ya
+DMY-WIL-1302;Kabupaten Dummy 02 - Kalimantan Selatan;Kabupaten;DMY-PRV-13;Kalimantan Selatan;Tidak
+DMY-WIL-1303;Kabupaten Dummy 03 - Kalimantan Selatan;Kabupaten;DMY-PRV-13;Kalimantan Selatan;Tidak
+DMY-WIL-1304;Kabupaten Dummy 04 - Kalimantan Selatan;Kabupaten;DMY-PRV-13;Kalimantan Selatan;Tidak
+DMY-WIL-1305;Kabupaten Dummy 05 - Kalimantan Selatan;Kabupaten;DMY-PRV-13;Kalimantan Selatan;Tidak
+DMY-WIL-1306;Kabupaten Dummy 06 - Kalimantan Selatan;Kabupaten;DMY-PRV-13;Kalimantan Selatan;Tidak
+DMY-WIL-1307;Kota Dummy 07 - Kalimantan Selatan;Kota;DMY-PRV-13;Kalimantan Selatan;Tidak
+DMY-WIL-1308;Kota Dummy 08 - Kalimantan Selatan;Kota;DMY-PRV-13;Kalimantan Selatan;Ya
+DMY-WIL-1401;Kabupaten Dummy 01 - Kalimantan Tengah;Kabupaten;DMY-PRV-14;Kalimantan Tengah;Tidak
+DMY-WIL-1402;Kabupaten Dummy 02 - Kalimantan Tengah;Kabupaten;DMY-PRV-14;Kalimantan Tengah;Tidak
+DMY-WIL-1403;Kabupaten Dummy 03 - Kalimantan Tengah;Kabupaten;DMY-PRV-14;Kalimantan Tengah;Tidak
+DMY-WIL-1404;Kabupaten Dummy 04 - Kalimantan Tengah;Kabupaten;DMY-PRV-14;Kalimantan Tengah;Ya
+DMY-WIL-1405;Kabupaten Dummy 05 - Kalimantan Tengah;Kabupaten;DMY-PRV-14;Kalimantan Tengah;Tidak
+DMY-WIL-1406;Kabupaten Dummy 06 - Kalimantan Tengah;Kabupaten;DMY-PRV-14;Kalimantan Tengah;Tidak
+DMY-WIL-1407;Kota Dummy 07 - Kalimantan Tengah;Kota;DMY-PRV-14;Kalimantan Tengah;Ya
+DMY-WIL-1408;Kota Dummy 08 - Kalimantan Tengah;Kota;DMY-PRV-14;Kalimantan Tengah;Tidak
+DMY-WIL-1501;Kabupaten Dummy 01 - Kalimantan Timur;Kabupaten;DMY-PRV-15;Kalimantan Timur;Ya
+DMY-WIL-1502;Kabupaten Dummy 02 - Kalimantan Timur;Kabupaten;DMY-PRV-15;Kalimantan Timur;Tidak
+DMY-WIL-1503;Kabupaten Dummy 03 - Kalimantan Timur;Kabupaten;DMY-PRV-15;Kalimantan Timur;Tidak
+DMY-WIL-1504;Kabupaten Dummy 04 - Kalimantan Timur;Kabupaten;DMY-PRV-15;Kalimantan Timur;Tidak
+DMY-WIL-1505;Kabupaten Dummy 05 - Kalimantan Timur;Kabupaten;DMY-PRV-15;Kalimantan Timur;Tidak
+DMY-WIL-1506;Kabupaten Dummy 06 - Kalimantan Timur;Kabupaten;DMY-PRV-15;Kalimantan Timur;Ya
+DMY-WIL-1507;Kota Dummy 07 - Kalimantan Timur;Kota;DMY-PRV-15;Kalimantan Timur;Tidak
+DMY-WIL-1508;Kota Dummy 08 - Kalimantan Timur;Kota;DMY-PRV-15;Kalimantan Timur;Tidak
+DMY-WIL-1601;Kabupaten Dummy 01 - Kalimantan Utara;Kabupaten;DMY-PRV-16;Kalimantan Utara;Tidak
+DMY-WIL-1602;Kabupaten Dummy 02 - Kalimantan Utara;Kabupaten;DMY-PRV-16;Kalimantan Utara;Ya
+DMY-WIL-1603;Kabupaten Dummy 03 - Kalimantan Utara;Kabupaten;DMY-PRV-16;Kalimantan Utara;Tidak
+DMY-WIL-1604;Kabupaten Dummy 04 - Kalimantan Utara;Kabupaten;DMY-PRV-16;Kalimantan Utara;Tidak
+DMY-WIL-1605;Kabupaten Dummy 05 - Kalimantan Utara;Kabupaten;DMY-PRV-16;Kalimantan Utara;Tidak
+DMY-WIL-1606;Kabupaten Dummy 06 - Kalimantan Utara;Kabupaten;DMY-PRV-16;Kalimantan Utara;Tidak
+DMY-WIL-1607;Kota Dummy 07 - Kalimantan Utara;Kota;DMY-PRV-16;Kalimantan Utara;Tidak
+DMY-WIL-1608;Kota Dummy 08 - Kalimantan Utara;Kota;DMY-PRV-16;Kalimantan Utara;Ya
+DMY-WIL-1701;Kabupaten Dummy 01 - Kepulauan Bangka Belitung;Kabupaten;DMY-PRV-17;Kepulauan Bangka Belitung;Ya
+DMY-WIL-1702;Kabupaten Dummy 02 - Kepulauan Bangka Belitung;Kabupaten;DMY-PRV-17;Kepulauan Bangka Belitung;Tidak
+DMY-WIL-1703;Kabupaten Dummy 03 - Kepulauan Bangka Belitung;Kabupaten;DMY-PRV-17;Kepulauan Bangka Belitung;Tidak
+DMY-WIL-1704;Kabupaten Dummy 04 - Kepulauan Bangka Belitung;Kabupaten;DMY-PRV-17;Kepulauan Bangka Belitung;Tidak
+DMY-WIL-1705;Kabupaten Dummy 05 - Kepulauan Bangka Belitung;Kabupaten;DMY-PRV-17;Kepulauan Bangka Belitung;Tidak
+DMY-WIL-1706;Kabupaten Dummy 06 - Kepulauan Bangka Belitung;Kabupaten;DMY-PRV-17;Kepulauan Bangka Belitung;Tidak
+DMY-WIL-1707;Kota Dummy 07 - Kepulauan Bangka Belitung;Kota;DMY-PRV-17;Kepulauan Bangka Belitung;Tidak
+DMY-WIL-1708;Kota Dummy 08 - Kepulauan Bangka Belitung;Kota;DMY-PRV-17;Kepulauan Bangka Belitung;Ya
+DMY-WIL-1801;Kabupaten Dummy 01 - Kepulauan Riau;Kabupaten;DMY-PRV-18;Kepulauan Riau;Tidak
+DMY-WIL-1802;Kabupaten Dummy 02 - Kepulauan Riau;Kabupaten;DMY-PRV-18;Kepulauan Riau;Ya
+DMY-WIL-1803;Kabupaten Dummy 03 - Kepulauan Riau;Kabupaten;DMY-PRV-18;Kepulauan Riau;Tidak
+DMY-WIL-1804;Kabupaten Dummy 04 - Kepulauan Riau;Kabupaten;DMY-PRV-18;Kepulauan Riau;Tidak
+DMY-WIL-1805;Kabupaten Dummy 05 - Kepulauan Riau;Kabupaten;DMY-PRV-18;Kepulauan Riau;Tidak
+DMY-WIL-1806;Kabupaten Dummy 06 - Kepulauan Riau;Kabupaten;DMY-PRV-18;Kepulauan Riau;Ya
+DMY-WIL-1807;Kota Dummy 07 - Kepulauan Riau;Kota;DMY-PRV-18;Kepulauan Riau;Tidak
+DMY-WIL-1808;Kota Dummy 08 - Kepulauan Riau;Kota;DMY-PRV-18;Kepulauan Riau;Tidak
+DMY-WIL-1901;Kabupaten Dummy 01 - Lampung;Kabupaten;DMY-PRV-19;Lampung;Tidak
+DMY-WIL-1902;Kabupaten Dummy 02 - Lampung;Kabupaten;DMY-PRV-19;Lampung;Tidak
+DMY-WIL-1903;Kabupaten Dummy 03 - Lampung;Kabupaten;DMY-PRV-19;Lampung;Ya
+DMY-WIL-1904;Kabupaten Dummy 04 - Lampung;Kabupaten;DMY-PRV-19;Lampung;Tidak
+DMY-WIL-1905;Kabupaten Dummy 05 - Lampung;Kabupaten;DMY-PRV-19;Lampung;Tidak
+DMY-WIL-1906;Kabupaten Dummy 06 - Lampung;Kabupaten;DMY-PRV-19;Lampung;Tidak
+DMY-WIL-1907;Kota Dummy 07 - Lampung;Kota;DMY-PRV-19;Lampung;Ya
+DMY-WIL-1908;Kota Dummy 08 - Lampung;Kota;DMY-PRV-19;Lampung;Tidak
+DMY-WIL-2001;Kabupaten Dummy 01 - Maluku;Kabupaten;DMY-PRV-20;Maluku;Tidak
+DMY-WIL-2002;Kabupaten Dummy 02 - Maluku;Kabupaten;DMY-PRV-20;Maluku;Tidak
+DMY-WIL-2003;Kabupaten Dummy 03 - Maluku;Kabupaten;DMY-PRV-20;Maluku;Ya
+DMY-WIL-2004;Kabupaten Dummy 04 - Maluku;Kabupaten;DMY-PRV-20;Maluku;Tidak
+DMY-WIL-2005;Kabupaten Dummy 05 - Maluku;Kabupaten;DMY-PRV-20;Maluku;Tidak
+DMY-WIL-2006;Kabupaten Dummy 06 - Maluku;Kabupaten;DMY-PRV-20;Maluku;Tidak
+DMY-WIL-2007;Kota Dummy 07 - Maluku;Kota;DMY-PRV-20;Maluku;Ya
+DMY-WIL-2008;Kota Dummy 08 - Maluku;Kota;DMY-PRV-20;Maluku;Tidak
+DMY-WIL-2101;Kabupaten Dummy 01 - Maluku Utara;Kabupaten;DMY-PRV-21;Maluku Utara;Tidak
+DMY-WIL-2102;Kabupaten Dummy 02 - Maluku Utara;Kabupaten;DMY-PRV-21;Maluku Utara;Tidak
+DMY-WIL-2103;Kabupaten Dummy 03 - Maluku Utara;Kabupaten;DMY-PRV-21;Maluku Utara;Tidak
+DMY-WIL-2104;Kabupaten Dummy 04 - Maluku Utara;Kabupaten;DMY-PRV-21;Maluku Utara;Tidak
+DMY-WIL-2105;Kabupaten Dummy 05 - Maluku Utara;Kabupaten;DMY-PRV-21;Maluku Utara;Tidak
+DMY-WIL-2106;Kabupaten Dummy 06 - Maluku Utara;Kabupaten;DMY-PRV-21;Maluku Utara;Ya
+DMY-WIL-2107;Kota Dummy 07 - Maluku Utara;Kota;DMY-PRV-21;Maluku Utara;Ya
+DMY-WIL-2108;Kota Dummy 08 - Maluku Utara;Kota;DMY-PRV-21;Maluku Utara;Tidak
+DMY-WIL-2201;Kabupaten Dummy 01 - Nusa Tenggara Barat;Kabupaten;DMY-PRV-22;Nusa Tenggara Barat;Tidak
+DMY-WIL-2202;Kabupaten Dummy 02 - Nusa Tenggara Barat;Kabupaten;DMY-PRV-22;Nusa Tenggara Barat;Tidak
+DMY-WIL-2203;Kabupaten Dummy 03 - Nusa Tenggara Barat;Kabupaten;DMY-PRV-22;Nusa Tenggara Barat;Ya
+DMY-WIL-2204;Kabupaten Dummy 04 - Nusa Tenggara Barat;Kabupaten;DMY-PRV-22;Nusa Tenggara Barat;Tidak
+DMY-WIL-2205;Kabupaten Dummy 05 - Nusa Tenggara Barat;Kabupaten;DMY-PRV-22;Nusa Tenggara Barat;Tidak
+DMY-WIL-2206;Kabupaten Dummy 06 - Nusa Tenggara Barat;Kabupaten;DMY-PRV-22;Nusa Tenggara Barat;Tidak
+DMY-WIL-2207;Kota Dummy 07 - Nusa Tenggara Barat;Kota;DMY-PRV-22;Nusa Tenggara Barat;Ya
+DMY-WIL-2208;Kota Dummy 08 - Nusa Tenggara Barat;Kota;DMY-PRV-22;Nusa Tenggara Barat;Tidak
+DMY-WIL-2301;Kabupaten Dummy 01 - Nusa Tenggara Timur;Kabupaten;DMY-PRV-23;Nusa Tenggara Timur;Tidak
+DMY-WIL-2302;Kabupaten Dummy 02 - Nusa Tenggara Timur;Kabupaten;DMY-PRV-23;Nusa Tenggara Timur;Tidak
+DMY-WIL-2303;Kabupaten Dummy 03 - Nusa Tenggara Timur;Kabupaten;DMY-PRV-23;Nusa Tenggara Timur;Tidak
+DMY-WIL-2304;Kabupaten Dummy 04 - Nusa Tenggara Timur;Kabupaten;DMY-PRV-23;Nusa Tenggara Timur;Ya
+DMY-WIL-2305;Kabupaten Dummy 05 - Nusa Tenggara Timur;Kabupaten;DMY-PRV-23;Nusa Tenggara Timur;Tidak
+DMY-WIL-2306;Kabupaten Dummy 06 - Nusa Tenggara Timur;Kabupaten;DMY-PRV-23;Nusa Tenggara Timur;Tidak
+DMY-WIL-2307;Kota Dummy 07 - Nusa Tenggara Timur;Kota;DMY-PRV-23;Nusa Tenggara Timur;Tidak
+DMY-WIL-2308;Kota Dummy 08 - Nusa Tenggara Timur;Kota;DMY-PRV-23;Nusa Tenggara Timur;Ya
+DMY-WIL-2401;Kabupaten Dummy 01 - Papua;Kabupaten;DMY-PRV-24;Papua;Tidak
+DMY-WIL-2402;Kabupaten Dummy 02 - Papua;Kabupaten;DMY-PRV-24;Papua;Ya
+DMY-WIL-2403;Kabupaten Dummy 03 - Papua;Kabupaten;DMY-PRV-24;Papua;Ya
+DMY-WIL-2404;Kabupaten Dummy 04 - Papua;Kabupaten;DMY-PRV-24;Papua;Tidak
+DMY-WIL-2405;Kabupaten Dummy 05 - Papua;Kabupaten;DMY-PRV-24;Papua;Tidak
+DMY-WIL-2406;Kabupaten Dummy 06 - Papua;Kabupaten;DMY-PRV-24;Papua;Tidak
+DMY-WIL-2407;Kota Dummy 07 - Papua;Kota;DMY-PRV-24;Papua;Tidak
+DMY-WIL-2408;Kota Dummy 08 - Papua;Kota;DMY-PRV-24;Papua;Tidak
+DMY-WIL-2501;Kabupaten Dummy 01 - Papua Barat;Kabupaten;DMY-PRV-25;Papua Barat;Tidak
+DMY-WIL-2502;Kabupaten Dummy 02 - Papua Barat;Kabupaten;DMY-PRV-25;Papua Barat;Tidak
+DMY-WIL-2503;Kabupaten Dummy 03 - Papua Barat;Kabupaten;DMY-PRV-25;Papua Barat;Tidak
+DMY-WIL-2504;Kabupaten Dummy 04 - Papua Barat;Kabupaten;DMY-PRV-25;Papua Barat;Ya
+DMY-WIL-2505;Kabupaten Dummy 05 - Papua Barat;Kabupaten;DMY-PRV-25;Papua Barat;Ya
+DMY-WIL-2506;Kabupaten Dummy 06 - Papua Barat;Kabupaten;DMY-PRV-25;Papua Barat;Tidak
+DMY-WIL-2507;Kota Dummy 07 - Papua Barat;Kota;DMY-PRV-25;Papua Barat;Tidak
+DMY-WIL-2508;Kota Dummy 08 - Papua Barat;Kota;DMY-PRV-25;Papua Barat;Tidak
+DMY-WIL-2601;Kabupaten Dummy 01 - Papua Barat Daya;Kabupaten;DMY-PRV-26;Papua Barat Daya;Tidak
+DMY-WIL-2602;Kabupaten Dummy 02 - Papua Barat Daya;Kabupaten;DMY-PRV-26;Papua Barat Daya;Tidak
+DMY-WIL-2603;Kabupaten Dummy 03 - Papua Barat Daya;Kabupaten;DMY-PRV-26;Papua Barat Daya;Ya
+DMY-WIL-2604;Kabupaten Dummy 04 - Papua Barat Daya;Kabupaten;DMY-PRV-26;Papua Barat Daya;Tidak
+DMY-WIL-2605;Kabupaten Dummy 05 - Papua Barat Daya;Kabupaten;DMY-PRV-26;Papua Barat Daya;Tidak
+DMY-WIL-2606;Kabupaten Dummy 06 - Papua Barat Daya;Kabupaten;DMY-PRV-26;Papua Barat Daya;Tidak
+DMY-WIL-2607;Kota Dummy 07 - Papua Barat Daya;Kota;DMY-PRV-26;Papua Barat Daya;Ya
+DMY-WIL-2608;Kota Dummy 08 - Papua Barat Daya;Kota;DMY-PRV-26;Papua Barat Daya;Tidak
+DMY-WIL-2701;Kabupaten Dummy 01 - Papua Pegunungan;Kabupaten;DMY-PRV-27;Papua Pegunungan;Tidak
+DMY-WIL-2702;Kabupaten Dummy 02 - Papua Pegunungan;Kabupaten;DMY-PRV-27;Papua Pegunungan;Tidak
+DMY-WIL-2703;Kabupaten Dummy 03 - Papua Pegunungan;Kabupaten;DMY-PRV-27;Papua Pegunungan;Tidak
+DMY-WIL-2704;Kabupaten Dummy 04 - Papua Pegunungan;Kabupaten;DMY-PRV-27;Papua Pegunungan;Tidak
+DMY-WIL-2705;Kabupaten Dummy 05 - Papua Pegunungan;Kabupaten;DMY-PRV-27;Papua Pegunungan;Tidak
+DMY-WIL-2706;Kabupaten Dummy 06 - Papua Pegunungan;Kabupaten;DMY-PRV-27;Papua Pegunungan;Ya
+DMY-WIL-2707;Kota Dummy 07 - Papua Pegunungan;Kota;DMY-PRV-27;Papua Pegunungan;Ya
+DMY-WIL-2708;Kota Dummy 08 - Papua Pegunungan;Kota;DMY-PRV-27;Papua Pegunungan;Tidak
+DMY-WIL-2801;Kabupaten Dummy 01 - Papua Selatan;Kabupaten;DMY-PRV-28;Papua Selatan;Tidak
+DMY-WIL-2802;Kabupaten Dummy 02 - Papua Selatan;Kabupaten;DMY-PRV-28;Papua Selatan;Ya
+DMY-WIL-2803;Kabupaten Dummy 03 - Papua Selatan;Kabupaten;DMY-PRV-28;Papua Selatan;Ya
+DMY-WIL-2804;Kabupaten Dummy 04 - Papua Selatan;Kabupaten;DMY-PRV-28;Papua Selatan;Tidak
+DMY-WIL-2805;Kabupaten Dummy 05 - Papua Selatan;Kabupaten;DMY-PRV-28;Papua Selatan;Tidak
+DMY-WIL-2806;Kabupaten Dummy 06 - Papua Selatan;Kabupaten;DMY-PRV-28;Papua Selatan;Tidak
+DMY-WIL-2807;Kota Dummy 07 - Papua Selatan;Kota;DMY-PRV-28;Papua Selatan;Tidak
+DMY-WIL-2808;Kota Dummy 08 - Papua Selatan;Kota;DMY-PRV-28;Papua Selatan;Tidak
+DMY-WIL-2901;Kabupaten Dummy 01 - Papua Tengah;Kabupaten;DMY-PRV-29;Papua Tengah;Ya
+DMY-WIL-2902;Kabupaten Dummy 02 - Papua Tengah;Kabupaten;DMY-PRV-29;Papua Tengah;Tidak
+DMY-WIL-2903;Kabupaten Dummy 03 - Papua Tengah;Kabupaten;DMY-PRV-29;Papua Tengah;Tidak
+DMY-WIL-2904;Kabupaten Dummy 04 - Papua Tengah;Kabupaten;DMY-PRV-29;Papua Tengah;Tidak
+DMY-WIL-2905;Kabupaten Dummy 05 - Papua Tengah;Kabupaten;DMY-PRV-29;Papua Tengah;Tidak
+DMY-WIL-2906;Kabupaten Dummy 06 - Papua Tengah;Kabupaten;DMY-PRV-29;Papua Tengah;Ya
+DMY-WIL-2907;Kota Dummy 07 - Papua Tengah;Kota;DMY-PRV-29;Papua Tengah;Tidak
+DMY-WIL-2908;Kota Dummy 08 - Papua Tengah;Kota;DMY-PRV-29;Papua Tengah;Tidak
+DMY-WIL-3001;Kabupaten Dummy 01 - Riau;Kabupaten;DMY-PRV-30;Riau;Tidak
+DMY-WIL-3002;Kabupaten Dummy 02 - Riau;Kabupaten;DMY-PRV-30;Riau;Tidak
+DMY-WIL-3003;Kabupaten Dummy 03 - Riau;Kabupaten;DMY-PRV-30;Riau;Tidak
+DMY-WIL-3004;Kabupaten Dummy 04 - Riau;Kabupaten;DMY-PRV-30;Riau;Ya
+DMY-WIL-3005;Kabupaten Dummy 05 - Riau;Kabupaten;DMY-PRV-30;Riau;Tidak
+DMY-WIL-3006;Kabupaten Dummy 06 - Riau;Kabupaten;DMY-PRV-30;Riau;Ya
+DMY-WIL-3007;Kota Dummy 07 - Riau;Kota;DMY-PRV-30;Riau;Tidak
+DMY-WIL-3008;Kota Dummy 08 - Riau;Kota;DMY-PRV-30;Riau;Tidak
+DMY-WIL-3101;Kabupaten Dummy 01 - Sulawesi Barat;Kabupaten;DMY-PRV-31;Sulawesi Barat;Tidak
+DMY-WIL-3102;Kabupaten Dummy 02 - Sulawesi Barat;Kabupaten;DMY-PRV-31;Sulawesi Barat;Tidak
+DMY-WIL-3103;Kabupaten Dummy 03 - Sulawesi Barat;Kabupaten;DMY-PRV-31;Sulawesi Barat;Tidak
+DMY-WIL-3104;Kabupaten Dummy 04 - Sulawesi Barat;Kabupaten;DMY-PRV-31;Sulawesi Barat;Tidak
+DMY-WIL-3105;Kabupaten Dummy 05 - Sulawesi Barat;Kabupaten;DMY-PRV-31;Sulawesi Barat;Tidak
+DMY-WIL-3106;Kabupaten Dummy 06 - Sulawesi Barat;Kabupaten;DMY-PRV-31;Sulawesi Barat;Ya
+DMY-WIL-3107;Kota Dummy 07 - Sulawesi Barat;Kota;DMY-PRV-31;Sulawesi Barat;Ya
+DMY-WIL-3108;Kota Dummy 08 - Sulawesi Barat;Kota;DMY-PRV-31;Sulawesi Barat;Tidak
+DMY-WIL-3201;Kabupaten Dummy 01 - Sulawesi Selatan;Kabupaten;DMY-PRV-32;Sulawesi Selatan;Ya
+DMY-WIL-3202;Kabupaten Dummy 02 - Sulawesi Selatan;Kabupaten;DMY-PRV-32;Sulawesi Selatan;Ya
+DMY-WIL-3203;Kabupaten Dummy 03 - Sulawesi Selatan;Kabupaten;DMY-PRV-32;Sulawesi Selatan;Tidak
+DMY-WIL-3204;Kabupaten Dummy 04 - Sulawesi Selatan;Kabupaten;DMY-PRV-32;Sulawesi Selatan;Tidak
+DMY-WIL-3205;Kabupaten Dummy 05 - Sulawesi Selatan;Kabupaten;DMY-PRV-32;Sulawesi Selatan;Tidak
+DMY-WIL-3206;Kabupaten Dummy 06 - Sulawesi Selatan;Kabupaten;DMY-PRV-32;Sulawesi Selatan;Tidak
+DMY-WIL-3207;Kota Dummy 07 - Sulawesi Selatan;Kota;DMY-PRV-32;Sulawesi Selatan;Tidak
+DMY-WIL-3208;Kota Dummy 08 - Sulawesi Selatan;Kota;DMY-PRV-32;Sulawesi Selatan;Tidak
+DMY-WIL-3301;Kabupaten Dummy 01 - Sulawesi Tengah;Kabupaten;DMY-PRV-33;Sulawesi Tengah;Tidak
+DMY-WIL-3302;Kabupaten Dummy 02 - Sulawesi Tengah;Kabupaten;DMY-PRV-33;Sulawesi Tengah;Tidak
+DMY-WIL-3303;Kabupaten Dummy 03 - Sulawesi Tengah;Kabupaten;DMY-PRV-33;Sulawesi Tengah;Tidak
+DMY-WIL-3304;Kabupaten Dummy 04 - Sulawesi Tengah;Kabupaten;DMY-PRV-33;Sulawesi Tengah;Tidak
+DMY-WIL-3305;Kabupaten Dummy 05 - Sulawesi Tengah;Kabupaten;DMY-PRV-33;Sulawesi Tengah;Ya
+DMY-WIL-3306;Kabupaten Dummy 06 - Sulawesi Tengah;Kabupaten;DMY-PRV-33;Sulawesi Tengah;Tidak
+DMY-WIL-3307;Kota Dummy 07 - Sulawesi Tengah;Kota;DMY-PRV-33;Sulawesi Tengah;Tidak
+DMY-WIL-3308;Kota Dummy 08 - Sulawesi Tengah;Kota;DMY-PRV-33;Sulawesi Tengah;Ya
+DMY-WIL-3401;Kabupaten Dummy 01 - Sulawesi Tenggara;Kabupaten;DMY-PRV-34;Sulawesi Tenggara;Tidak
+DMY-WIL-3402;Kabupaten Dummy 02 - Sulawesi Tenggara;Kabupaten;DMY-PRV-34;Sulawesi Tenggara;Tidak
+DMY-WIL-3403;Kabupaten Dummy 03 - Sulawesi Tenggara;Kabupaten;DMY-PRV-34;Sulawesi Tenggara;Tidak
+DMY-WIL-3404;Kabupaten Dummy 04 - Sulawesi Tenggara;Kabupaten;DMY-PRV-34;Sulawesi Tenggara;Tidak
+DMY-WIL-3405;Kabupaten Dummy 05 - Sulawesi Tenggara;Kabupaten;DMY-PRV-34;Sulawesi Tenggara;Ya
+DMY-WIL-3406;Kabupaten Dummy 06 - Sulawesi Tenggara;Kabupaten;DMY-PRV-34;Sulawesi Tenggara;Ya
+DMY-WIL-3407;Kota Dummy 07 - Sulawesi Tenggara;Kota;DMY-PRV-34;Sulawesi Tenggara;Tidak
+DMY-WIL-3408;Kota Dummy 08 - Sulawesi Tenggara;Kota;DMY-PRV-34;Sulawesi Tenggara;Tidak
+DMY-WIL-3501;Kabupaten Dummy 01 - Sulawesi Utara;Kabupaten;DMY-PRV-35;Sulawesi Utara;Ya
+DMY-WIL-3502;Kabupaten Dummy 02 - Sulawesi Utara;Kabupaten;DMY-PRV-35;Sulawesi Utara;Tidak
+DMY-WIL-3503;Kabupaten Dummy 03 - Sulawesi Utara;Kabupaten;DMY-PRV-35;Sulawesi Utara;Ya
+DMY-WIL-3504;Kabupaten Dummy 04 - Sulawesi Utara;Kabupaten;DMY-PRV-35;Sulawesi Utara;Tidak
+DMY-WIL-3505;Kabupaten Dummy 05 - Sulawesi Utara;Kabupaten;DMY-PRV-35;Sulawesi Utara;Tidak
+DMY-WIL-3506;Kabupaten Dummy 06 - Sulawesi Utara;Kabupaten;DMY-PRV-35;Sulawesi Utara;Tidak
+DMY-WIL-3507;Kota Dummy 07 - Sulawesi Utara;Kota;DMY-PRV-35;Sulawesi Utara;Tidak
+DMY-WIL-3508;Kota Dummy 08 - Sulawesi Utara;Kota;DMY-PRV-35;Sulawesi Utara;Tidak
+DMY-WIL-3601;Kabupaten Dummy 01 - Sumatera Barat;Kabupaten;DMY-PRV-36;Sumatera Barat;Ya
+DMY-WIL-3602;Kabupaten Dummy 02 - Sumatera Barat;Kabupaten;DMY-PRV-36;Sumatera Barat;Tidak
+DMY-WIL-3603;Kabupaten Dummy 03 - Sumatera Barat;Kabupaten;DMY-PRV-36;Sumatera Barat;Tidak
+DMY-WIL-3604;Kabupaten Dummy 04 - Sumatera Barat;Kabupaten;DMY-PRV-36;Sumatera Barat;Tidak
+DMY-WIL-3605;Kabupaten Dummy 05 - Sumatera Barat;Kabupaten;DMY-PRV-36;Sumatera Barat;Tidak
+DMY-WIL-3606;Kabupaten Dummy 06 - Sumatera Barat;Kabupaten;DMY-PRV-36;Sumatera Barat;Tidak
+DMY-WIL-3607;Kota Dummy 07 - Sumatera Barat;Kota;DMY-PRV-36;Sumatera Barat;Ya
+DMY-WIL-3608;Kota Dummy 08 - Sumatera Barat;Kota;DMY-PRV-36;Sumatera Barat;Tidak
+DMY-WIL-3701;Kabupaten Dummy 01 - Sumatera Selatan;Kabupaten;DMY-PRV-37;Sumatera Selatan;Tidak
+DMY-WIL-3702;Kabupaten Dummy 02 - Sumatera Selatan;Kabupaten;DMY-PRV-37;Sumatera Selatan;Ya
+DMY-WIL-3703;Kabupaten Dummy 03 - Sumatera Selatan;Kabupaten;DMY-PRV-37;Sumatera Selatan;Tidak
+DMY-WIL-3704;Kabupaten Dummy 04 - Sumatera Selatan;Kabupaten;DMY-PRV-37;Sumatera Selatan;Tidak
+DMY-WIL-3705;Kabupaten Dummy 05 - Sumatera Selatan;Kabupaten;DMY-PRV-37;Sumatera Selatan;Ya
+DMY-WIL-3706;Kabupaten Dummy 06 - Sumatera Selatan;Kabupaten;DMY-PRV-37;Sumatera Selatan;Tidak
+DMY-WIL-3707;Kota Dummy 07 - Sumatera Selatan;Kota;DMY-PRV-37;Sumatera Selatan;Tidak
+DMY-WIL-3708;Kota Dummy 08 - Sumatera Selatan;Kota;DMY-PRV-37;Sumatera Selatan;Tidak
+DMY-WIL-3801;Kabupaten Dummy 01 - Sumatera Utara;Kabupaten;DMY-PRV-38;Sumatera Utara;Tidak
+DMY-WIL-3802;Kabupaten Dummy 02 - Sumatera Utara;Kabupaten;DMY-PRV-38;Sumatera Utara;Ya
+DMY-WIL-3803;Kabupaten Dummy 03 - Sumatera Utara;Kabupaten;DMY-PRV-38;Sumatera Utara;Tidak
+DMY-WIL-3804;Kabupaten Dummy 04 - Sumatera Utara;Kabupaten;DMY-PRV-38;Sumatera Utara;Tidak
+DMY-WIL-3805;Kabupaten Dummy 05 - Sumatera Utara;Kabupaten;DMY-PRV-38;Sumatera Utara;Tidak
+DMY-WIL-3806;Kabupaten Dummy 06 - Sumatera Utara;Kabupaten;DMY-PRV-38;Sumatera Utara;Ya
+DMY-WIL-3807;Kota Dummy 07 - Sumatera Utara;Kota;DMY-PRV-38;Sumatera Utara;Tidak
+DMY-WIL-3808;Kota Dummy 08 - Sumatera Utara;Kota;DMY-PRV-38;Sumatera Utara;Tidak

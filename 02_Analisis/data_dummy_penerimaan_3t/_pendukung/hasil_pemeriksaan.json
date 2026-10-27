@@ -1,0 +1,163 @@
+{
+  "versi": "revisi_3t_sesuai_deskripsi_gambar",
+  "seed": 20261028,
+  "jumlah_baris": {
+    "1_pendaftar_penerimaan.csv": 12000,
+    "2_hasil_seleksi_daftar_ulang.csv": 5547,
+    "3_mahasiswa_aktif.csv": 4601,
+    "4_ref_program_studi.csv": 308,
+    "5_ref_wilayah_3t.csv": 304
+  },
+  "jumlah_pendaftar_unik": 12000,
+  "jumlah_diterima": 5547,
+  "jumlah_daftar_ulang": 4601,
+  "status_mahasiswa": {
+    "Aktif": 3996,
+    "Non-Aktif/DO": 124,
+    "Cuti": 240,
+    "Lulus": 241
+  },
+  "status_3t_referensi": {
+    "Ya": 76,
+    "Tidak": 228
+  },
+  "status_3t_pendaftar": {
+    "Tidak": 8987,
+    "Ya": 3013
+  },
+  "wilayah_referensi_tanpa_pendaftar": [
+    "DMY-WIL-2705",
+    "DMY-WIL-2706"
+  ],
+  "jumlah_pemeriksaan": 25,
+  "semua_lulus": true,
+  "pemeriksaan": [
+    {
+      "pemeriksaan": "Tabel 1: tepat satu baris per pendaftar",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tabel 2: kunci ID_Pendaftar unik dan hanya peserta diterima",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tabel 2 adalah subset ketat tabel 1",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tabel 3: kunci ID_Mahasiswa dan ID_Pendaftar unik",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Cakupan tabel 3 persis seluruh orang yang sudah daftar ulang",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tabel 3 subset ketat tabel 2",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "ID_Mahasiswa tabel 2 cocok dengan tabel 3",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Peserta belum daftar ulang tidak memiliki ID_Mahasiswa atau tanggal",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tahun dan jalur konsisten dari tabel 1 ke 2",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tabel 4: kunci gabungan unik, 44 prodi x 7 tahun",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Pilihan prodi valid pada tahun penerimaan terkait",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Prodi diterima valid dan termasuk pilihan",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Mahasiswa: prodi angkatan jalur sesuai hasil seleksi",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Tabel 5: 304 kabupaten/kota sintetis dengan kunci wilayah unik",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Seluruh FK wilayah valid",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Wilayah dan gender mahasiswa konsisten setelah trim",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Kedua status 3T tersedia dan tidak ada status kosong",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Wilayah pendaftar subset referensi; referensi tanpa pendaftar dibolehkan",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Registrasi memiliki tanggal yang sesuai tahun dan sebelum snapshot",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Jumlah mahasiswa berstatus Aktif dipertahankan dari dummy lama",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Status Lulus hanya untuk angkatan yang telah menempuh minimal empat tahun",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Latihan missing value tepat 120 asal sekolah kosong",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Latihan whitespace tepat 60 gender dengan spasi tepi",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "CSV BOM UTF-8 dan lebar baris konsisten",
+      "lulus": true
+    },
+    {
+      "pemeriksaan": "Sumber dan dummy sebelumnya tidak berubah",
+      "lulus": true
+    }
+  ],
+  "perubahan": {
+    "pendaftar_dengan_jalur_berulang_diringkas": 2931
+  },
+  "sha256_sumber": {
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data\\1_profil_mahasiswa_umum.csv": "e31a544c1953e0abe637ff968d1d57d6c9baa04618de1db9495cf4144f43c019",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data\\2_prestasi_mahasiswa.csv": "f17f4eaf7ba1246bd8746458af14ae4f144006a23934c1ddc47e78723ae56001",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data\\3_generasi_pertama_kuliah.csv": "c71d1f6d807385f7852d7f87745dc65ecae511cf376bab86cec8afa1e93ce60c",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data\\4_status_sosial_ekonomi.csv": "3da2ed03ce89094860d169eae949bf33873dacb9279f7dbe4d8fd974f7ac2b44",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data\\5_riwayat_ipk_semester.csv": "b3a4af50aaf1fba4f52b3321cb87a14b069bff981b84d89da40f7f08dc4ca990",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\1_pendaftar_penerimaan.csv": "8895c0bbfe0a7a5cdafc660d8924d6f04b782e843f34abb1bf56492927e2d5eb",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\2_hasil_seleksi_daftar_ulang.csv": "b18ea10543921704dd6d4c8715898c852dac738420b5ec155219b7e1663716be",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\3_mahasiswa_aktif.csv": "8b8509c409395de4d3ceaf139327f5d8c84f18fea147d65235cd566485c4e704",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\4_ref_program_studi.csv": "8d0a257c7088dda8a071a935f851e7f6301fe8bf333479b1047e498ba4cbe464",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\5_ref_wilayah_34.csv": "030eb03c7c0a0eba7f2e78e3d168c5c5e4005faf896bfbde44bfd7ba139d9039",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\KAMUS_DATA.md": "f6295f1c07357c26d122718338cb210b3b2b70a022e04e419230f50f2f359f16",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\README.md": "0de1fc5787b40de8dc1d7acb6726227b3f143468441d5d385856db991dec0f35",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\_pendukung\\buat_dummy_penerimaan.py": "5b5d086d1029ae6e789c7a43a159c7158215810338e389220f69dd6299d01a5a",
+    "C:\\Users\\ACER\\OneDrive\\Dokumen\\COMPETITION\\CAMPUS DATA WEEK\\02_Analisis\\data_dummy_penerimaan_34_wilayah\\_pendukung\\hasil_pemeriksaan.json": "9fd366b4419610e47353e1686cb1e51159a849435fb87602fd1e7cc6452e721a"
+  },
+  "sha256_output": {
+    "1_pendaftar_penerimaan.csv": "692d256ccce5814373dd5f3c764323c7f769b5a407078074435490ab39f03208",
+    "2_hasil_seleksi_daftar_ulang.csv": "b54f86396e7699465e4ff851750fc9a2f65a3cb03efd54e746f66ea2e450b01e",
+    "3_mahasiswa_aktif.csv": "dcdc30b7cdf1a6d76d8a16bd08d6d9109f09e4bef29a70ef00feaff4758f7c89",
+    "4_ref_program_studi.csv": "423819f619a5b808468f43d3306e35b694f1ae802faf73d38f0efeba5892a062",
+    "5_ref_wilayah_3t.csv": "22783834766c096367f3dbb6a42a6331dc82ef59b5396e2552246f8778cf5089"
+  },
+  "catatan": "Semua label 3T, kabupaten/kota, dan kode wilayah adalah simulasi. Tidak ada penetapan resmi 3T."
+}
